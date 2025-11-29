@@ -1,60 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Uma Mahesh – Portfolio</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Uma Mahesh – Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<header>
-    <img src="assets/profile.jpg" class="profile-photo">
-    <h1>Uma Mahesh Poluparthi</h1>
-    <p class="tagline">Multi-NDT PCN Level II Technician</p>
-</header>
 
-<section class="about-section">
-    <h2>About Me</h2>
-    <p>
-        Dedicated and detail-oriented Multi-NDT PCN Level II Technician with 3 years of experience in 
-        RTFI, MT, and PT. Skilled in radiographic interpretation, defect analysis, and ensuring compliance 
-        with international quality and safety standards.
+<!-- HERO SECTION -->
+<section class="hero">
+    <img src="assets/profile.jpg" class="profile-photo-large">
+
+    <h1 class="hero-title">Uma Mahesh Poluparthi</h1>
+    <p class="hero-subtitle">Multi-NDT PCN Level II Technician | RTFI | MT | PT</p>
+
+    <a href="#about" class="btn-primary">Explore My Work</a>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="container" id="about">
+    <h2 class="section-title">About Me</h2>
+
+    <p class="section-text">
+        Dedicated and detail-oriented Multi-NDT PCN Level II Technician with 3 years of hands-on 
+        experience in RTFI, MT, and PT. Skilled in radiographic interpretation, defect analysis, and 
+        ensuring compliance with international safety standards.
     </p>
 </section>
 
-<section class="section">
-    <h2>Technical Certifications</h2>
-    <ul>
-        <li>PCN RTFI Level II (350570)</li>
-        <li>PCN MT Level II (350570)</li>
-        <li>PCN PT Level II (350570)</li>
-        <li>R1 License (NEA – Singapore) R1/2023/10868</li>
-    </ul>
+<!-- CERTIFICATIONS -->
+<section class="container">
+    <h2 class="section-title">Technical Certifications</h2>
+
+    <div class="card-grid">
+        <div class="card">PCN RTFI Level II (350570)</div>
+        <div class="card">PCN MT Level II (350570)</div>
+        <div class="card">PCN PT Level II (350570)</div>
+        <div class="card">R1 License – NEA Singapore</div>
+    </div>
 </section>
 
-<section class="section">
-    <h2>Experience</h2>
-    <p><strong>A-Star Testing & Inspection (S) Pte. Ltd., Singapore</strong></p>
-    <p>Multi-NDT PCN Technician | Jun 2022 – June 2025</p>
+<!-- EXPERIENCE -->
+<section class="container">
+    <h2 class="section-title">Experience</h2>
 
-    <ul>
-        <li>Conducted RTFI, MT, and PT for industrial projects.</li>
-        <li>Performed radiograph analysis for defect detection.</li>
-        <li>Digitized and archived films using Delta 880, Array 2905, and others.</li>
-        <li>Prepared detailed inspection reports.</li>
-        <li>Maintained calibration and radiation safety protocols.</li>
-    </ul>
+    <div class="experience-card">
+        <h3>A-Star Testing & Inspection (S) Pte. Ltd.</h3>
+        <p class="exp-position">Multi-NDT PCN Technician (Jun 2022 – Jun 2025)</p>
+        <ul>
+            <li>Performed RTFI, MT, and PT for industrial projects.</li>
+            <li>Analyzed radiographs for defects and compliance standards.</li>
+            <li>Digitized films using Delta 880, Array 2905, LEEB 620, Magnaflux Y-8.</li>
+            <li>Prepared detailed inspection reports with precise defect mapping.</li>
+            <li>Maintained radiation safety protocols and calibration records.</li>
+        </ul>
+    </div>
 </section>
 
-<section class="section">
-    <h2>Achievements</h2>
-    <div id="achievements"></div>
+<!-- ACHIEVEMENTS (AUTO LOADED) -->
+<section class="container">
+    <h2 class="section-title">Achievements</h2>
+
+    <div id="achievements" class="achievement-list"></div>
 </section>
-<section class="section">
-    <h2>Contact Me</h2>
+
+<!-- CONTACT BUTTON -->
+<section class="container contact-box">
+    <h2 class="section-title">Contact Me</h2>
+    <p>Have a project or opportunity? Let’s connect.</p>
+    <a href="#contact" class="btn-primary">Send a Message</a>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="container" id="contact">
+    <h2 class="section-title">Send a Message</h2>
 
     <form action="https://formsubmit.co/umamahe113@gmail.com" method="POST" class="contact-form">
-
-        <!-- FormSubmit settings -->
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="box">
         <input type="hidden" name="_subject" value="New message from your portfolio website">
@@ -63,13 +86,14 @@
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" placeholder="Message" required></textarea>
 
-        <button type="submit">Send Message</button>
-        <input type="hidden" name="_autoresponse" value="Thank you for contacting me. I will reply soon!">
+        <button type="submit">Send</button>
     </form>
 </section>
 
+<!-- FOOTER -->
 <footer>
-    <a href="login.html">User Login</a>
+    <p>© 2025 Uma Mahesh • All Rights Reserved</p>
+    <a href="login.html" class="footer-link">User Login</a>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
@@ -78,7 +102,7 @@
 async function loadAchievements() {
     const data = await getAchievements();
     const box = document.getElementById("achievements");
-    box.innerHTML = data.map(a => `<p>• ${a.text}</p>`).join("");
+    box.innerHTML = data.map(a => `<p class='achievement-item'>• ${a.text}</p>`).join("");
 }
 loadAchievements();
 </script>
