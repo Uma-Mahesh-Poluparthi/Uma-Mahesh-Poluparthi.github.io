@@ -107,4 +107,21 @@ gallery.innerHTML += `
     <div class="gallery-item" onclick="openLightbox('${url}')">
         <img src="${url}">
     </div>`;
+function animateStats() {
+    document.querySelectorAll(".stat-num").forEach(num => {
+        let end = parseInt(num.getAttribute("data-count"));
+        let val = 0;
+        let interval = setInterval(() => {
+            val += Math.ceil(end / 100);
+            num.innerText = val;
+            if (val >= end) {
+                num.innerText = end;
+                clearInterval(interval);
+            }
+        }, 20);
+    });
+}
+
+setTimeout(animateStats, 1000);
+
 
