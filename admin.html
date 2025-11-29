@@ -1,38 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Admin Dashboard</title>
-<link rel="stylesheet" href="style.css">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>Admin Dashboard</h1>
+<h1>Admin Page</h1>
 
-<h3>Add Achievement</h3>
-<input id="achText" placeholder="Achievement">
-<button onclick="addAch()">Add</button>
-
-<h3>Create User</h3>
-<input id="newEmail" placeholder="User Email">
-<input id="newPass" placeholder="Password">
-<button onclick="createUsr()">Create User</button>
-
+<!-- SUPABASE v2 -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script src="supabase.js"></script>
 
 <script>
+const { createClient } = supabase;
+const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// only you can login as admin (email check)
+supabaseClient.auth.getUser().then(({ data }) => {
+    if (!data.user || data.user.email !== "umamahe113@gmail.com") {
+        alert("Unauthorized!");
+        window.location.href = "login.html";
+    }
+});
+</script>
+
+<h2>Add Achievement</h2>
+
+<input id="ach" placeholder="New Achievement">
+<button onclick="addAch()">Add</button>
+
+<div id="list"></div>
+
+<script>
 async function addAch() {
-    let text = document.getElementById("achText").value;
-    await addAchievement(text);
+    let text = document.getElementById("ach").value.trim();
+    if (!text) return alert("Enter text");
+
+    await supabaseClient.from("achievements").insert([{ text }]);
+    loadList();
 }
 
-async function createUsr() {
-    await createUser(newEmail.value, newPass.value);
+async function loadList() {
+    let { data } = await supabaseClient.from("achievements").select("*");
+    document.getElementById("list").innerHTML =
+        data.map(a => `<p>• ${a.text}</p>`).join("");
+}
+
+loadList();
+</script>
+
+<button onclick="logout()">Logout</button>
+
+<script>
+async function logout() {
+    await supabaseClient.auth.signOut();
+    window.location.href = "login.html";
 }
 </script>
 
 </body>
 </html>
-
