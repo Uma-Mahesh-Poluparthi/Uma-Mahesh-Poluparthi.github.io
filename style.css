@@ -112,6 +112,29 @@ nav a:hover {
     max-height:90%;
     border-radius:12px;
 }
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.stat-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.stat-num {
+    font-size: 40px;
+    font-weight: 700;
+    color: #3498db;
+}
+.dark .stat-box {
+    background:#1e1e1e;
+}
+
 
 
 
