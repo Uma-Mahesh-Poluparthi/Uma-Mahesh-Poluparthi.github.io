@@ -24,10 +24,23 @@ async function login() {
     let email = document.getElementById("email").value;
     let pass = document.getElementById("password").value;
 
-    let data = await loginUser(email, pass);
-    if (data) window.location.href = "user.html";
+    // Supabase login
+    let { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: pass
+    });
+
+    // If login fails:
+    if (error || !data.user) {
+        alert("Incorrect email or password!");
+        return;
+    }
+
+    // SUCCESS: redirect user
+    window.location.href = "user.html";
 }
 </script>
 
 </body>
 </html>
+
