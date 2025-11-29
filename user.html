@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>User Dashboard</title>
-<link rel="stylesheet" href="style.css">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+<!-- SUPABASE v2 -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
 
 <script>
-const supabaseClient = supabase.createClient(
-    "https://xzatttpouvlhqzbuwgmc.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-);
+const { createClient } = supabase;
+const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// 🔒 BLOCK UNAUTHENTICATED USERS
-supabaseClient.auth.getUser().then(({ data }) => {
-    if (!data.user) {
-        // No valid login → go back to login page
+// BLOCK USERS WITHOUT SESSION
+supabaseClient.auth.getSession().then(({ data }) => {
+    if (!data.session) {
         window.location.href = "login.html";
     }
 });
@@ -28,29 +28,24 @@ supabaseClient.auth.getUser().then(({ data }) => {
 
 <div id="achBox"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script src="supabase.js"></script>
-
 <script>
-async function load() {
-    let data = await getAchievements();
+async function loadAch() {
+    const { data, error } = await supabaseClient.from("achievements").select("*");
+
     document.getElementById("achBox").innerHTML =
         data.map(a => `<p>• ${a.text}</p>`).join("");
 }
-load();
+loadAch();
 </script>
-    <button onclick="logout()">Logout</button>
+
+<button onclick="logout()">Logout</button>
 
 <script>
 async function logout() {
-    await supabase.auth.signOut();
-    alert("Logged out!");
+    await supabaseClient.auth.signOut();
     window.location.href = "login.html";
 }
 </script>
 
 </body>
 </html>
-
-
-
