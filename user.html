@@ -6,6 +6,21 @@
 </head>
 
 <body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+const supabaseClient = supabase.createClient(
+    "https://xzatttpouvlhqzbuwgmc.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+);
+
+// 🔒 BLOCK UNAUTHENTICATED USERS
+supabaseClient.auth.getUser().then(({ data }) => {
+    if (!data.user) {
+        // No valid login → go back to login page
+        window.location.href = "login.html";
+    }
+});
+</script>
 
 <h1>Welcome User</h1>
 <p>Your achievements appear below:</p>
@@ -26,3 +41,4 @@ load();
 
 </body>
 </html>
+
