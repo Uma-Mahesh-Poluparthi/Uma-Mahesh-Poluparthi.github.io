@@ -1,3 +1,8 @@
+// Auto-detect dark mode from system
+if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    document.body.classList.add("dark");
+}
+
 /* --------------------------- */
 /* SUPABASE CLIENT */
 /* --------------------------- */
@@ -89,3 +94,4 @@ async function loadAchievements() {
         data.map(a => `<p class="achievement-item">• ${a.text}</p>`).join("");
 }
 loadAchievements();
+
