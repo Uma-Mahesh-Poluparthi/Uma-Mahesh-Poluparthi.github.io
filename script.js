@@ -1,29 +1,31 @@
-/* --------------------------------------- */
-/* SUPABASE CONNECTION */
-/* --------------------------------------- */
-const client = supabase.createClient(
+/* ======================================================
+   SUPABASE v2 INITIALIZATION
+   ====================================================== */
+const { createClient } = supabase;
+
+const client = createClient(
     "https://xzatttpouvlhqzbuwgmc.supabase.co",
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh6YXR0dHBvdXZsaHF6YnV3Z21jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ0MDIyMDQsImV4cCI6MjA3OTk3ODIwNH0.b_21iJwV6QrZ87xEVCxZxhwYGqvhBHMbm-W9Chu9RnE"
 );
 
-/* --------------------------------------- */
-/* PRELOADER */
-/* --------------------------------------- */
+/* ======================================================
+   PRELOADER HIDE
+   ====================================================== */
 window.addEventListener("load", () => {
     const loader = document.getElementById("preloader");
     if (loader) loader.style.display = "none";
 });
 
-/* --------------------------------------- */
-/* DARK MODE */
-/* --------------------------------------- */
+/* ======================================================
+   DARK MODE TOGGLE
+   ====================================================== */
 
-// Auto detect user OS preference
+// Auto-detect device theme
 if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     document.body.classList.add("dark");
 }
 
-// Apply saved theme
+// Load saved theme
 if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark");
 }
@@ -38,9 +40,9 @@ function toggleDarkMode() {
     }
 }
 
-/* --------------------------------------- */
-/* LIGHTBOX IMAGE VIEWER */
-/* --------------------------------------- */
+/* ======================================================
+   LIGHTBOX CODE
+   ====================================================== */
 function openLightbox(src) {
     document.getElementById("lightbox-img").src = src;
     document.getElementById("lightbox").style.display = "flex";
@@ -50,9 +52,9 @@ function closeLightbox() {
     document.getElementById("lightbox").style.display = "none";
 }
 
-/* --------------------------------------- */
-/* LOAD PHOTO GALLERY */
-/* --------------------------------------- */
+/* ======================================================
+   LOAD GALLERY FROM SUPABASE (photos bucket)
+   ====================================================== */
 async function loadGallery() {
     let { data, error } = await client.storage.from("photos").list("", { limit: 200 });
 
@@ -62,8 +64,7 @@ async function loadGallery() {
     gallery.innerHTML = "";
 
     data.forEach(file => {
-        // Skip cert folder here
-        if (file.name === "certificates") return;
+        if (file.name === "certificates") return; // skip folder
 
         const url = client.storage.from("photos").getPublicUrl(file.name).data.publicUrl;
 
@@ -77,13 +78,13 @@ async function loadGallery() {
 
 loadGallery();
 
-/* --------------------------------------- */
-/* LOAD CERTIFICATES */
-/* --------------------------------------- */
+/* ======================================================
+   LOAD CERTIFICATES FROM SUPABASE (photos/certificates)
+   ====================================================== */
 async function loadCertificates() {
-    let { data, error } = await client.storage.from("photos").list("certificates", {
-        limit: 200
-    });
+    let { data, error } = await client.storage
+        .from("photos")
+        .list("certificates", { limit: 200 });
 
     const box = document.getElementById("certificates");
     if (!box || error) return;
@@ -105,9 +106,9 @@ async function loadCertificates() {
 
 loadCertificates();
 
-/* --------------------------------------- */
-/* LOAD ACHIEVEMENTS */
-/* --------------------------------------- */
+/* ======================================================
+   LOAD ACHIEVEMENTS FROM TABLE
+   ====================================================== */
 async function loadAchievements() {
     let { data, error } = await client.from("achievements").select("*");
 
@@ -121,9 +122,9 @@ async function loadAchievements() {
 
 loadAchievements();
 
-/* --------------------------------------- */
-/* STATS COUNTER */
-/* --------------------------------------- */
+/* ======================================================
+   STATS ANIMATION
+   ====================================================== */
 function animateStats() {
     document.querySelectorAll(".stat-num").forEach(num => {
         let end = parseInt(num.getAttribute("data-count"));
@@ -141,6 +142,4 @@ function animateStats() {
     });
 }
 
-// Trigger after 1 second
 setTimeout(animateStats, 1200);
-
