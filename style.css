@@ -1,6 +1,6 @@
-/* --------------------------------------------
+/* ------------------------------------------------
    GLOBAL RESET
---------------------------------------------- */
+-------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -8,215 +8,224 @@
     font-family: "Inter", sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-    background: #0D0D0D;
-    color: #e7e7e7;
+    background: #0d0d0d;
+    color: #e6e6e6;
+    overflow-x: hidden;
 }
 
-/* --------------------------------------------
+/* ------------------------------------------------
    SCROLL PROGRESS BAR
---------------------------------------------- */
+-------------------------------------------------- */
 #scroll-progress {
     position: fixed;
     top: 0;
     left: 0;
-    height: 4px;
     width: 0%;
-    background: #00c2ff;
-    z-index: 2000;
+    height: 4px;
+    background: linear-gradient(90deg, #008cff, #00e0ff);
+    z-index: 9999;
 }
 
-/* --------------------------------------------
+/* ------------------------------------------------
    NAVBAR
---------------------------------------------- */
+-------------------------------------------------- */
 .navbar {
-    width: 100%;
     position: fixed;
     top: 0;
-    left: 0;
-    background: #0f0f0f;
+    width: 100%;
     padding: 14px 40px;
+    background: #0f0f0f;
     border-bottom: 1px solid #1c1c1c;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1500;
+    z-index: 2000;
 }
 
 .logo {
     font-size: 22px;
     font-weight: 700;
-    color: #fff;
     letter-spacing: 1px;
+    color: #fff;
 }
 
 .nav-links {
     display: flex;
-    gap: 28px;
+    gap: 26px;
 }
 
 .nav-links a {
-    text-decoration: none;
     color: #cfcfcf;
+    text-decoration: none;
     font-size: 15px;
-    font-weight: 500;
-    transition: 0.25s;
+    transition: .25s;
 }
 
 .nav-links a:hover {
     color: #fff;
 }
 
-/* --------------------------------------------
+/* ------------------------------------------------
    HERO SECTION
---------------------------------------------- */
+-------------------------------------------------- */
 .hero {
-    padding-top: 150px;
+    padding-top: 160px;
     text-align: center;
+    position: relative;
+}
+
+/* Gradient Hero Border */
+.hero-border {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: auto;
+    background: linear-gradient(140deg, #00d1ff, #0066ff, #0033ff);
+    padding: 4px;
+    filter: drop-shadow(0 0 8px #0077ff);
+    animation: glow 4s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% { filter: drop-shadow(0 0 6px #008cff); }
+    50% { filter: drop-shadow(0 0 18px #00e0ff); }
 }
 
 .profile {
-    width: 155px;
-    height: 155px;
+    width: 190px;
+    height: 190px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #1b1b1b;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
 }
 
+/* Floating animation */
 .floating {
-    animation: floatMe 4s ease-in-out infinite;
+    animation: floatAnim 4s ease-in-out infinite;
 }
 
-@keyframes floatMe {
+@keyframes floatAnim {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-12px); }
 }
 
 .hero-title {
-    margin-top: 18px;
+    margin-top: 20px;
     font-size: 36px;
     font-weight: 800;
-    letter-spacing: 0.5px;
 }
 
 .hero-subtitle {
-    font-size: 18px;
     margin-top: 6px;
-    color: #bbbbbb;
+    color: #b9b9b9;
+    font-size: 18px;
 }
 
 .btn-primary {
     display: inline-block;
-    margin-top: 22px;
-    background: #00c2ff;
-    padding: 12px 32px;
-    border-radius: 6px;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: linear-gradient(90deg, #008cff, #00e0ff);
     color: #000;
     font-weight: 700;
+    border-radius: 6px;
     text-decoration: none;
-    transition: 0.25s;
+    transition: .25s;
 }
 
 .btn-primary:hover {
-    background: #52ddff;
+    transform: scale(1.05);
 }
 
-/* --------------------------------------------
+/* ------------------------------------------------
    COUNTERS
---------------------------------------------- */
+-------------------------------------------------- */
 .counter-row {
-    margin-top: 40px;
+    margin-top: 35px;
     display: flex;
     justify-content: center;
-    gap: 60px;
+    gap: 65px;
 }
 
-.counter-box {
-    text-align: center;
+.counter-box p {
+    color: #c9c9c9;
+    margin-top: 4px;
 }
 
 .counter {
     font-size: 40px;
     font-weight: 800;
-    color: #00c2ff;
+    color: #00e0ff;
 }
 
-.plus {
-    font-size: 28px;
-    font-weight: 700;
-}
-
-/* --------------------------------------------
-   SECTION BASE
---------------------------------------------- */
+/* ------------------------------------------------
+   GENERIC SECTION
+-------------------------------------------------- */
 .section {
-    padding: 80px 18px;
     max-width: 900px;
     margin: auto;
+    padding: 80px 20px;
     text-align: center;
 }
 
 .section-title {
     font-size: 30px;
     font-weight: 700;
-    margin-bottom: 18px;
+    margin-bottom: 15px;
 }
 
-.section-text,
-.text,
-.card {
-    color: #c7c7c7;
-    font-size: 16px;
+.section-text {
+    color: #bdbdbd;
+    font-size: 17px;
     line-height: 1.7;
 }
 
-/* --------------------------------------------
-   SMALL HORIZONTAL GALLERY (PREMIUM)
---------------------------------------------- */
+/* ------------------------------------------------
+   SMALL HORIZONTAL GALLERY + ANIMATIONS
+-------------------------------------------------- */
 .gallery-scroll {
+    margin-top: 15px;
     display: flex;
     gap: 16px;
     overflow-x: auto;
-    padding: 10px;
-    margin-top: 10px;
-
     scrollbar-width: none;
 }
 
-.gallery-scroll::-webkit-scrollbar {
-    display: none;
-}
+.gallery-scroll::-webkit-scrollbar { display: none; }
 
 .gallery-img {
-    width: 220px;   /* small gallery size */
+    width: 220px;
     height: 140px;
     object-fit: cover;
     border-radius: 10px;
-    transition: 0.25s;
     flex-shrink: 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: galleryFade 1s forwards;
+    box-shadow: 0 4px 12px rgba(0,0,0,.4);
+    transition: .25s;
 }
 
 .gallery-img:hover {
     transform: scale(1.05);
 }
 
-/* --------------------------------------------
+@keyframes galleryFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------------------
    LIGHTBOX
---------------------------------------------- */
+-------------------------------------------------- */
 .lightbox {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.88);
+    inset: 0;
+    background: rgba(0,0,0,.88);
     display: none;
     justify-content: center;
     align-items: center;
@@ -226,53 +235,135 @@ body {
 .lightbox img {
     width: 80%;
     max-width: 600px;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
-/* --------------------------------------------
-   CARDS (CERTIFICATES / ACHIEVEMENTS)
---------------------------------------------- */
+/* ------------------------------------------------
+   CERTIFICATES (Premium)
+-------------------------------------------------- */
+.cert-list {
+    display: grid;
+    gap: 18px;
+}
+
+.cert-card {
+    background: #161616;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #00c2ff;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.35);
+}
+
+.cert-icon {
+    width: 36px;
+    height: 36px;
+}
+
+/* ------------------------------------------------
+   CARDS (Achievements)
+-------------------------------------------------- */
 .card-list {
     display: grid;
     gap: 16px;
-    padding: 0 10px;
 }
 
 .card {
-    background: #161616;
+    background: #171717;
     padding: 16px;
     border-radius: 8px;
     border: 1px solid #242424;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
 }
 
-/* --------------------------------------------
-   WHATSAPP FLOATING BUTTON
---------------------------------------------- */
+/* ------------------------------------------------
+   SOCIAL ICONS
+-------------------------------------------------- */
+.social-row {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.social-icon {
+    font-size: 26px;
+    padding: 8px 14px;
+    background: #181818;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #00e0ff;
+    transition: .25s;
+}
+
+.social-icon:hover {
+    transform: translateY(-4px);
+    background: #00e0ff;
+    color: #000;
+}
+
+/* ------------------------------------------------
+   SIGNATURE FOOTER
+-------------------------------------------------- */
+.footer {
+    margin-top: 60px;
+    background: #0b0b0b;
+    padding: 20px;
+    text-align: center;
+    color: #989898;
+    font-size: 15px;
+}
+
+.footer span {
+    background: linear-gradient(90deg, #00d1ff, #0077ff);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 700;
+}
+
+/* ------------------------------------------------
+   WHATSAPP BUTTON
+-------------------------------------------------- */
 .whatsapp-btn {
     position: fixed;
-    right: 24px;
-    bottom: 24px;
-    background: #25D366;
-    color: #fff;
-    font-size: 26px;
-    padding: 12px 16px;
+    right: 22px;
+    bottom: 22px;
+    background: #25d366;
+    color: white;
+    font-size: 28px;
+    padding: 14px 16px;
     border-radius: 50%;
     text-decoration: none;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
-    z-index: 4000;
+    box-shadow: 0 6px 14px rgba(0,0,0,.4);
+    z-index: 3500;
 }
 
-/* --------------------------------------------
+/* ------------------------------------------------
+   FADE-UP ANIMATION
+-------------------------------------------------- */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUpAnim 1.2s forwards;
+}
+
+@keyframes fadeUpAnim {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------------------
    RESPONSIVE
---------------------------------------------- */
-@media(max-width: 800px) {
+-------------------------------------------------- */
+@media (max-width: 820px) {
+
+    .nav-links { display: none; }
+
     .counter-row {
         flex-direction: column;
         gap: 30px;
-    }
-
-    .nav-links {
-        display: none;
     }
 }
