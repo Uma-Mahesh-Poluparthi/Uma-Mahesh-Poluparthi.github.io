@@ -1,31 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <title>User Login</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .login-container {
+            width: 90%;
+            max-width: 400px;
+            margin: 120px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        }
+        body.dark .login-container {
+            background: #1e1e1e;
+            color: white;
+        }
+        .login-input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 18px;
+            background: #3498db;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
 
-<h2>User Login</h2>
+<h1 style="text-align:center; margin-top:60px;">User Login</h1>
 
-<div class="login-box">
-    <input type="email" id="email" placeholder="Enter Email">
-    <input type="password" id="password" placeholder="Enter Password">
-    <button onclick="login()">Login</button>
+<div class="login-container">
+
+    <input type="email" id="email" class="login-input" placeholder="Enter email">
+
+    <input type="password" id="password" class="login-input" placeholder="Enter password">
+
+    <button class="login-btn" onclick="login()">Login</button>
+
 </div>
 
-<!-- SUPABASE v2 -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- SUPABASE v2 (UMD build) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.5/dist/umd/supabase.js"></script>
+
+<!-- Config -->
 <script src="supabase.js"></script>
 
 <script>
+/* =====================================================
+   SUPABASE CLIENT
+===================================================== */
 const { createClient } = supabase;
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+/* =====================================================
+   LOGIN FUNCTION
+===================================================== */
 async function login() {
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
+
+    if (!email || !password) {
+        alert("Please enter email & password");
+        return;
+    }
 
     const { data, error } = await supabaseClient.auth.signInWithPassword({
         email,
@@ -36,9 +89,6 @@ async function login() {
         alert("Incorrect email or password!");
         return;
     }
-
-    // refresh session
-    await supabaseClient.auth.refreshSession();
 
     window.location.href = "user.html";
 }
