@@ -1,64 +1,109 @@
-/* Scroll Progress Bar */
+/* ---------------------------------------------
+   SCROLL PROGRESS BAR
+---------------------------------------------- */
 window.addEventListener("scroll", () => {
-    let scrollTop = document.documentElement.scrollTop;
-    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let progress = (scrollTop / height) * 100;
+    const scrollTop = document.documentElement.scrollTop;
+    const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const progress = (scrollTop / height) * 100;
+
     document.getElementById("scroll-progress").style.width = progress + "%";
 });
 
-/* Auto Typing */
-const typing = document.getElementById("typing");
-const text = "Multi-NDT PCN Level II Technician";
-let index = 0;
+/* ---------------------------------------------
+   DARK MODE TOGGLE
+---------------------------------------------- */
+const themeToggle = document.getElementById("themeToggle");
 
-function typeEffect() {
-    typing.innerHTML = text.slice(0, index++);
-    if (index <= text.length) {
-        setTimeout(typeEffect, 80);
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    themeToggle.textContent = document.body.classList.contains("dark")
+        ? "☀️"
+        : "🌙";
+});
+
+/* ---------------------------------------------
+   TYPING EFFECT
+---------------------------------------------- */
+const typingElement = document.getElementById("typing");
+const typingText = "Multi-NDT PCN Level II Technician";
+let typingIndex = 0;
+
+function typingEffect() {
+    typingElement.textContent = typingText.slice(0, typingIndex++);
+
+    if (typingIndex <= typingText.length) {
+        setTimeout(typingEffect, 70);
     }
 }
-typeEffect();
 
-/* Counters */
+typingEffect();
+
+/* ---------------------------------------------
+   COUNTERS
+---------------------------------------------- */
 const counters = document.querySelectorAll(".counter");
+let counterStarted = false;
 
 function startCounters() {
     counters.forEach(counter => {
-        counter.innerText = "0";
-        let updateCounter = () => {
-            let target = +counter.getAttribute("data-target");
-            let current = +counter.innerText;
-            let increment = target / 80;
+        let target = +counter.getAttribute("data-target");
+        let current = 0;
+
+        function update() {
             if (current < target) {
-                counter.innerText = Math.ceil(current + increment);
-                setTimeout(updateCounter, 20);
+                current += target / 70;
+                counter.textContent = Math.ceil(current);
+                requestAnimationFrame(update);
             } else {
-                counter.innerText = target;
+                counter.textContent = target;
             }
-        };
-        updateCounter();
+        }
+
+        update();
     });
 }
-setTimeout(startCounters, 1000);
 
-/* Gallery Loader */
-const galleryImages = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg"];
-const gallery = document.getElementById("gallery");
+window.addEventListener("scroll", () => {
+    const hero = document.querySelector(".counter-row");
+    const rect = hero.getBoundingClientRect();
 
-galleryImages.forEach(name => {
-    let img = document.createElement("img");
-    img.src = `assets/gallery/${name}`;
-    img.classList.add("gallery-img");
-    img.onclick = () => openLightbox(img.src);
-    gallery.appendChild(img);
+    if (rect.top < window.innerHeight - 100 && !counterStarted) {
+        counterStarted = true;
+        startCounters();
+    }
 });
 
-/* Lightbox */
+/* ---------------------------------------------
+   GALLERY AUTO-LOAD
+---------------------------------------------- */
+const galleryImages = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg"];
+const galleryGrid = document.getElementById("gallery-grid");
+
+galleryImages.forEach(name => {
+    const img = document.createElement("img");
+    img.src = `assets/gallery/${name}`;
+    img.classList.add("gallery-img");
+
+    img.onclick = () => openLightbox(img.src);
+
+    galleryGrid.appendChild(img);
+});
+
+/* ---------------------------------------------
+   LIGHTBOX
+---------------------------------------------- */
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
 function openLightbox(src) {
-    document.getElementById("lightbox-img").src = src;
-    document.getElementById("lightbox").style.display = "flex";
+    lightboxImg.src = src;
+    lightbox.style.display = "flex";
 }
 
-document.getElementById("lightbox").onclick = () => {
-    document.getElementById("lightbox").style.display = "none";
-};
+lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+});
