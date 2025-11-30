@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Uma Mahesh Poluparthi</title>
+    <title>Uma Mahesh Poluparthi - Portfolio</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
     <!-- Supabase Client -->
@@ -12,40 +14,109 @@
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <h1>Uma Mahesh Poluparthi</h1>
-        <p>Multi-NDT PCN Level II Technician</p>
-    </header>
+<!-- PRELOADER -->
+<div id="preloader">
+    <div class="loader"></div>
+</div>
+
+<!-- DARK MODE TOGGLE -->
+<div class="dark-toggle" onclick="document.body.classList.toggle('dark')">🌙</div>
+
+<!-- NAVBAR -->
+<div id="navbar">
+    <div class="nav-container">
+        <strong style="font-size:22px;">Portfolio</strong>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#gallery-section">Gallery</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <img src="assets/photo.jpg" class="profile-photo-large">
+    <h1 class="hero-title">Uma Mahesh Poluparthi</h1>
+    <p class="hero-subtitle">Multi-NDT PCN Level II Technician</p>
+    <a href="assets/resume.pdf" class="btn-primary" download>Download CV</a>
+</section>
+
+<div class="container">
 
     <!-- ABOUT SECTION -->
     <section id="about">
-        <h2>About Me</h2>
-        <p>Dedicated Multi-NDT PCN Level II Technician with 3+ years of experience in RTFI, MT, PT...</p>
-        <a href="assets/resume.pdf" class="cv-button" download>Download CV</a>
+        <h2 class="section-title">About Me</h2>
+        <p class="section-text">
+            Dedicated Multi-NDT PCN Level II Technician with 3+ years of experience in RTFI, MT, PT,
+            radiographic interpretation, defect analysis, and safety compliance.
+        </p>
     </section>
 
     <!-- GALLERY SECTION -->
     <section id="gallery-section">
-        <h2>Photo Gallery</h2>
-        <div id="gallery" class="gallery-container"></div>
+        <h2 class="section-title">Photo Gallery</h2>
+        <div id="gallery" class="gallery-grid"></div>
     </section>
 
     <!-- CERTIFICATES -->
     <section id="certificates">
-        <h2>Certificates</h2>
+        <h2 class="section-title">Certificates</h2>
+        <div class="certificate-grid">
+            <!-- You can add certificate images manually -->
+        </div>
     </section>
 
     <!-- ACHIEVEMENTS -->
     <section id="achievements">
-        <h2>Achievements</h2>
+        <h2 class="section-title">Achievements</h2>
+        <div class="achievement-item">• 500 Radiographs Analyzed</div>
+        <div class="achievement-item">• 200 Inspections Completed</div>
+        <div class="achievement-item">• 3 Years Experience</div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT -->
     <section id="contact">
-        <h2>Contact Me</h2>
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-form">
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Message"></textarea>
+        </div>
     </section>
 
-    <script src="script.js"></script>
+</div>
+
+<!-- LIGHTBOX FOR GALLERY -->
+<div class="lightbox" id="lightbox">
+    <img id="lightbox-img">
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/916303078407" target="_blank" class="whatsapp-float">💬</a>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+<script>
+// PRELOADER
+window.onload = () => {
+    document.getElementById("preloader").style.display = "none";
+};
+
+// LIGHTBOX
+document.addEventListener("click", e => {
+    if (e.target.classList.contains("gallery-image")) {
+        document.getElementById("lightbox-img").src = e.target.src;
+        document.getElementById("lightbox").style.display = "flex";
+    }
+    if (e.target.id === "lightbox") {
+        document.getElementById("lightbox").style.display = "none";
+    }
+});
+</script>
+
 </body>
 </html>
