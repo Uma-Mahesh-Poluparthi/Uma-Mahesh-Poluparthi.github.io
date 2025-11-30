@@ -1,111 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Uma Mahesh | Portfolio</title>
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<!-- 🌟 Scroll Progress Bar -->
+<!-- Scroll Progress Bar -->
 <div id="scroll-progress"></div>
 
-<!-- 🌙 Navbar -->
-<nav class="navbar">
-    <div class="logo">Portfolio</div>
-    <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#gallery-section">Gallery</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#achievements">Achievements</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button id="themeToggle">🌙</button>
-</nav>
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">UM</div>
 
-<!-- 🌟 HERO SECTION -->
+    <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button id="themeToggle" class="theme-btn">🌙</button>
+</header>
+
+<!-- HERO SECTION -->
 <section class="hero">
-    <img src="assets/profile.jpg" class="profile-pic floating" alt="Profile Photo">
 
-    <h1 class="hero-title">Uma Mahesh Poluparthi</h1>
+    <img src="assets/profile.jpg" alt="Profile" class="profile floating" />
 
-    <h2 class="hero-subtitle">
+    <h1 class="hero-name">Uma Mahesh Poluparthi</h1>
+
+    <h2 class="hero-role">
         <span id="typing"></span>
     </h2>
 
     <a href="assets/resume.pdf" download class="btn-primary">Download CV</a>
 
-    <!-- Counters -->
-    <div class="counter-section">
+    <div class="counter-row">
         <div class="counter-box">
-            <h2><span class="counter" data-target="3">0</span>+</h2>
+            <span class="counter" data-target="3">0</span><span class="plus">+</span>
             <p>Years Experience</p>
         </div>
 
         <div class="counter-box">
-            <h2><span class="counter" data-target="500">0</span>+</h2>
+            <span class="counter" data-target="500">0</span><span class="plus">+</span>
             <p>Radiographs Analyzed</p>
         </div>
 
         <div class="counter-box">
-            <h2><span class="counter" data-target="200">0</span>+</h2>
+            <span class="counter" data-target="200">0</span><span class="plus">+</span>
             <p>Inspections Completed</p>
         </div>
     </div>
+
 </section>
 
-<!-- 📌 ABOUT -->
+<!-- ABOUT -->
 <section id="about" class="section">
     <h2 class="section-title">About Me</h2>
     <p class="section-text">
-        Dedicated Multi-NDT PCN Level II Technician with 3+ years of experience in RTFI, MT, PT, radiographic interpretation, defect analysis and safety compliance.
+        Dedicated Multi-NDT PCN Level II Technician with over 3 years of experience 
+        in RTFI, MT, PT, radiographic interpretation, defect analysis, and 
+        industrial safety compliance.
     </p>
 </section>
 
-<!-- 🖼️ GALLERY -->
-<section id="gallery-section" class="section">
+<!-- GALLERY -->
+<section id="gallery" class="section">
     <h2 class="section-title">Photo Gallery</h2>
-    <div id="gallery" class="gallery-grid"></div>
+    <div id="gallery-grid" class="gallery-grid"></div>
 </section>
 
-<!-- 📜 CERTIFICATES -->
+<!-- CERTIFICATES -->
 <section id="certificates" class="section">
     <h2 class="section-title">Certificates</h2>
-    <ul>
-        <li>PCN Level II – Radiographic Testing Film Interpretation</li>
-        <li>Magnetic Particle Testing Level II</li>
-        <li>Penetrant Testing Level II</li>
-    </ul>
+    <div class="card-list">
+        <div class="card">PCN Level II – RT Film Interpretation</div>
+        <div class="card">MT Level II Certification</div>
+        <div class="card">PT Level II Certification</div>
+    </div>
 </section>
 
-<!-- 🏆 ACHIEVEMENTS -->
+<!-- ACHIEVEMENTS -->
 <section id="achievements" class="section">
     <h2 class="section-title">Achievements</h2>
-    <ul>
-        <li>500+ Radiographs Analyzed</li>
-        <li>200+ Inspections Completed</li>
-        <li>3+ Years NDT Experience</li>
-    </ul>
+    <div class="card-list">
+        <div class="card">500+ Radiographs Analyzed</div>
+        <div class="card">200+ Industrial Inspections</div>
+        <div class="card">3+ Years of NDT Experience</div>
+    </div>
 </section>
 
-<!-- 📞 CONTACT -->
+<!-- CONTACT -->
 <section id="contact" class="section">
     <h2 class="section-title">Contact Me</h2>
-    <p>Email: <a href="mailto:umamaheshpolu@gmail.com">umamaheshpolu@gmail.com</a></p>
+
+    <p>Email: <a href="mailto:umamahe113@gmail.com">umamahe113@gmail.com</a></p>
+
+    <a class="whatsapp-btn" href="https://wa.me/916304202170" target="_blank">
+        💬 Chat on WhatsApp
+    </a>
 </section>
 
-<!-- ✔ Lightbox Modal -->
+<!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox">
-    <img id="lightbox-img">
+    <img id="lightbox-img" />
 </div>
-
-<!-- 📞 WhatsApp Button -->
-<a href="https://wa.me/916304202170" class="whatsapp-btn" target="_blank">
-    💬
-</a>
 
 <script src="script.js"></script>
 </body>
