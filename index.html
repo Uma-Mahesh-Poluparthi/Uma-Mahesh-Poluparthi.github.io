@@ -13,9 +13,10 @@
     <!-- Scroll Progress -->
     <div id="scroll-progress"></div>
 
-    <!-- Navigation -->
-    <header class="navbar">
+    <!-- NAVBAR -->
+    <header class="navbar fade-up">
         <div class="logo">UM</div>
+
         <nav class="nav-links">
             <a href="#about">About</a>
             <a href="#gallery">Gallery</a>
@@ -25,8 +26,10 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- HERO SECTION -->
+    <section class="hero fade-up">
+        <div class="hero-border"></div>
+
         <img src="assets/profile1.png" class="profile floating" alt="Profile" />
 
         <h1 class="hero-title">Uma Mahesh Poluparthi</h1>
@@ -34,16 +37,18 @@
 
         <a href="assets/resume.pdf" download class="btn-primary">Download CV</a>
 
-        <!-- Counters -->
-        <div class="counter-row">
+        <!-- COUNTERS -->
+        <div class="counter-row fade-up">
             <div class="counter-box">
                 <span class="counter" data-target="3">0</span><span class="plus">+</span>
                 <p>Years Experience</p>
             </div>
+
             <div class="counter-box">
                 <span class="counter" data-target="500">0</span><span class="plus">+</span>
                 <p>Radiographs Analyzed</p>
             </div>
+
             <div class="counter-box">
                 <span class="counter" data-target="200">0</span><span class="plus">+</span>
                 <p>Inspections Completed</p>
@@ -51,45 +56,66 @@
         </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="section">
+    <!-- ABOUT -->
+    <section id="about" class="section fade-up">
         <h2 class="section-title">About Me</h2>
         <p class="section-text">
-            Dedicated Multi-NDT PCN Level II Technician with extensive experience in RTFI, MT, PT, 
-            defect analysis, radiographic interpretation, and industry quality compliance.
+            Dedicated Multi-NDT PCN Level II Technician with experience in RTFI, MT, PT,
+            radiographic interpretation, defect analysis, and industrial safety compliance.
         </p>
     </section>
 
-    <!-- Gallery -->
-    <section id="gallery" class="section">
+    <!-- GALLERY -->
+    <section id="gallery" class="section fade-up">
         <h2 class="section-title">Photo Gallery</h2>
 
         <div class="gallery-scroll">
-            <img src="assets/gallery/img1.jpg" class="gallery-img" onclick="openLightbox(this.src)">
-            <img src="assets/gallery/img2.jpg" class="gallery-img" onclick="openLightbox(this.src)">
-            <img src="assets/gallery/img3.jpg" class="gallery-img" onclick="openLightbox(this.src)">
-            <img src="assets/gallery/img4.jpg" class="gallery-img" onclick="openLightbox(this.src)">
+            <img src="assets/gallery/img1.jpg" class="gallery-img animated-img" onclick="openLightbox(this.src)">
+            <img src="assets/gallery/img2.jpg" class="gallery-img animated-img" onclick="openLightbox(this.src)">
+            <img src="assets/gallery/img3.jpg" class="gallery-img animated-img" onclick="openLightbox(this.src)">
+            <img src="assets/gallery/img4.jpg" class="gallery-img animated-img" onclick="openLightbox(this.src)">
         </div>
     </section>
 
-    <!-- Lightbox -->
+    <!-- LIGHTBOX -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <img id="lightbox-img">
     </div>
 
-    <!-- Certificates -->
-    <section id="certs" class="section">
+    <!-- CERTIFICATES -->
+    <section id="certs" class="section fade-up">
         <h2 class="section-title">Certificates</h2>
-        <div class="card-list">
-            <div class="card">PCN Level II – Radiographic Film Interpretation</div>
-            <div class="card">Magnetic Particle Testing Level II</div>
-            <div class="card">Penetrant Testing Level II</div>
+
+        <div class="cert-list">
+
+            <div class="cert-card">
+                <svg class="cert-icon" viewBox="0 0 24 24">
+                    <path fill="#00c2ff" d="M12 2L2 7v2h20V7Zm0 4 7 3v2H5V9Zm-7 7v7l7-3 7 3v-7Z" />
+                </svg>
+                <h3>PCN Level II – Radiographic Film Interpretation</h3>
+            </div>
+
+            <div class="cert-card">
+                <svg class="cert-icon" viewBox="0 0 24 24">
+                    <path fill="#00c2ff" d="M4 4h16v2H4Zm2 4h12v2H6Zm-2 4h16v2H4Zm4 4h8v2H8Z" />
+                </svg>
+                <h3>Magnetic Particle Testing Level II</h3>
+            </div>
+
+            <div class="cert-card">
+                <svg class="cert-icon" viewBox="0 0 24 24">
+                    <path fill="#00c2ff" d="M12 2a5 5 0 0 0-5 5v4H5l7 9 7-9h-2V7a5 5 0 0 0-5-5Z" />
+                </svg>
+                <h3>Penetrant Testing Level II</h3>
+            </div>
+
         </div>
     </section>
 
-    <!-- Achievements -->
-    <section id="achievements" class="section">
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="section fade-up">
         <h2 class="section-title">Achievements</h2>
+
         <div class="card-list">
             <div class="card">500+ Radiographs Analyzed</div>
             <div class="card">200+ Industrial Inspections</div>
@@ -97,15 +123,25 @@
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section">
+    <!-- CONTACT -->
+    <section id="contact" class="section fade-up">
         <h2 class="section-title">Contact</h2>
+
         <p class="section-text">📞 +91 6304202170</p>
         <p class="section-text">📧 umamaheshpolu@gmail.com</p>
+
+        <!-- Social Icons -->
+        <div class="social-row">
+            <a href="https://wa.me/916304202170" target="_blank" class="social-icon">💬</a>
+            <a href="#" class="social-icon">🔗</a>
+            <a href="#" class="social-icon">📷</a>
+        </div>
     </section>
 
-    <!-- WhatsApp -->
-    <a href="https://wa.me/916304202170" class="whatsapp-btn" target="_blank">💬</a>
+    <!-- SIGNATURE FOOTER -->
+    <footer class="footer">
+        Built with ❤️ by <span>Uma Mahesh Poluparthi</span>
+    </footer>
 
     <script src="script.js"></script>
 </body>
