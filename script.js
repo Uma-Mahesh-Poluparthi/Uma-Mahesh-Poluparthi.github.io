@@ -24,10 +24,10 @@ window.addEventListener("load", () => {
 /* List all your gallery image names EXACTLY as they appear in assets/gallery/ */
 
 const galleryImages = [
-    "IMG_20221001_223833.jpg",
-    "IMG_20221018_091641.jpg",
-    "IMG_20240805_203613.jpg",
-    "IMG_20250526_222652.jpg"
+    "img1.jpg",
+    "img2.jpg",
+    "img3.jpg",
+    "img4.jpg"
 ];
 
 const galleryBox = document.getElementById("galleryBox");
@@ -83,3 +83,4 @@ const observer = new IntersectionObserver(entries => {
 fadeSections.forEach(section => {
     observer.observe(section);
 });
+
