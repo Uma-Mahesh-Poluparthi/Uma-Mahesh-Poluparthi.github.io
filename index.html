@@ -1,91 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Uma Mahesh | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uma Mahesh | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
 
-  <!-- DARK MODE TOGGLE -->
-  <div class="dark-toggle" onclick="toggleDarkMode()">🌙</div>
+<!-- PRELOADER -->
+<div id="preloader">
+    <div class="loader"></div>
+</div>
 
-  <!-- NAVBAR -->
-  <header id="navbar">
-    <div class="nav-container">
-      <h1 class="logo">Uma Mahesh</h1>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#gallery-section">Gallery</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#achievements">Achievements</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">Portfolio</div>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button id="darkToggle" class="dark-btn">🌙</button>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <img src="https://raw.githubusercontent.com/Uma-Mahesh-Poluparthi/Uma-Mahesh-Poluparthi.github.io/main/assets/profile.jpg"
+         class="profile-photo" alt="Profile Photo">
+
+    <h1 class="hero-name">Uma Mahesh Poluparthi</h1>
+    <p class="hero-title">Multi-NDT PCN Level II Technician</p>
+
+    <a href="https://raw.githubusercontent.com/Uma-Mahesh-Poluparthi/Uma-Mahesh-Poluparthi.github.io/main/assets/resume.pdf"
+       class="btn-primary" download>Download CV</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section fade-in">
+    <h2>About Me</h2>
+    <p>
+        Dedicated Multi-NDT PCN Level II Technician with 3+ years of experience 
+        in RTFI, MT, PT, radiographic interpretation, defect analysis and safety compliance.
+    </p>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section fade-in">
+    <h2>Photo Gallery</h2>
+    <div class="gallery-grid" id="galleryBox">
+        <!-- Will load automatically from GitHub -->
     </div>
-  </header>
+</section>
 
-  <!-- HERO / PROFILE -->
-  <section class="hero">
-    <img src="assets/profile.jpg" class="profile-photo-large" alt="Profile Photo">
-    <h1 class="hero-title">Uma Mahesh Poluparthi</h1>
-    <p class="hero-subtitle">Multi-NDT PCN Level II Technician</p>
-    <a href="assets/resume.pdf" class="btn-primary" download>Download CV</a>
-  </section>
+<!-- CERTIFICATES -->
+<section id="certificates" class="section fade-in">
+    <h2>Certificates</h2>
+    <div class="cert-box">
+        <p>• PCN Level II – Radiographic Testing Film Interpretation</p>
+        <p>• Magnetic Particle Testing Level II</p>
+        <p>• Penetrant Testing Level II</p>
+    </div>
+</section>
 
-  <div class="container">
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="section fade-in">
+    <h2>Achievements</h2>
+    <ul>
+        <li>500+ Radiographs Analyzed</li>
+        <li>200+ Inspections Completed</li>
+        <li>3+ Years Industry Experience</li>
+    </ul>
+</section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <h2 class="section-title">About Me</h2>
-      <p class="section-text">
-        Dedicated Multi-NDT PCN Level II Technician with over 3 years of hands-on experience
-        in RTFI, MT, PT, radiographic interpretation, defect analysis, and safety compliance.
-      </p>
-    </section>
+<!-- CONTACT -->
+<section id="contact" class="section fade-in">
+    <h2>Contact Me</h2>
+    <p>Email: <strong>your-email@gmail.com</strong></p>
+    <p>Location: Hyderabad, India</p>
+</section>
 
-    <!-- GALLERY -->
-    <section id="gallery-section">
-      <h2 class="section-title">Photo Gallery</h2>
-      <div id="gallery" class="gallery-grid"></div>
-    </section>
+<footer>
+    © 2025 Uma Mahesh | All Rights Reserved
+</footer>
 
-    <!-- CERTIFICATES -->
-    <section id="certificates">
-      <h2 class="section-title">Certificates</h2>
-      <p class="coming-soon">Certificates upload coming soon…</p>
-    </section>
-
-    <!-- ACHIEVEMENTS -->
-    <section id="achievements">
-      <h2 class="section-title">Achievements</h2>
-      <div class="achievement-item">✔ 3+ Years Experience</div>
-      <div class="achievement-item">✔ 500+ Radiographs Analyzed</div>
-      <div class="achievement-item">✔ 200+ Inspections Completed</div>
-      <div class="achievement-item">✔ PCN Level II Certified</div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2 class="section-title">Contact Me</h2>
-      <div class="contact-form">
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Your Email">
-        <textarea placeholder="Message"></textarea>
-      </div>
-    </section>
-
-  </div>
-
-  <!-- LIGHTBOX -->
-  <div id="lightbox" class="lightbox">
-    <img id="lightbox-img" alt="Expanded Photo">
-  </div>
-
-  <!-- WhatsApp Float -->
-  <a href="https://wa.me/918637202170" class="whatsapp-float">💬</a>
-
-  <script src="script.js"></script>
 </body>
 </html>
-
