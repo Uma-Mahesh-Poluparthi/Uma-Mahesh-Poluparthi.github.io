@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Uma Mahesh | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- NAVIGATION -->
-<header class="nav-header">
-    <div class="nav-left">UM</div>
+<!-- Background Particles -->
+<canvas id="particles"></canvas>
+
+<!-- Theme Toggle -->
+<div id="theme-toggle">🌙</div>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/916304202170" target="_blank" class="whatsapp-btn">💬</a>
+
+<!-- NAVBAR -->
+<header class="navbar glass">
+    <div class="logo">UM</div>
     <nav>
         <a href="#about">About</a>
         <a href="#gallery">Gallery</a>
@@ -20,88 +29,86 @@
     </nav>
 </header>
 
-<!-- HERO SECTION -->
-<section class="hero-section">
-
-    <div class="avatar-wrapper">
-        <div class="avatar-glow"></div>
-        <img src="assets/profile1.png" class="avatar-img" alt="Profile Photo">
+<!-- HERO -->
+<section class="hero">
+    <div class="profile-wrapper">
+        <div class="glow-circle"></div>
+        <img src="assets/profile1.png" class="profile-pic" alt="Profile" />
     </div>
 
-    <h1 class="hero-title">Uma Mahesh Poluparthi</h1>
-    <p class="hero-subtitle">Multi-NDT PCN Level II Technician</p>
+    <h1 class="title fade">Uma Mahesh Poluparthi</h1>
+    <p class="subtitle fade">Multi-NDT PCN Level II Technician</p>
 
-    <a href="assets/resume.pdf" download class="btn-primary">Download CV</a>
+    <a href="assets/resume.pdf" download class="btn-primary fade">Download CV</a>
 
-    <div class="stats">
-        <div><span class="count" data-val="3">0</span><p>Years Experience</p></div>
-        <div><span class="count" data-val="500">0</span><p>Radiographs Analyzed</p></div>
-        <div><span class="count" data-val="200">0</span><p>Inspections Completed</p></div>
+    <div class="stats fade">
+        <div class="stat">
+            <span class="count" data-val="3">0</span>
+            <p>Years Experience</p>
+        </div>
+        <div class="stat">
+            <span class="count" data-val="500">0</span>
+            <p>Radiographs Analyzed</p>
+        </div>
+        <div class="stat">
+            <span class="count" data-val="200">0</span>
+            <p>Inspections Completed</p>
+        </div>
     </div>
-
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="section">
-    <h2 class="section-title">About Me</h2>
+<section id="about" class="section glass fade">
+    <h2>About Me</h2>
     <p>
-        Dedicated Multi-NDT PCN Level II Technician with 3+ years of experience in RTFI, MT, PT,
-        radiographic interpretation, defect analysis and safety compliance.
+        Dedicated Multi-NDT PCN Level II Technician with 3+ years of experience in
+        RTFI, MT, PT, radiographic interpretation, defect analysis and safety compliance.
     </p>
 </section>
 
 <!-- GALLERY -->
-<section id="gallery" class="section">
-    <h2 class="section-title">Photo Gallery</h2>
+<section id="gallery" class="section fade">
+    <h2>Photo Gallery</h2>
 
-    <div class="gallery-slider">
-        <img src="assets/gallery/img1.jpg" class="gimg">
-        <img src="assets/gallery/img2.jpg" class="gimg">
-        <img src="assets/gallery/img3.jpg" class="gimg">
-        <img src="assets/gallery/img4.jpg" class="gimg">
+    <div class="gallery-scroll">
+        <img src="assets/gallery/img1.jpg" class="g-item" />
+        <img src="assets/gallery/img2.jpg" class="g-item" />
+        <img src="assets/gallery/img3.jpg" class="g-item" />
+        <img src="assets/gallery/img4.jpg" class="g-item" />
     </div>
-
 </section>
 
 <!-- CERTIFICATES -->
-<section id="certificates" class="section">
-    <h2 class="section-title">Certificates</h2>
-
-    <div class="cert-box">
-        <h3>PCN Level II</h3>
-        <p>Radiographic Testing Film Interpretation</p>
-        <p>Magnetic Particle Testing Level II</p>
-        <p>Penetrant Testing Level II</p>
-    </div>
+<section id="certificates" class="section glass fade">
+    <h2>Certificates</h2>
+    <ul>
+        <li>PCN Level II – Radiographic Testing Film Interpretation</li>
+        <li>Magnetic Particle Testing Level II</li>
+        <li>Penetrant Testing Level II</li>
+    </ul>
 </section>
 
 <!-- ACHIEVEMENTS -->
-<section id="achievements" class="section">
-    <h2 class="section-title">Achievements</h2>
+<section id="achievements" class="section glass fade">
+    <h2>Achievements</h2>
     <ul>
         <li>500+ Radiographs Analyzed</li>
         <li>200+ Inspections Completed</li>
-        <li>3+ Years of Field Experience</li>
+        <li>3+ Years Industrial Experience</li>
     </ul>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section">
-    <h2 class="section-title">Contact Me</h2>
-
-    <p>Email: <a href="mailto:umapolu@gmail.com">umapolu@gmail.com</a></p>
-
-    <a href="https://wa.me/916304202170" class="whatsapp-btn" target="_blank">
-        WhatsApp Me
-    </a>
+<section id="contact" class="section glass fade">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:umamahe113@gmail.com">umamahe113@gmail.com</a></p>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-    © 2025 Uma Mahesh | Designed with precision & focus 🔧
+    © 2025 Uma Mahesh — Built with precision, discipline & hard work.
 </footer>
 
 <script src="script.js"></script>
 </body>
 </html>
-
