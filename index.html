@@ -5,7 +5,6 @@
 <title>Uma Mahesh – Portfolio</title>
 
 <link rel="stylesheet" href="style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
@@ -13,15 +12,15 @@
 
 <body>
 
-<!-- ✨ PRELOADER -->
+<!-- PRELOADER -->
 <div id="preloader">
     <div class="loader"></div>
 </div>
 
-<!-- 🌙 DARK MODE TOGGLE -->
+<!-- DARK MODE BUTTON -->
 <div class="dark-toggle" onclick="toggleDarkMode()">🌙</div>
 
-<!-- 🧭 NAVBAR -->
+<!-- NAVBAR -->
 <header id="navbar">
     <div class="nav-container">
         <h2 class="nav-title">UM</h2>
@@ -35,8 +34,8 @@
     </div>
 </header>
 
-<!-- HERO SECTION -->
-<section class="hero" data-aos="fade-down">
+<!-- HERO -->
+<section class="hero">
     <img src="assets/profile.jpg" class="profile-photo-large">
 
     <h1 class="hero-title">Uma Mahesh Poluparthi</h1>
@@ -45,7 +44,7 @@
     <a href="#about" class="btn-primary">Explore My Work</a>
 </section>
 
-<!-- ABOUT SECTION -->
+<!-- ABOUT -->
 <section class="container" id="about" data-aos="fade-up">
     <h2 class="section-title">About Me</h2>
     <p class="section-text">
@@ -75,6 +74,7 @@
     <div class="experience-card">
         <h3>A-Star Testing & Inspection (S) Pte. Ltd.</h3>
         <p class="exp-position">Multi-NDT PCN Technician (Jun 2022 – Jun 2025)</p>
+
         <ul>
             <li>Performed RTFI, MT, PT for industrial projects.</li>
             <li>Advanced radiographic defect interpretation.</li>
@@ -107,32 +107,33 @@
     </div>
 </section>
 
-<!-- PHOTO GALLERY -->
-<section class="container" id="gallery-section" data-aos="zoom-in">
+<!-- GALLERY -->
+<section class="container" id="gallery-section" data-aos="fade-up">
     <h2 class="section-title">Photo Gallery</h2>
+
     <div class="gallery-grid" id="gallery"></div>
 </section>
 
 <!-- CERTIFICATES -->
-<section class="container" id="certificates-section" data-aos="zoom-in-up">
+<section class="container" id="certificates-section" data-aos="fade-up">
     <h2 class="section-title">Certificates</h2>
+
     <div class="certificate-grid" id="certificates"></div>
 </section>
 
 <!-- ACHIEVEMENTS -->
-<section class="container" data-aos="fade-up">
+<section class="container" data-aos="zoom-in-up">
     <h2 class="section-title">Achievements</h2>
-    <div id="achievements" class="achievement-list"></div>
+
+    <div id="achievements"></div>
 </section>
 
 <!-- CONTACT -->
 <section class="container contact-box" id="contact" data-aos="fade-up">
     <h2 class="section-title">Contact Me</h2>
-    <p>Have a project or opportunity? Let's connect.</p>
 
     <form action="https://formsubmit.co/umamahe113@gmail.com" method="POST" class="contact-form">
         <input type="hidden" name="_captcha" value="false">
-
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" placeholder="Message" required></textarea>
@@ -152,7 +153,7 @@
 </section>
 
 <!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/918637202170" class="whatsapp-float" target="_blank">💬</a>
+<a href="https://wa.me/918637202170" class="whatsapp-float">💬</a>
 
 <!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
@@ -165,20 +166,16 @@
     <a href="login.html" class="footer-link">User Login</a>
 </footer>
 
-<!-- SCRIPTS -->
+<!-- AOS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({ duration: 800 });</script>
 
-<!-- SUPABASE MUST BE VERSION 2 -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- SUPABASE v2 (UMD — REQUIRED FOR BROWSER) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.5/dist/umd/supabase.js"></script>
 
+<!-- PROJECT SCRIPTS -->
 <script src="supabase.js"></script>
 <script src="script.js"></script>
 
 </body>
 </html>
-
-
-
-
-
