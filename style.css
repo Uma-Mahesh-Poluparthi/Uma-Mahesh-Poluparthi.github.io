@@ -437,29 +437,70 @@ body {
     }
 }
 
-/* ---------------------------------------------
-   FLOATING WHATSAPP BUTTON
-----------------------------------------------*/
-.whatsapp-float {
+/* ----------------------------------------------------
+   FLOATING WHATSAPP BUTTON (UPGRADED)
+----------------------------------------------------- */
+.whatsapp-container {
     position: fixed;
     bottom: 22px;
     right: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3000;
+
+    animation: slideIn 0.8s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.whatsapp-float {
     width: 55px;
     height: 55px;
-    background: #1a1a1a;
-    color: #fff;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
     border-radius: 50%;
+    
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 26px;
+
+    font-size: 28px;
     text-decoration: none;
-    border: 1px solid #333;
+
     transition: 0.3s ease;
-    z-index: 3000;
 }
 
 .whatsapp-float:hover {
-    background: #222;
-    transform: scale(1.07);
+    transform: scale(1.12) translateY(-3px);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Tooltip */
+.whatsapp-tooltip {
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 6px 12px;
+    font-size: 13px;
+    color: #ddd;
+    border-radius: 6px;
+    margin-top: 8px;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+
+.whatsapp-container:hover .whatsapp-tooltip {
+    opacity: 1;
+    transform: translateY(0);
 }
