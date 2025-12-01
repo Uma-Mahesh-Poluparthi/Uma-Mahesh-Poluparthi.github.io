@@ -544,3 +544,67 @@ body {
     transform: translateY(0);
 }
 
+/* ----------------------------------------------------
+   CERTIFICATE CAROUSEL (UPGRADED)
+----------------------------------------------------- */
+.cert-carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+}
+
+.cert-carousel {
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.cert-slide {
+    min-width: 200px;
+    height: 130px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 25px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.cert-slide:hover {
+    background: #222;
+    transform: translateY(-5px);
+}
+
+.cert-slide h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.cert-slide p {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.cert-nav {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cert-nav:hover {
+    background: rgba(255,255,255,0.12);
+    transform: scale(1.1);
+}
+
