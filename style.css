@@ -421,92 +421,83 @@ body.light {
 }
 
 /* -----------------------------
-   EXPERIENCE TIMELINE
+   CLEAN EXPERIENCE TIMELINE
 ------------------------------*/
 .timeline-section {
     padding: 80px 20px;
     background: #000;
 }
 
-.timeline-container {
-    max-width: 900px;
+.timeline-wrapper {
+    max-width: 750px;
     margin: auto;
     padding: 40px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.timeline {
-    position: relative;
-    margin-left: 30px;
-}
-
-.timeline::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(to bottom, #aaa, #666);
-}
-
-.timeline-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
+.timeline-wrapper .section-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: left;
     margin-bottom: 40px;
 }
 
-.timeline-dot {
-    width: 14px;
-    height: 14px;
+/* Vertical line */
+.timeline {
+    border-left: 2px solid #444;
+    padding-left: 30px;
+}
+
+/* Row layout */
+.timeline-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+/* Dots */
+.timeline-row .dot {
+    width: 12px;
+    height: 12px;
     background: #fff;
     border-radius: 50%;
-    margin-left: -8px;
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+    position: absolute;
+    left: -37px;
 }
 
-.timeline-content {
-    background: rgba(255, 255, 255, 0.07);
-    padding: 15px 20px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.timeline-content h3 {
-    margin: 0;
+/* Year */
+.timeline-row .year {
     font-size: 22px;
-    color: white;
+    font-weight: 700;
+    color: #fff;
+    width: 70px;
 }
 
-.timeline-content p {
-    margin: 6px 0 0;
+/* Description */
+.timeline-row .desc {
+    font-size: 17px;
     color: #ccc;
-    font-size: 16px;
 }
 
-/* Fade-up animation */
-.fade-up {
+/* Animation */
+.timeline-row {
     opacity: 0;
-    transform: translateY(25px);
-    animation: fadeUp 0.8s ease forwards;
+    transform: translateY(20px);
+    animation: fadeInUp .7s ease forwards;
 }
 
-.fade-up:nth-child(1) { animation-delay: 0.1s; }
-.fade-up:nth-child(2) { animation-delay: 0.2s; }
-.fade-up:nth-child(3) { animation-delay: 0.3s; }
-.fade-up:nth-child(4) { animation-delay: 0.4s; }
+.timeline-row:nth-child(1) { animation-delay: 0.1s; }
+.timeline-row:nth-child(2) { animation-delay: 0.2s; }
+.timeline-row:nth-child(3) { animation-delay: 0.3s; }
+.timeline-row:nth-child(4) { animation-delay: 0.4s; }
 
-@keyframes fadeUp {
+@keyframes fadeInUp {
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-
 
 /* ----------------------------------------------
    PROJECT ACCORDION
@@ -604,4 +595,5 @@ body.light {
     color: #888;
     font-size: 15px;
 }
+
 
