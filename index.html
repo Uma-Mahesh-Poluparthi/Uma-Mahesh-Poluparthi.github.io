@@ -87,25 +87,39 @@
     <img id="lightbox-img">
 </div>
 
-<!-- ================= CERTIFICATES ================= -->
+<!-- ================= CERTIFICATE CAROUSEL ================= -->
 <section id="certificates" class="section glass fade">
     <h2>Certificates</h2>
 
-    <div class="cert-grid">
-        <div class="cert-card" onclick="openPDF('assets/certificates/rtfi.pdf')">
-            <h3>RTFI</h3>
-            <p>Film Interpretation</p>
+    <div class="cert-carousel-container">
+        <button class="cert-nav left" id="certPrev">‹</button>
+
+        <div class="cert-carousel" id="certCarousel">
+
+            <!-- Certificate 1 -->
+            <div class="cert-slide" onclick="openPDF('assets/certificates/rtfi.pdf')">
+                <h3>RTFI</h3>
+                <p>Film Interpretation</p>
+            </div>
+
+            <!-- Certificate 2 -->
+            <div class="cert-slide" onclick="openPDF('assets/certificates/mt.pdf')">
+                <h3>MT</h3>
+                <p>Magnetic Testing</p>
+            </div>
+
+            <!-- Certificate 3 -->
+            <div class="cert-slide" onclick="openPDF('assets/certificates/pt.pdf')">
+                <h3>PT</h3>
+                <p>Penetrant Testing</p>
+            </div>
+
         </div>
-        <div class="cert-card" onclick="openPDF('assets/certificates/mt.pdf')">
-            <h3>MT</h3>
-            <p>Magnetic Testing</p>
-        </div>
-        <div class="cert-card" onclick="openPDF('assets/certificates/pt.pdf')">
-            <h3>PT</h3>
-            <p>Penetrant Testing</p>
-        </div>
+
+        <button class="cert-nav right" id="certNext">›</button>
     </div>
 </section>
+
 
 <!-- PDF VIEWER -->
 <div id="pdf-viewer">
@@ -248,6 +262,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
