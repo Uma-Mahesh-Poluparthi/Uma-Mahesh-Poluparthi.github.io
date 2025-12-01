@@ -219,20 +219,27 @@
 <section id="feedback" class="section fade glass">
     <h2>Your Feedback</h2>
 
-    <form action="https://formsubmit.co/umamahe113@gmail.com" method="POST" class="feedback-form">
+    <form action="https://formsubmit.co/umamahe113@gmail.com" method="POST" class="feedback-form" id="feedbackForm">
 
-        <input type="hidden" name="_captcha" value="false">
+    <!-- NO CAPTCHA -->
+    <input type="hidden" name="_captcha" value="false">
 
-        <input type="text" name="name" placeholder="Your Name" required>
+    <!-- REDIRECT TO SUCCESS PAGE -->
+    <input type="hidden" name="_next" value="https://uma-mahesh-poluparthi.github.io/success.html">
 
-        <input type="email" name="email" placeholder="Email (optional)">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email (optional)">
+    <textarea name="message" placeholder="Your Feedback" required></textarea>
 
-        <textarea name="message" placeholder="Your Feedback" required></textarea>
+    <button type="submit" class="btn-primary">Submit Feedback</button>
 
-        <button type="submit" class="btn-primary">Submit Feedback</button>
+</form>
 
-    </form>
-</section>
+<!-- POPUP -->
+<div id="popup" class="popup">
+    ✔️ Message Sent — Redirecting...
+</div>
+
 
 <!-- CONTACT -->
 <section id="contact" class="section fade glass">
@@ -248,6 +255,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
