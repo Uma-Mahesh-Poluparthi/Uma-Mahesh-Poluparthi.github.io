@@ -174,3 +174,17 @@ certPrev.addEventListener("click", () => {
     certCarousel.scrollBy({ left: -220, behavior: "smooth" });
 });
 
+/* ======================================================
+   CV ZOOM CONTROLS
+====================================================== */
+let cvZoom = 1;
+
+function zoomCV(direction) {
+    cvZoom += direction * 0.1;
+
+    if (cvZoom < 0.6) cvZoom = 0.6;
+    if (cvZoom > 2) cvZoom = 2;
+
+    document.getElementById("cvFrame").style.transform = `scale(${cvZoom})`;
+}
+
