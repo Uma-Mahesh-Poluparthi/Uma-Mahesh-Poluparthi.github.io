@@ -686,4 +686,29 @@ body {
     transform-origin: top center;
 }
 
+.cv-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.cv-btn2 {
+    padding: 12px 28px;
+    font-size: 16px;
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cv-btn2:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+}
+
 
