@@ -216,19 +216,3 @@ function scrollToContact() {
         behavior: "smooth" 
     });
 }
-
-/* ==============================
-   COPY EMAIL with POP UP
-================================= */
-
-function copyEmail() {
-    navigator.clipboard.writeText("umamahe113@gmail.com");
-
-    const popup = document.getElementById("copyPopup");
-    popup.classList.add("show");
-
-    setTimeout(() => {
-        popup.classList.remove("show");
-    }, 2000);  // hide after 2 seconds
-}
-
