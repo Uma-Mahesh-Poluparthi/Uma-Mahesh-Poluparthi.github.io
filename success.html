@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Success | Thank You</title>
 
     <style>
+        /* Global Theme */
         body {
             background: #0d0d0d;
             color: #fff;
@@ -13,55 +15,87 @@
             margin: 0;
             padding: 0;
             text-align: center;
+            overflow-x: hidden;
         }
 
+        /* Glass Box */
         .center-box {
             max-width: 450px;
             margin: 140px auto;
             padding: 40px;
+
             background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 16px;
-            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 18px;
+            backdrop-filter: blur(14px);
+
+            box-shadow: 0 6px 40px rgba(0,0,0,0.35);
+
+            opacity: 0;
+            transform: translateY(25px);
+            animation: fadeUp 1s forwards ease;
         }
 
+        /* Headings */
         h1 {
-            font-size: 30px;
+            font-size: 32px;
             margin-bottom: 12px;
             font-weight: 700;
+            letter-spacing: 0.5px;
+            background: linear-gradient(90deg, #fff, #b9e7ff);
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
         p {
-            color: #cfcfcf;
+            color: #dddddd;
             font-size: 16px;
-            margin-bottom: 25px;
+            margin-bottom: 28px;
+            line-height: 1.6;
         }
 
+        /* Button */
         a {
             display: inline-block;
-            padding: 12px 28px;
-            background: #fff;
-            color: #000;
-            border-radius: 8px;
-            font-weight: bold;
+            padding: 12px 32px;
+
+            background: rgba(255,255,255,0.10);
+            color: #fff;
+
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 10px;
+
             text-decoration: none;
-            transition: 0.3s;
+            font-weight: 600;
+            font-size: 15px;
+
+            transition: 0.35s ease;
+            backdrop-filter: blur(10px);
         }
 
         a:hover {
-            background: #e2e2e2;
+            background: rgba(255,255,255,0.18);
+            transform: translateY(-3px);
+            box-shadow: 0 0 12px rgba(255,255,255,0.25);
         }
 
-        /* Smooth Fade-In Animation */
-        .center-box {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp 1s forwards;
-        }
+        /* Animation */
         @keyframes fadeUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 500px) {
+            .center-box {
+                margin: 100px 20px;
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 26px;
             }
         }
     </style>
@@ -71,7 +105,9 @@
 
 <div class="center-box">
     <h1>Thank You ✔</h1>
-    <p>Your feedback has been submitted successfully.</p>
+    <p>Your feedback has been submitted successfully.  
+       I appreciate your time and response!</p>
+
     <a href="index.html">Back to Website</a>
 </div>
 
