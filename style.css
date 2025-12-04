@@ -808,3 +808,15 @@ body {
 
     .stat { width: 130px; }
 }
+
+/* ================================================================
+   REMOVE DASH FROM BELOW OF CONTACT CARDS
+================================================================ */
+.contact-card {
+    text-decoration: none !important;
+}
+.contact-card * {
+    text-decoration: none !important;
+}
+
+
