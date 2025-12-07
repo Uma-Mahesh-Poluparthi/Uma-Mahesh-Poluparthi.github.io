@@ -1,51 +1,55 @@
-/* ==========================
+/* ----------------------------------------------------
    GLOBAL RESET
-========================== */
+----------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
 }
 
 body {
     background: #0d0d0d;
-    color: white;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
     overflow-x: hidden;
 }
 
-/* ==========================
-   LOADER
-========================== */
+/* ====================================================
+   LOADING SCREEN
+==================================================== */
 #loader {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: #0d0d0d;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     z-index: 5000;
-    transition: opacity .6s ease;
+    transition: opacity .8s;
 }
 
 .loader-logo {
-    font-size: 50px;
+    font-size: 48px;
     font-weight: 800;
+    margin-bottom: 10px;
 }
 
-/* ==========================
+/* ====================================================
    NAVBAR
-========================== */
+==================================================== */
 .navbar {
+    width: 100%;
     position: fixed;
     top: 0;
-    width: 100%;
     padding: 15px 30px;
     z-index: 1000;
-    background: rgba(255,255,255,0.05);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .nav-inner {
@@ -62,23 +66,21 @@ body {
 }
 
 .nav-links a {
-    color: #cfcfcf;
     margin-left: 25px;
+    color: #ccc;
     font-size: 15px;
-    text-decoration: none;
-    transition: .3s ease;
+    transition: 0.3s;
 }
-
 .nav-links a:hover {
-    color: white;
+    color: #fff;
 }
 
-/* ==========================
+/* ====================================================
    HERO SECTION
-========================== */
+==================================================== */
 .hero-section {
     text-align: center;
-    padding-top: 150px;
+    padding-top: 160px;
 }
 
 .hero-profile {
@@ -86,13 +88,12 @@ body {
     height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #fff;
+    border: 3px solid white;
 }
 
 .hero-title {
+    font-size: 38px;
     margin-top: 20px;
-    font-size: 36px;
-    font-weight: 700;
 }
 
 .hero-subtitle {
@@ -102,108 +103,77 @@ body {
 }
 
 #typing {
+    height: 28px;
     margin-top: 8px;
-    height: 25px;
-    font-size: 16px;
     color: #d1d1d1;
+    font-size: 16px;
 }
 
-/* Status Badge */
-.status-wrapper {
-    margin-top: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-}
-
-.status-dot {
-    width: 12px;
-    height: 12px;
-    background: #4cff4c;
-    border-radius: 50%;
-}
-
-/* Buttons */
-.hire-btn,
-.cv-btn2 {
-    padding: 10px 25px;
-    border-radius: 10px;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.25);
-    color: white;
-    cursor: pointer;
-    margin: 8px;
-    transition: .3s;
-}
-
-.cv-btn2 {
+/* BUTTON */
+.btn-primary {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 28px;
     background: white;
     color: black;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.btn-primary:hover {
+    background: #e5e5e5;
 }
 
-.hire-btn:hover {
-    background: rgba(255,255,255,0.17);
-}
-
-.cv-btn2:hover {
-    background: #e8e8e8;
-}
-
-/* Stats */
+/* HERO STATS */
 .stats {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
+    gap: 50px;
+    margin-top: 35px;
 }
 
 .stat {
-    width: 140px;
-    padding: 18px;
-    border-radius: 12px;
     background: #1a1a1a;
     border: 1px solid #333;
+    width: 140px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
 }
-
-.stat .count {
+.stat p {
+    font-size: 14px;
+    color: #bbb;
+}
+.count {
     font-size: 32px;
     font-weight: 700;
 }
 
-/* ==========================
-   SECTIONS
-========================== */
+/* ====================================================
+   SECTION WRAPPER
+==================================================== */
 .section {
     max-width: 900px;
-    padding: 45px;
-    border-radius: 16px;
     margin: 100px auto;
+    padding: 40px;
+    border-radius: 14px;
 }
 
+.section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* GLASS EFFECT */
 .glass {
     background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(10px);
 }
 
-/* Fade animation */
-.fade {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 1s ease forwards;
-}
-
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ==========================
+/* ====================================================
    GALLERY
-========================== */
+==================================================== */
 .gallery-row {
     display: flex;
     gap: 15px;
@@ -211,102 +181,93 @@ body {
     padding-bottom: 10px;
 }
 
+.gallery-row::-webkit-scrollbar {
+    height: 8px;
+}
+.gallery-row::-webkit-scrollbar-thumb {
+    background: #444;
+}
+
 .g-item {
     width: 240px;
     height: 170px;
+    border-radius: 10px;
+    border: 1px solid #333;
     object-fit: cover;
-    border-radius: 12px;
     cursor: pointer;
-    transition: .3s ease;
+    transition: .3s;
 }
-
 .g-item:hover {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
-/* Lightbox */
+/* LIGHTBOX */
 #lightbox-viewer {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0,0,0,0.85);
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 3000;
+    z-index: 4000;
 }
-
 #lightbox-img {
     max-width: 90%;
     max-height: 90%;
-    border-radius: 12px;
+    border-radius: 10px;
 }
-
 #lightbox-close {
     position: fixed;
     top: 25px;
-    right: 40px;
-    font-size: 40px;
+    right: 35px;
+    font-size: 32px;
     cursor: pointer;
-    color: white;
 }
 
-/* ==========================
+/* ====================================================
    CERTIFICATES
-========================== */
-.cert-carousel-container {
+==================================================== */
+.cert-grid {
     display: flex;
-    gap: 15px;
-    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.cert-carousel {
-    display: flex;
-    gap: 20px;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    width: 100%;
-}
-
-.cert-slide {
-    min-width: 200px;
-    padding: 25px;
-    height: 130px;
-    text-align: center;
-    border-radius: 12px;
+.cert-card {
     background: #1a1a1a;
     border: 1px solid #333;
+    width: 200px;
+    height: 130px;
+    border-radius: 12px;
+    text-align: center;
+    padding-top: 25px;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
+}
+.cert-card:hover {
+    background: #222;
+}
+.cert-card p {
+    color: #ccc;
+    margin-top: 5px;
 }
 
-.cert-slide:hover {
-    transform: translateY(-4px);
-}
-
-.cert-nav {
-    background: rgba(255,255,255,0.1);
-    border: none;
-    padding: 8px 14px;
-    color: white;
-    font-size: 22px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.cert-nav:hover {
-    background: rgba(255,255,255,0.2);
-}
-
-/* PDF Viewer */
+/* PDF VIEWER */
 #pdf-viewer {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
     display: none;
-    background: rgba(0,0,0,0.85);
     justify-content: center;
     align-items: center;
-    z-index: 3500;
+    z-index: 4500;
 }
 
 #pdf-box {
@@ -327,13 +288,13 @@ body {
     position: absolute;
     top: -40px;
     right: 0;
-    font-size: 34px;
+    font-size: 32px;
     cursor: pointer;
 }
 
-/* ==========================
-   EXPERIENCE
-========================== */
+/* ====================================================
+   EXPERIENCE TIMELINE (CARD STYLE)
+==================================================== */
 .exp-cards {
     display: flex;
     flex-direction: column;
@@ -341,32 +302,46 @@ body {
 }
 
 .exp-card {
-    padding: 20px;
     background: #1a1a1a;
     border: 1px solid #333;
+    padding: 20px;
     border-radius: 12px;
 }
 
-/* ==========================
-   PROJECTS (Accordions)
-========================== */
+.exp-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.exp-card p {
+    color: #bbb;
+}
+
+/* ====================================================
+   PROJECT ACCORDION
+==================================================== */
 .project-item {
-    margin-bottom: 15px;
-    border-radius: 12px;
     background: #1a1a1a;
     border: 1px solid #333;
+    border-radius: 12px;
+    margin-bottom: 15px;
 }
 
 .project-header {
-    width: 100%;
     padding: 18px;
-    border: none;
     background: #222;
-    color: white;
+    width: 100%;
+    font-size: 16px;
+    text-align: left;
+    border: none;
+    color: #fff;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    font-size: 16px;
+}
+
+.arrow {
+    transition: .3s;
 }
 
 .project-body {
@@ -387,140 +362,445 @@ body {
     transform: rotate(-180deg);
 }
 
-/* ==========================
-   FEEDBACK
-========================== */
+/* ====================================================
+   FEEDBACK FORM
+==================================================== */
 .feedback-form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
 }
 
 .feedback-form input,
 .feedback-form textarea {
     padding: 12px;
-    border-radius: 10px;
+    background: #1b1b1b;
     border: 1px solid #333;
-    background: #1a1a1a;
-    color: white;
+    border-radius: 10px;
+    color: #fff;
 }
 
 .feedback-form textarea {
     height: 120px;
-    resize: none;
 }
 
-.btn-primary {
-    background: white;
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    color: black;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.btn-primary:hover {
-    background: #e1e1e1;
-}
-
-/* Popup */
+/* POPUP */
 .popup {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: rgba(255,255,255,0.1);
-    padding: 12px 22px;
+    background: #1e1e1e;
+    padding: 15px 25px;
     border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid #333;
     opacity: 0;
-    transform: translateY(-12px);
-    transition: .4s ease;
+    transform: translateY(-10px);
+    transition: .4s;
+    z-index: 5000;
 }
 
 .popup.show {
     opacity: 1;
-    transform: translateY(0px);
+    transform: translateY(0);
 }
 
-/* ==========================
-   CONTACT
-========================== */
+/* ----------------------------------------------------
+   CONTACT SECTION (UPGRADED)
+----------------------------------------------------- */
+.contact-section {
+    text-align: center;
+}
+
 .contact-grid {
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 25px;
+    flex-wrap: wrap;
 }
 
 .contact-card {
-    padding: 15px 22px;
-    border-radius: 10px;
-    background: #1a1a1a;
-    border: 1px solid #333;
+    width: 220px;
+    padding: 25px 20px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    text-align: center;
     color: white;
     text-decoration: none;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .contact-card:hover {
-    background: #222;
+    transform: translateY(-6px);
+    background: rgba(255,255,255,0.10);
 }
 
-/* ==========================
+.contact-icon {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.contact-card h3 {
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+
+.contact-card p {
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* ====================================================
    FOOTER
-========================== */
+==================================================== */
 .footer {
     text-align: center;
-    padding: 20px;
-    color: #bbb;
+    padding: 40px 0;
+    color: #888;
 }
 
-/* WhatsApp Float */
+/* ====================================================
+   ANIMATIONS
+==================================================== */
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ----------------------------------------------------
+   FLOATING WHATSAPP BUTTON (UPGRADED)
+----------------------------------------------------- */
 .whatsapp-container {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
+    bottom: 22px;
+    right: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3000;
+
+    animation: slideIn 0.8s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .whatsapp-float {
-    background: #25d366;
-    padding: 12px 15px;
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     color: white;
     border-radius: 50%;
-    font-size: 24px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 28px;
     text-decoration: none;
+
+    transition: 0.3s ease;
 }
 
+.whatsapp-float:hover {
+    transform: scale(1.12) translateY(-3px);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Tooltip */
 .whatsapp-tooltip {
-    background: black;
-    padding: 6px 10px;
-    color: white;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 6px 12px;
+    font-size: 13px;
+    color: #ddd;
     border-radius: 6px;
-    margin-right: 10px;
+    margin-top: 8px;
     opacity: 0;
+    transform: translateY(5px);
+    transition: 0.3s ease;
+    pointer-events: none;
 }
 
-/* ==========================
-   RESPONSIVE FIXES
-========================== */
-@media (max-width: 600px) {
-    .stats {
-        flex-direction: column;
-        gap: 18px;
-    }
-
-    .gallery-row img {
-        width: 200px;
-    }
-
-    .cv-container iframe {
-        height: 350px;
-    }
-
-    .cert-carousel {
-        gap: 12px;
-    }
-
-    .contact-grid {
-        flex-direction: column;
-    }
+.whatsapp-container:hover .whatsapp-tooltip {
+    opacity: 1;
+    transform: translateY(0);
 }
+
+/* ----------------------------------------------------
+   CERTIFICATE CAROUSEL (UPGRADED)
+----------------------------------------------------- */
+.cert-carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+}
+
+.cert-carousel {
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.cert-slide {
+    min-width: 200px;
+    height: 130px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 25px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.cert-slide:hover {
+    background: #222;
+    transform: translateY(-5px);
+}
+
+.cert-slide h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.cert-slide p {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.cert-nav {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cert-nav:hover {
+    background: rgba(255,255,255,0.12);
+    transform: scale(1.1);
+}
+
+.cv-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 18px;
+}
+
+.btn-secondary {
+    padding: 12px 26px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+/* ----------------------------------------------------
+   CV SECTION (EMBEDDED PDF VIEWER)
+----------------------------------------------------- */
+.cv-container {
+    margin-top: 20px;
+}
+
+.cv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cv-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cv-tools {
+    display: flex;
+    gap: 8px;
+}
+
+.cv-btn {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 18px;
+}
+
+.cv-btn:hover {
+    background: rgba(255,255,255,0.15);
+    transform: scale(1.05);
+}
+
+/* Viewer Box */
+.cv-view-box {
+    width: 100%;
+    height: 600px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+#cvFrame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    transform-origin: top center;
+}
+
+.cv-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.cv-btn2 {
+    padding: 12px 28px;
+    font-size: 16px;
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cv-btn2:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+}
+
+
+/* ==================================
+   MINIMAL HERO STATUS BADGE
+================================== */
+.status-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+    margin-top: 10px;
+
+    font-size: 15px;
+    color: #e8e8e8;
+    opacity: 0.85;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #4da3ff;
+    box-shadow: 0 0 6px #4da3ff;
+}
+
+/* ======================
+   HIRE ME BUTTON
+====================== */
+.hire-btn {
+    margin-top: 18px;
+    padding: 12px 28px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.hire-btn:hover {
+    background: rgba(255,255,255,0.20);
+    transform: translateY(-3px);
+}
+
+.hero-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-card p {
+    margin: 4px 0;
+}
+
+
+/* =====================================
+   COPY EMAIL SUCCESS POPUP
+===================================== */
+.copy-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 12px 22px;
+    border-radius: 10px;
+    color: #fff;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: .4s ease;
+    z-index: 5000;
+}
+
+.copy-popup.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+#about p {
+    margin-bottom: 14px;
+    line-height: 1.6;
+}
+
+#about p:not(:last-child) {
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+

@@ -3,37 +3,19 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Uma Mahesh | Multi-NDT Specialist</title>
-
-    <!-- SEO -->
-    <meta name="description" content="Portfolio of Uma Mahesh — Multi-NDT Specialist, PCN Level II Technician, RTFI, MT, PT expert with 3+ years industrial experience.">
-    <meta name="keywords" content="Uma Mahesh, NDT, RTFI, MT, PT, Inspector, Portfolio, Technician">
-    <meta name="author" content="Uma Mahesh Poluparthi">
-
-    <!-- OpenGraph -->
-    <meta property="og:title" content="Uma Mahesh | Multi-NDT Specialist">
-    <meta property="og:description" content="Explore my work, gallery, certifications, projects and experience.">
-    <meta property="og:image" content="assets/profile1.png">
-    <meta property="og:type" content="website">
-
-    <!-- Manifest + Favicon -->
-    <link rel="manifest" href="site.webmanifest" />
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
-
-    <!-- Stylesheet -->
+    <title>Uma Mahesh | Portfolio</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<!-- LOADER -->
+<!-- ================= LOADING SCREEN ================= -->
 <div id="loader">
     <div class="loader-logo">UM</div>
     <p>Loading...</p>
 </div>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 <header class="navbar">
     <div class="nav-inner">
         <div class="nav-logo">UM</div>
@@ -49,28 +31,32 @@
     </div>
 </header>
 
-<!-- HERO SECTION -->
+<!-- ================= HERO ================= -->
 <section id="hero" class="hero-section fade">
-    <img src="assets/profile1.png" class="hero-profile" alt="Profile photo">
+    <img src="assets/profile1.png" class="hero-profile" alt="Profile Photo">
 
     <h1 class="hero-title">Uma Mahesh Poluparthi</h1>
     <p class="hero-subtitle">Multi-NDT Specialist | PCN Level II Technician</p>
     <p id="typing"></p>
 
-    <!-- Status badge -->
-    <div class="status-wrapper">
-        <span class="status-dot"></span>
-        <span id="statusText">Open to Opportunities</span>
-    </div>
+<!-- STATUS BADGE -->
+<div class="status-wrapper">
+    <span class="status-dot"></span>
+    <span id="statusText">Working</span>
+</div>
 
-    <div class="hero-buttons">
-        <button class="hire-btn" onclick="scrollToContact()">Hire Me</button>
-    </div>
+<!-- BUTTON GROUP -->
+<div class="hero-buttons">
+    <button class="hire-btn" onclick="scrollToContact()">Hire Me</button>
+</div>
 
-    <div class="cv-buttons">
-        <a href="assets/resume.pdf" download class="cv-btn2">Download CV</a>
-        <button onclick="openCV()" class="cv-btn2">View CV</button>
-    </div>
+<!-- CV BUTTONS -->
+<div class="cv-buttons">
+    <a href="assets/resume.pdf" download class="cv-btn2">Download CV</a>
+    <button onclick="openCV()" class="cv-btn2">View CV</button>
+</div>
+
+
 
     <div class="stats">
         <div class="stat">
@@ -88,74 +74,101 @@
     </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ================= ABOUT ================= -->
 <section id="about" class="section glass fade">
     <h2>About Me</h2>
+    <p>
+I am a certified Multi-NDT Technician with expertise in Radiographic Testing Film Interpretation (RTFI), Magnetic Testing (MT), and Penetrant Testing (PT). I have worked across various industrial inspection environments, supporting safe and reliable project execution.
+</p>
 
-    <p>
-        I am a certified Multi-NDT Technician with expertise in RTFI, Magnetic Testing (MT),
-        and Penetrant Testing (PT). I support industrial inspection environments with strong
-        safety and quality compliance.
-    </p>
-    <p>
-        My focus is accurate evaluations, methodical reporting, and maintaining operational
-        integrity. I aim to deliver dependable inspection work that contributes to quality
-        assurance across industrial projects.
-    </p>
+<p>
+My work focuses on delivering accurate evaluations, maintaining strict safety compliance, and ensuring high-quality inspection reporting. I approach each task with strong technical discipline and a commitment to precision.
+</p>
+
+<p>
+I am continuously developing my skills and knowledge to provide dependable inspection support and contribute effectively to quality assurance and operational integrity.
+</p>
+
 </section>
 
-<!-- GALLERY -->
+<!-- ================= GALLERY ================= -->
 <section id="gallery" class="section fade">
     <h2>Photo Gallery</h2>
 
     <div class="gallery-row">
-        <img src="assets/gallery/img2.jpg" class="g-item lightbox" alt="">
-        <img src="assets/gallery/img3.jpg" class="g-item lightbox" alt="">
-        <img src="assets/gallery/img4.jpg" class="g-item lightbox" alt="">
-        <img src="assets/gallery/img5.jpg" class="g-item lightbox" alt="">
-        <img src="assets/gallery/img6.jpg" class="g-item lightbox" alt="">
+        <img src="assets/gallery/img2.jpg" class="g-item lightbox">
+        <img src="assets/gallery/img3.jpg" class="g-item lightbox">
+        <img src="assets/gallery/img4.jpg" class="g-item lightbox">
+        <img src="assets/gallery/img5.jpg" class="g-item lightbox">
+        <img src="assets/gallery/img6.jpg" class="g-item lightbox">
     </div>
 </section>
 
-<!-- Lightbox -->
+<!-- LIGHTBOX -->
 <div id="lightbox-viewer">
     <span id="lightbox-close">×</span>
     <img id="lightbox-img">
 </div>
 
-<!-- CERTIFICATES -->
+<!-- ================= CERTIFICATE CAROUSEL ================= -->
 <section id="certificates" class="section glass fade">
     <h2>Certificates</h2>
 
     <div class="cert-carousel-container">
-        <button id="certPrev" class="cert-nav">‹</button>
+        <button class="cert-nav left" id="certPrev">‹</button>
 
         <div class="cert-carousel" id="certCarousel">
+
+            <!-- Certificate 1 -->
             <div class="cert-slide" onclick="openPDF('assets/certificates/rtfi.pdf')">
-                <h3>RTFI</h3><p>Film Interpretation</p>
+                <h3>RTFI</h3>
+                <p>Film Interpretation</p>
             </div>
+
+            <!-- Certificate 2 -->
             <div class="cert-slide" onclick="openPDF('assets/certificates/mt.pdf')">
-                <h3>MT</h3><p>Magnetic Testing</p>
+                <h3>MT</h3>
+                <p>Magnetic Testing</p>
             </div>
+
+            <!-- Certificate 3 -->
             <div class="cert-slide" onclick="openPDF('assets/certificates/pt.pdf')">
-                <h3>PT</h3><p>Penetrant Testing</p>
+                <h3>PT</h3>
+                <p>Penetrant Testing</p>
             </div>
+
+             <!-- Certificate 4 -->
             <div class="cert-slide" onclick="openPDF('assets/certificates/wah.pdf')">
-                <h3>WAH</h3><p>Work at Height</p>
+                <h3>WAH</h3>
+                <p>Work at Height</p>
             </div>
+
+             <!-- Certificate 5 -->
             <div class="cert-slide" onclick="openPDF('assets/certificates/cs.pdf')">
-                <h3>CS</h3><p>Confined Space</p>
+                <h3>CS</h3>
+                <p>Work at Confined Space</p>
             </div>
+
+             <!-- Certificate 6 -->
+            <div class="cert-slide" onclick="openPDF('assets/certificates/opsoc.pdf')">
+                <h3>OPSOC</h3>
+                <p>OPSOC</p>
+            </div>
+
+             <!-- Certificate 7 -->
             <div class="cert-slide" onclick="openPDF('assets/certificates/csoc.pdf')">
-                <h3>CSOC</h3><p>Safety Certification</p>
+                <h3>CSOC</h3>
+                <p>CSOC</p>
             </div>
+
         </div>
 
-        <button id="certNext" class="cert-nav">›</button>
+        <button class="cert-nav right" id="certNext">›</button>
     </div>
 </section>
 
-<!-- PDF Viewer -->
+
+<!-- PDF VIEWER -->
 <div id="pdf-viewer">
     <div id="pdf-box">
         <span id="pdf-close">×</span>
@@ -163,88 +176,187 @@
     </div>
 </div>
 
-<!-- EXPERIENCE -->
+<!-- ================= EXPERIENCE (CARD TIMELINE) ================= -->
 <section id="experience" class="section fade">
     <h2>Experience Timeline</h2>
 
     <div class="exp-cards">
-        <div class="exp-card"><h3>2022</h3><p>NDT Technician Trainee</p></div>
-        <div class="exp-card"><h3>2023</h3><p>Upgraded to Level I Technician</p></div>
-        <div class="exp-card"><h3>2024</h3><p>Promoted to Level II Technician</p></div>
-        <div class="exp-card"><h3>2025</h3><p>3+ Years Industrial Experience</p></div>
+
+        <div class="exp-card">
+            <h3>2022</h3>
+            <p>Started career as NDT Technician Trainee</p>
+        </div>
+
+        <div class="exp-card">
+            <h3>2023</h3>
+            <p>Became Level I Technician (RTFI, MT, PT)</p>
+        </div>
+
+        <div class="exp-card">
+            <h3>2024</h3>
+            <p>Promoted to Level II, handled major projects</p>
+        </div>
+
+        <div class="exp-card">
+            <h3>2025</h3>
+            <p>3+ years experience, continuing professional work</p>
+        </div>
+
     </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- ================= PROJECTS ================= -->
 <section id="projects" class="section glass fade">
-    <h2>Projects Worked On</h2>
+    <h2>Projects I Have Worked On</h2>
 
     <div class="project-item">
-        <button class="project-header">Pressure Vessel Radiographic Inspection <span class="arrow">▼</span></button>
-        <div class="project-body">RT evaluation of weld joints following ASME standards.</div>
+        <button class="project-header">
+            Pressure Vessel Radiographic Inspection
+            <span class="arrow">▼</span>
+        </button>
+        <div class="project-body">
+            Radiographic evaluation of vessel welds according to ASME standards.
+        </div>
     </div>
 
     <div class="project-item">
-        <button class="project-header">Pipeline MT & PT Surface Defect Inspection <span class="arrow">▼</span></button>
-        <div class="project-body">Surface defect identification using MT & PT methods.</div>
+        <button class="project-header">
+            Pipeline MT & PT Surface Defect Inspection
+            <span class="arrow">▼</span>
+        </button>
+        <div class="project-body">
+            Surface crack identification using MT & PT methods.
+        </div>
     </div>
 
     <div class="project-item">
-        <button class="project-header">Structural Steel Radiographic Testing <span class="arrow">▼</span></button>
-        <div class="project-body">Film interpretation and defect classification.</div>
+        <button class="project-header">
+            Structural Steel Radiographic Testing
+            <span class="arrow">▼</span>
+        </button>
+        <div class="project-body">
+            Film reading & defect classification for fabrication projects.
+        </div>
     </div>
+
 </section>
 
-<!-- CV -->
+    <!-- ================= CV SECTION ================= -->
 <section id="cv" class="section glass fade">
     <h2>My CV</h2>
 
     <div class="cv-container">
-        <iframe id="cvFrame" src="assets/resume.pdf"></iframe>
+
+        <div class="cv-header">
+            <h3>Uma Mahesh Poluparthi — Curriculum Vitae</h3>
+        </div>
+
+        <div class="cv-view-box">
+            <iframe id="cvFrame" src="assets/resume.pdf"></iframe>
+        </div>
+
     </div>
 </section>
 
-<!-- FEEDBACK -->
+<!-- ================= FEEDBACK ================= -->
 <section id="feedback" class="section glass fade">
     <h2>Your Feedback</h2>
 
-    <form id="feedbackForm" action="https://formsubmit.co/umamahe113@gmail.com" method="POST">
+    <form action="https://formsubmit.co/umamahe113@gmail.com"
+          method="POST"
+          id="feedbackForm"
+          class="feedback-form">
+
         <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next"
+               value="https://uma-mahesh-poluparthi.github.io/success.html">
 
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Email (optional)">
         <textarea name="message" placeholder="Your Feedback" required></textarea>
-
-        <button class="btn-primary" type="submit">Submit Feedback</button>
+        <button class="btn-primary">Submit Feedback</button>
     </form>
 
     <div id="popup" class="popup">✔ Message Sent — Redirecting...</div>
 </section>
 
-<!-- CONTACT -->
+<!-- ================= CONTACT ================= -->
 <section id="contact" class="section fade glass contact-section">
+
     <h2>Contact</h2>
 
+	 <!-- OPTION C SUBTITLE -->
+   	 <p style="color:#bbb; margin-top: -10px;">
+      	  Feel free to reach out — I respond quickly.
+   	 </p>
+
     <div class="contact-grid">
-        <a href="mailto:umamahe113@gmail.com" class="contact-card">📧 Email</a>
-        <a href="https://wa.me/916304202170" class="contact-card" target="_blank">💬 WhatsApp</a>
-        <a href="https://www.linkedin.com/in/uma-mahesh-poluparthi" class="contact-card" target="_blank">🔗 LinkedIn</a>
+
+        <a href="mailto:umamahe113@gmail.com" class="contact-card">
+            <div class="contact-icon">📧</div>
+            <h3>Email</h3>
+            <p>umamahe113@gmail.com</p>
+        </a>
+
+        <a href="https://wa.me/916304202170" target="_blank" class="contact-card">
+            <div class="contact-icon">💬</div>
+            <h3>WhatsApp</h3>
+            <p>+91 63042 02170</p>
+        </a>
+
+	<a href="https://www.linkedin.com/in/uma-mahesh-poluparthi" target="_blank" class="contact-card">
+    		<div class="contact-icon">🔗</div>
+    		<h3>LinkedIn</h3>
+   		 <p>View Profile</p>
+	</a>
+
+
+        <a href="#" class="contact-card">
+            <div class="contact-icon">📍</div>
+            <h3>Location</h3>
+            <p>India</p>
+        </a>
+
+	 <!-- OPTION B CLICK-TO-COPY EMAIL CARD -->
+
+	<div class="contact-card" onclick="copyEmail()">
+    	<div class="contact-icon">📋</div>
+    	<h3>Copy Email</h3>
+    	<p>umamahe113@gmail.com</p>
+    	<p style="color:#aaa; font-size:13px;">Click to copy address</p>
+	</div>
+
     </div>
+
+<div id="copyPopup" class="copy-popup">✔ Email Copied</div>
+
 </section>
 
-<!-- FOOTER -->
+
+<!-- ================= FOOTER ================= -->
 <footer class="footer">
     © 2025 Uma Mahesh — All Rights Reserved.
 </footer>
-
-<!-- Floating WhatsApp -->
+<!-- Floating WhatsApp Button -->
 <div class="whatsapp-container">
-    <a href="https://wa.me/916304202170" class="whatsapp-float" target="_blank">💬</a>
+    <a href="https://wa.me/916304202170" class="whatsapp-float" target="_blank">
+        💬
+    </a>
     <span class="whatsapp-tooltip">Chat on WhatsApp</span>
 </div>
 
-<!-- SCRIPT -->
-<script src="script.js"></script>
 
+<script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

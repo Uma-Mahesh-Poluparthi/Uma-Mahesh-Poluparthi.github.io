@@ -1,39 +1,42 @@
-/* ==========================
-   LOADER FADE-OUT
-========================== */
+/* ======================================================
+   LOADING SCREEN
+====================================================== */
 window.addEventListener("load", () => {
     const loader = document.getElementById("loader");
-    if (loader) {
-        setTimeout(() => {
-            loader.style.opacity = "0";
-            setTimeout(() => (loader.style.display = "none"), 500);
-        }, 300);
-    }
+    setTimeout(() => {
+        loader.style.opacity = 0;
+        setTimeout(() => loader.style.display = "none", 600);
+    }, 400);
 });
 
-/* ==========================
-   STATS COUNTER
-========================== */
+
+/* ======================================================
+   COUNTERS (HERO STATISTICS)
+====================================================== */
 let counters = document.querySelectorAll(".count");
 let counterStarted = false;
 
 function runCounters() {
     if (counterStarted) return;
 
+    let triggerPoint = window.innerHeight * 0.8;
+
     counters.forEach(counter => {
-        let target = +counter.dataset.val;
-        let current = 0;
-        let speed = target / 60;
+        let rect = counter.getBoundingClientRect().top;
+        if (rect < triggerPoint) {
+            let value = +counter.dataset.val;
+            let start = 0;
+            let step = value / 70;
 
-        let interval = setInterval(() => {
-            current += speed;
-            counter.textContent = Math.floor(current);
-
-            if (current >= target) {
-                counter.textContent = target;
-                clearInterval(interval);
-            }
-        }, 30);
+            let interval = setInterval(() => {
+                start += step;
+                counter.textContent = Math.floor(start);
+                if (start >= value) {
+                    counter.textContent = value;
+                    clearInterval(interval);
+                }
+            }, 20);
+        }
     });
 
     counterStarted = true;
@@ -41,124 +44,113 @@ function runCounters() {
 
 window.addEventListener("scroll", runCounters);
 
-/* ==========================
-   LIGHTBOX VIEWER
-========================== */
+
+/* ======================================================
+   LIGHTBOX GALLERY
+====================================================== */
 const lightbox = document.getElementById("lightbox-viewer");
 const lightboxImg = document.getElementById("lightbox-img");
 const closeLightbox = document.getElementById("lightbox-close");
 
 document.querySelectorAll(".lightbox").forEach(img => {
     img.addEventListener("click", () => {
-        if (!lightbox || !lightboxImg) return;
         lightboxImg.src = img.src;
         lightbox.style.display = "flex";
     });
 });
 
-if (closeLightbox) {
-    closeLightbox.addEventListener("click", () => {
-        lightbox.style.display = "none";
-        lightboxImg.src = "";
-    });
-}
+closeLightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+});
 
-/* ==========================
-   PDF VIEWER
-========================== */
+
+/* ======================================================
+   PDF VIEWER (CERTIFICATES)
+====================================================== */
 function openPDF(file) {
-    const viewer = document.getElementById("pdf-viewer");
-    const frame = document.getElementById("pdf-frame");
-    if (viewer && frame) {
-        frame.src = file;
-        viewer.style.display = "flex";
-    }
+    document.getElementById("pdf-viewer").style.display = "flex";
+    document.getElementById("pdf-frame").src = file;
 }
 window.openPDF = openPDF;
 
-const pdfClose = document.getElementById("pdf-close");
-if (pdfClose) {
-    pdfClose.addEventListener("click", () => {
-        document.getElementById("pdf-viewer").style.display = "none";
-        document.getElementById("pdf-frame").src = "";
-    });
-}
+document.getElementById("pdf-close").addEventListener("click", () => {
+    document.getElementById("pdf-viewer").style.display = "none";
+    document.getElementById("pdf-frame").src = "";
+});
 
-/* ==========================
+
+/* ======================================================
    PROJECT ACCORDION
-========================== */
+====================================================== */
 document.querySelectorAll(".project-item").forEach(item => {
     const header = item.querySelector(".project-header");
 
     header.addEventListener("click", () => {
-        document.querySelectorAll(".project-item.active").forEach(openItem => {
-            if (openItem !== item) openItem.classList.remove("active");
-        });
-
+        let openItem = document.querySelector(".project-item.active");
+        if (openItem && openItem !== item) {
+            openItem.classList.remove("active");
+        }
         item.classList.toggle("active");
     });
 });
 
-/* ==========================
-   FEEDBACK POPUP + DELAY REDIRECT
-========================== */
+
+/* ======================================================
+   FEEDBACK POPUP MESSAGE
+====================================================== */
 const feedbackForm = document.getElementById("feedbackForm");
 const popup = document.getElementById("popup");
 
-if (feedbackForm) {
-    feedbackForm.addEventListener("submit", e => {
-        e.preventDefault();
+feedbackForm.addEventListener("submit", () => {
+    popup.classList.add("show");
+    setTimeout(() => popup.classList.remove("show"), 2500);
+});
 
-        if (popup) popup.classList.add("show");
 
-        // Allow popup to show, then submit
-        setTimeout(() => {
-            feedbackForm.submit();
-        }, 1500);
-    });
-}
-
-/* ==========================
-   TYPING EFFECT
-========================== */
+/* ======================================================
+   TYPING ANIMATION
+====================================================== */
 const typingTexts = [
     "Multi-NDT Specialist",
     "PCN Level II Technician",
-    "RTFI | MT | PT | Inspection",
-    "Industrial Quality Control"
+    "Industrial Inspector",
+    "RT • MT • PT • RTFI"
 ];
 
-let tIndex = 0;
-let cIndex = 0;
-const typingElement = document.getElementById("typing");
+let typingIndex = 0;
+let charIndex = 0;
+const typingEl = document.getElementById("typing");
 
 function typingEffect() {
-    if (!typingElement) return;
+    if (!typingEl) return;
 
-    let currentText = typingTexts[tIndex];
-    typingElement.textContent = currentText.substring(0, cIndex);
+    let current = typingTexts[typingIndex];
+    typingEl.textContent = current.substring(0, charIndex);
 
-    if (cIndex < currentText.length) {
-        cIndex++;
+    if (charIndex < current.length) {
+        charIndex++;
     } else {
         setTimeout(() => {
-            cIndex = 0;
-            tIndex = (tIndex + 1) % typingTexts.length;
-        }, 900);
+            charIndex = 0;
+            typingIndex = (typingIndex + 1) % typingTexts.length;
+        }, 1000);
     }
 
-    setTimeout(typingEffect, 110);
+    setTimeout(typingEffect, 80);
 }
+
 typingEffect();
 
-/* ==========================
-   FADE IN ON SCROLL
-========================== */
+
+/* ======================================================
+   FADE-IN SCROLL ANIMATION
+====================================================== */
 const fadeItems = document.querySelectorAll(".fade");
 
 function fadeInOnScroll() {
     fadeItems.forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+        const rect = el.getBoundingClientRect().top;
+        if (rect < window.innerHeight - 50) {
             el.style.animationPlayState = "running";
         }
     });
@@ -167,41 +159,76 @@ function fadeInOnScroll() {
 window.addEventListener("scroll", fadeInOnScroll);
 window.addEventListener("load", fadeInOnScroll);
 
-/* ==========================
+/* ======================================================
    CERTIFICATE CAROUSEL
-========================== */
+====================================================== */
 const certCarousel = document.getElementById("certCarousel");
 const certNext = document.getElementById("certNext");
 const certPrev = document.getElementById("certPrev");
 
-if (certNext) {
-    certNext.addEventListener("click", () => {
-        certCarousel.scrollBy({ left: 220, behavior: "smooth" });
-    });
+certNext.addEventListener("click", () => {
+    certCarousel.scrollBy({ left: 220, behavior: "smooth" });
+});
+
+certPrev.addEventListener("click", () => {
+    certCarousel.scrollBy({ left: -220, behavior: "smooth" });
+});
+
+
+function openCV() {
+    document.querySelector("#cv").scrollIntoView({ behavior: "smooth" });
 }
 
-if (certPrev) {
-    certPrev.addEventListener("click", () => {
-        certCarousel.scrollBy({ left: -220, behavior: "smooth" });
-    });
-}
+/* ==============================
+   STATUS CONTROL
+================================= */
+// Change your status here: "Actively Employed", "Out of Office", "Open to Opportunities"
+let currentStatus = "Open to Opportunities";
 
-/* ==========================
-   HIRE ME → SCROLL TO CONTACT
-========================== */
-function scrollToContact() {
-    const target = document.querySelector("#contact");
-    if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
+function updateStatus() {
+    const dot = document.querySelector(".status-dot");
+    const text = document.getElementById("statusText");
+
+    if (currentStatus === "Actively Employed") {
+        text.textContent = "Actively Employed";
+        dot.style.background = "#4da3ff";
+        dot.style.boxShadow = "0 0 6px #4da3ff";
+    }
+    else if (currentStatus === "Out of Office") {
+        text.textContent = "Out of Office";
+        dot.style.background = "#ffc400";
+        dot.style.boxShadow = "0 0 6px #ffc400";
+    }
+    else if (currentStatus === "Open to Opportunities") {
+        text.textContent = "Open to Opportunities";
+        dot.style.background = "#00ff87";
+        dot.style.boxShadow = "0 0 6px #00ff87";
     }
 }
-window.scrollToContact = scrollToContact;
 
-/* ==========================
-   OPEN CV INLINE VIEW
-========================== */
-function openCV() {
-    const cvSection = document.getElementById("cv");
-    if (cvSection) cvSection.scrollIntoView({ behavior: "smooth" });
+updateStatus();
+
+/* ==============================
+   HIRE ME → Scroll to Contact
+================================= */
+function scrollToContact() {
+    document.querySelector("#contact").scrollIntoView({ 
+        behavior: "smooth" 
+    });
 }
-window.openCV = openCV;
+
+/* ==============================
+   COPY EMAIL with POP UP
+================================= */
+
+function copyEmail() {
+    navigator.clipboard.writeText("umamahe113@gmail.com");
+
+    const popup = document.getElementById("copyPopup");
+    popup.classList.add("show");
+
+    setTimeout(() => {
+        popup.classList.remove("show");
+    }, 2000);  // hide after 2 seconds
+}
+
