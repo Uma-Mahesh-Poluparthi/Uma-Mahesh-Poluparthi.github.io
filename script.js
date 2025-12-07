@@ -147,10 +147,5 @@ document.querySelectorAll("a[href^='#']").forEach(anchor => {
     });
 });
 
-function openMobileMenu() {
-    document.getElementById("mobileMenu").style.transform = "translateX(0)";
-}
 
-function closeMobileMenu() {
-    document.getElementById("mobileMenu").style.transform = "translateX(-100%)";
-}
+
