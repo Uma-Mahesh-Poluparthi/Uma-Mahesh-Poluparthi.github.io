@@ -2,78 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Success | Thank You</title>
-
-    <style>
-        body {
-            background: #0d0d0d;
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        .center-box {
-            max-width: 450px;
-            margin: 140px auto;
-            padding: 40px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 16px;
-            backdrop-filter: blur(12px);
-        }
-
-        h1 {
-            font-size: 30px;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        p {
-            color: #cfcfcf;
-            font-size: 16px;
-            margin-bottom: 25px;
-        }
-
-        a {
-            display: inline-block;
-            padding: 12px 28px;
-            background: #fff;
-            color: #000;
-            border-radius: 8px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        a:hover {
-            background: #e2e2e2;
-        }
-
-        /* Smooth Fade-In Animation */
-        .center-box {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp 1s forwards;
-        }
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <title>Success</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="success-body">
 
-<div class="center-box">
-    <h1>Thank You ✔</h1>
-    <p>Your feedback has been submitted successfully.</p>
-    <a href="index.html">Back to Website</a>
-</div>
+    <div class="success-box glass">
+        <h1>✔ Feedback Submitted Successfully!</h1>
+        <p>Thank you for sharing your feedback.</p>
+
+        <a href="index.html" class="btn">Back to Portfolio</a>
+    </div>
 
 </body>
 </html>
