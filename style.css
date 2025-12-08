@@ -90,7 +90,24 @@ h2 {
     top: 0;
     padding: 25px;
     backdrop-filter: blur(6px);
+
+    overflow-y: auto;    /* allows scrolling */
+    overflow-x: hidden;  /* prevents horizontal scrolling */
 }
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(0,255,150,0.35);
+    border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
 
 .logo {
     font-size: 38px;
@@ -539,4 +556,5 @@ h2 {
     .contact-options { flex-direction: column; }
     .section { padding: 25px 18px; }
 }
+
 
