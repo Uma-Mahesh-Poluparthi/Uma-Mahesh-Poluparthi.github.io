@@ -423,25 +423,5 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
-/* ============================================================
-   REAL-TIME VISITOR COUNTER
-============================================================ */
-
-const COUNTER_API = "https://api.countapi.xyz/hit/umamahesh-portfolio.com/visits";
-
-async function loadVisitorCount() {
-    try {
-        const response = await fetch(COUNTER_API);
-        const data = await response.json();
-        document.getElementById("visitorCount").textContent = data.value;
-    }
-    catch (err) {
-        document.getElementById("visitorCount").textContent = "Error";
-        console.error(err);
-    }
-}
-
-loadVisitorCount();
-
 
 
