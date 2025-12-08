@@ -301,21 +301,34 @@ h2 {
 
 
 /* ARROWS */
+/* Force arrows to stay visible */
 .cert-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999 !important;
     background: white;
-    padding: 12px 18px;
-    font-size: 22px;
-    border-radius: 12px;
-    border: none;
+    padding: 14px 18px;
+    border-radius: 14px;
     cursor: pointer;
+    font-size: 22px;
     transition: 0.25s ease;
-    z-index: 50 !important;      /* keep above cards */
-    position: relative;
 }
 
+/* Left Arrow */
+.cert-arrow.left {
+    left: 25px;   /* distance from left */
+}
+
+/* Right Arrow */
+.cert-arrow.right {
+    right: 25px;  /* distance from right */
+}
+
+/* Hover effect */
 .cert-arrow:hover {
     background: var(--accent);
-    color: #111;
+    color: black;
 }
 
 /* PROGRESS BAR */
@@ -769,6 +782,7 @@ body {
 body.fade-in {
     opacity: 1;
 }
+
 
 
 
