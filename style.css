@@ -239,39 +239,31 @@ h2 {
 }
 
 /* ============================================================
-   CERTIFICATION AUTO SLIDER (UPGRADED)
+   CERTIFICATION SLIDER — CLEAN, FIXED VERSION
 ============================================================ */
+
 .cert-container {
     background: rgba(0,255,180,0.05);
     border: 1px solid rgba(0,255,180,0.15);
     border-radius: 22px;
-    padding: 55px 65px 90px;     /* extra bottom padding for glow */
+    padding: 70px 60px 90px;
     position: relative;
-    overflow: hidden;            /* KEEP STRUCTURE INTACT */
+    overflow: hidden; /* ensures cards never escape */
 }
 
-.cert-carousel-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-   position: relative;
-    z-index: 10;
-}
-
+/* SLIDER TRACK */
 #certCarousel {
     display: flex;
     gap: 25px;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
-    padding: 5px 0;
     scrollbar-width: none;
+    padding-bottom: 10px;
 }
-#certCarousel::-webkit-scrollbar {
-    display: none;
-}
+#certCarousel::-webkit-scrollbar { display: none; }
 
-
+/* CARD DESIGN */
 .cert-card {
     min-width: 320px;
     min-height: 130px;
@@ -281,38 +273,37 @@ h2 {
     border: 1px solid rgba(0,255,180,0.2);
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
+    scroll-snap-align: start;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
-    transform-origin: center center;
 }
 
 .cert-card:hover {
-    transform: scale(1.015);   /* LIMITED SCALE — FIXES BREAK */
-    box-shadow: 0 0 25px rgba(0,255,180,0.35);
+    transform: scale(1.02); /* safe hover scale */
+    box-shadow: 0 0 30px rgba(0,255,180,0.35);
 }
 
-/* ARROWS */
-/* Force arrows to stay visible */
+/* FIXED ARROW POSITIONING */
 .cert-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10;
+    z-index: 20;
+    padding: 12px 16px;
+    font-size: 22px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    background: white;
+    transition: 0.2s ease;
 }
 
-.cert-arrow.left {
-    left: 20px;
-}
+.cert-arrow.left { left: 20px; }
+.cert-arrow.right { right: 20px; }
 
-.cert-arrow.right {
-    right: 20px;
-}
-
-
-/* Hover effect */
 .cert-arrow:hover {
     background: var(--accent);
-    color: black;
+    color: #000;
 }
 
 /* PROGRESS BAR */
@@ -340,19 +331,6 @@ h2 {
 @keyframes certProgress {
     from { width: 0%; }
     to { width: 100%; }
-}
-
-/* Light Mode Support */
-body.light-mode .cert-card {
-    background: rgba(255,255,255,0.7);
-    border-color: rgba(0,0,0,0.2);
-}
-body.light-mode .cert-arrow {
-    background: #eee;
-    color: #111;
-}
-body.light-mode .cert-progress {
-    background: rgba(0,0,0,0.15);
 }
 
 /* ============================================================
@@ -766,6 +744,7 @@ body {
 body.fade-in {
     opacity: 1;
 }
+
 
 
 
