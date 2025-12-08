@@ -245,13 +245,10 @@ h2 {
     background: rgba(0,255,180,0.05);
     border: 1px solid rgba(0,255,180,0.15);
     border-radius: 22px;
-    padding: 50px 50px 80px; /* more bottom space */
+    padding: 55px 65px 90px;     /* extra bottom padding for glow */
     position: relative;
-
-    overflow: visible !important;   /* THIS FIXES CUT-OFF */
-    min-height: 280px !important;   /* increase height */
+    overflow: hidden;            /* KEEP STRUCTURE INTACT */
 }
-
 
 .cert-carousel-wrapper {
     display: flex;
@@ -264,41 +261,35 @@ h2 {
 #certCarousel {
     display: flex;
     gap: 25px;
-    overflow-x: visible !important;   /* was auto → caused clipping */
-    overflow-y: visible !important;
-    scroll-behavior: smooth;
+    overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
-    padding-bottom: 10px;
+    padding: 5px 0;
+    scrollbar-width: none;
 }
-
 #certCarousel::-webkit-scrollbar {
     display: none;
 }
 
+
 .cert-card {
-    min-width: 340px;        /* bigger width */
-    min-height: 140px;       /* bigger height */
-    padding: 32px 28px;      /* more padding */
-    border-radius: 22px;
-    background: rgba(0,255,180,0.06);
-    border: 1px solid rgba(0,255,180,0.22);
-    text-align: left;        /* better alignment */
-    font-size: 16px;         /* larger text */
+    min-width: 320px;
+    min-height: 130px;
+    padding: 28px;
+    border-radius: 20px;
+    background: rgba(0,255,180,0.05);
+    border: 1px solid rgba(0,255,180,0.2);
     display: flex;
-    align-items: center;     /* center vertically */
-    gap: 14px;               /* spacing for icon/text */
-    cursor: pointer;
-    transition: 0.3s ease;
-    box-shadow: 0 0 25px rgba(0,255,180,0.18);
+    align-items: center;
+    gap: 14px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transform-origin: center center;
 }
 
 .cert-card:hover {
-    transform: translateY(-5px) scale(1.03);  
-    border-color: var(--accent);
-    box-shadow: 0 0 35px rgba(0,255,180,0.45);
+    transform: scale(1.015);   /* LIMITED SCALE — FIXES BREAK */
+    box-shadow: 0 0 25px rgba(0,255,180,0.35);
 }
-
-
 
 /* ARROWS */
 /* Force arrows to stay visible */
@@ -306,24 +297,17 @@ h2 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 999 !important;
-    background: white;
-    padding: 14px 18px;
-    border-radius: 14px;
-    cursor: pointer;
-    font-size: 22px;
-    transition: 0.25s ease;
+    z-index: 10;
 }
 
-/* Left Arrow */
 .cert-arrow.left {
-    left: 25px;   /* distance from left */
+    left: 20px;
 }
 
-/* Right Arrow */
 .cert-arrow.right {
-    right: 25px;  /* distance from right */
+    right: 20px;
 }
+
 
 /* Hover effect */
 .cert-arrow:hover {
@@ -782,6 +766,7 @@ body {
 body.fade-in {
     opacity: 1;
 }
+
 
 
 
