@@ -423,5 +423,10 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
+function slideCerts(direction) {
+    const slider = document.getElementById("certCarousel");
+    slider.scrollBy({ left: 350 * direction, behavior: "smooth" });
+}
+
 
 
