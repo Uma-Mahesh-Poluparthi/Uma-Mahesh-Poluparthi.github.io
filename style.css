@@ -245,10 +245,13 @@ h2 {
     background: rgba(0,255,180,0.05);
     border: 1px solid rgba(0,255,180,0.15);
     border-radius: 22px;
-    padding: 45px;
+    padding: 50px 50px 80px; /* more bottom space */
     position: relative;
-    overflow: hidden;
+
+    overflow: visible !important;   /* THIS FIXES CUT-OFF */
+    min-height: 280px !important;   /* increase height */
 }
+
 
 .cert-carousel-wrapper {
     display: flex;
@@ -259,12 +262,13 @@ h2 {
 #certCarousel {
     display: flex;
     gap: 25px;
-    overflow-x: auto;
+    overflow-x: visible !important;   /* was auto → caused clipping */
+    overflow-y: visible !important;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     padding-bottom: 10px;
-    scrollbar-width: none;
 }
+
 #certCarousel::-webkit-scrollbar {
     display: none;
 }
@@ -277,7 +281,7 @@ h2 {
     background: rgba(0,255,180,0.06);
     border: 1px solid rgba(0,255,180,0.22);
     text-align: left;        /* better alignment */
-    font-size: 20px;         /* larger text */
+    font-size: 16px;         /* larger text */
     display: flex;
     align-items: center;     /* center vertically */
     gap: 14px;               /* spacing for icon/text */
@@ -287,10 +291,11 @@ h2 {
 }
 
 .cert-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px) scale(1.03);  
     border-color: var(--accent);
-    box-shadow: 0 0 35px rgba(0,255,180,0.35);
+    box-shadow: 0 0 35px rgba(0,255,180,0.45);
 }
+
 
 
 /* ARROWS */
@@ -760,6 +765,7 @@ body {
 body.fade-in {
     opacity: 1;
 }
+
 
 
 
