@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+        /* Fix: Force page visible even without JS */
         body {
+            opacity: 1 !important; 
             background: #0c0c0c;
             display: flex;
             justify-content: center;
@@ -36,7 +38,7 @@
         }
 
         .success-box h1 {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-size: 26px;
         }
 
@@ -45,16 +47,37 @@
             color: #cccccc;
             font-size: 16px;
         }
+
+        .btn {
+            padding: 12px 26px;
+            border-radius: 14px;
+            border: 1px solid #00ffb3;
+            background: rgba(0,255,180,0.15);
+            color: white;
+            font-size: 15px;
+            text-decoration: none;
+            transition: 0.22s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #00ffb3;
+            color: #111;
+            box-shadow: 0 0 16px rgba(0,255,180,0.4);
+        }
     </style>
 </head>
 
-<body>
+<!-- Fix: Add fade-in class to remove blank screen issue -->
+<body class="fade-in">
+
     <div class="success-box glass">
         <div class="success-icon">✔</div>
         <h1>Feedback Submitted Successfully</h1>
-        <p>Thank you for your time and feedback. It really helps me improve.</p>
+        <p>Thank you for your feedback. I appreciate your time!</p>
 
         <a href="index.html" class="btn">Back to Portfolio</a>
     </div>
+
 </body>
 </html>
