@@ -522,3 +522,21 @@ h2 {
     }
 }
 
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+    .profile-glow { width: 150px; height: 150px; }
+    .hero-buttons { flex-direction: column; gap: 12px; }
+    .contact-options { flex-direction: column; }
+    .section { padding: 25px 18px; }
+}
+
