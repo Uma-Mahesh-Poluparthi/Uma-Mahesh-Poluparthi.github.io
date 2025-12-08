@@ -427,31 +427,21 @@ document.addEventListener("keydown", (e) => {
    REAL-TIME VISITOR COUNTER
 ============================================================ */
 
-// You MUST replace this with your own private endpoint I'll provide
-const COUNTER_API = "https://api.npoint.io/86b5acfc56f45920e692";
+const COUNTER_API = "https://api.countapi.xyz/hit/umamahesh-portfolio.com/visits";
 
 async function loadVisitorCount() {
     try {
-        // Get current count
-        let response = await fetch(COUNTER_API);
-        let data = await response.json();
-
-        // Update count locally + UI
-        data.visits++;
-        document.getElementById("visitorCount").textContent = data.visits;
-
-        // Save updated count back to server
-        await fetch(COUNTER_API, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        });
-
-    } catch (e) {
+        const response = await fetch(COUNTER_API);
+        const data = await response.json();
+        document.getElementById("visitorCount").textContent = data.value;
+    }
+    catch (err) {
         document.getElementById("visitorCount").textContent = "Error";
-        console.error("Visitor counter failed:", e);
+        console.error(err);
     }
 }
 
 loadVisitorCount();
+
+
 
