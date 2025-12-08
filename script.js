@@ -158,3 +158,19 @@ document.querySelectorAll("a[href^='#']").forEach(anchor => {
         });
     });
 });
+
+/* Scroll Reveal Animation */
+const revealElements = document.querySelectorAll('.section');
+
+function reveal() {
+  revealElements.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', reveal);
+window.addEventListener('load', reveal);
+
