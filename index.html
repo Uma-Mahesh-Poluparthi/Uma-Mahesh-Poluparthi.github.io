@@ -113,31 +113,33 @@
     </section>
 
 
-    <!-- ==================== CERTIFICATIONS (AUTO SLIDER) ==================== -->
-    <section id="certifications" class="section glass fade-in">
-        <h2>Certifications</h2>
+  <!-- ==================== CERTIFICATIONS (AUTO SLIDER) ==================== -->
+<section id="certifications" class="section glass fade-in">
+    <h2>Certifications</h2>
 
-        <div class="cert-container">
-            <div class="cert-carousel-wrapper">
-               <button class="cert-arrow left" onclick="scrollCert(-1)">❮</button>
+    <div class="cert-container">
 
-                <div id="certCarousel">
-                    <div class="cert-card" onclick="openPDF('assets/certificates/rtfi.pdf')">📄 RTFI Certificate</div>
-                    <div class="cert-card" onclick="openPDF('assets/certificates/cs.pdf')">📄 CS Certificate</div>
-                    <div class="cert-card" onclick="openPDF('assets/certificates/csoc.pdf')">📄 CSOC Certificate</div>
-                    <div class="cert-card" onclick="openPDF('assets/certificates/opsoc.pdf')">📄 OPSOC Certificate</div>
-                    <div class="cert-card" onclick="openPDF('assets/certificates/pt.pdf')">📄 PT Certificate</div>
-                    <div class="cert-card" onclick="openPDF('assets/certificates/mt.pdf')">📄 MT Certificate</div>
-                    <div class="cert-card" onclick="openPDF('assets/certificates/wah.pdf')">📄 WAH Certificate</div>
-                </div>
+        <!-- LEFT ARROW (always visible) -->
+        <button class="cert-arrow left" onclick="scrollCert(-1)">❮</button>
 
-                <button class="cert-arrow right" onclick="scrollCert(1)">❯</button>
-            </div>
-
-            <!-- Auto-slider indicator -->
-            <div class="cert-progress"></div>
+        <!-- SLIDER TRACK -->
+        <div id="certCarousel">
+            <div class="cert-card" onclick="openPDF('assets/certificates/rtfi.pdf')">📄 RTFI Certificate</div>
+            <div class="cert-card" onclick="openPDF('assets/certificates/cs.pdf')">📄 CS Certificate</div>
+            <div class="cert-card" onclick="openPDF('assets/certificates/csoc.pdf')">📄 CSOC Certificate</div>
+            <div class="cert-card" onclick="openPDF('assets/certificates/opsoc.pdf')">📄 OPSOC Certificate</div>
+            <div class="cert-card" onclick="openPDF('assets/certificates/pt.pdf')">📄 PT Certificate</div>
+            <div class="cert-card" onclick="openPDF('assets/certificates/mt.pdf')">📄 MT Certificate</div>
+            <div class="cert-card" onclick="openPDF('assets/certificates/wah.pdf')">📄 WAH Certificate</div>
         </div>
-    </section>
+
+        <!-- RIGHT ARROW -->
+        <button class="cert-arrow right" onclick="scrollCert(1)">❯</button>
+
+        <!-- Auto-slider indicator -->
+        <div class="cert-progress"></div>
+    </div>
+</section>
 
 
     <!-- ==================== EXPERIENCE ==================== -->
@@ -246,5 +248,6 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
