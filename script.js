@@ -395,3 +395,8 @@ function generateResume() {
         Want the AI to rewrite your resume completely?
     `);
 }
+
+window.addEventListener("load", () => {
+    const home = document.getElementById("home");
+    home.scrollIntoView({ behavior: "smooth" });
+});
