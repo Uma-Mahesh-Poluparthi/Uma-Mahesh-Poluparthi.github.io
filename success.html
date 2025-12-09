@@ -2,79 +2,95 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Feedback Submitted</title>
+    <title>Feedback Submitted • Thank You</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Main CSS -->
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Fix: Force page visible even without JS */
+        /* Prevent fade-in bug */
         body {
-            opacity: 1 !important; 
+            opacity: 1 !important;
             background: #0c0c0c;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            padding: 0;
-            margin: 0;
-            color: #ffffff;
         }
 
         .success-box {
+            width: 90%;
             max-width: 480px;
+            padding: 40px 32px;
             text-align: center;
-            padding: 40px 30px;
-            border-radius: 22px;
-            background: rgba(255,255,255,0.04);
+            border-radius: 24px;
+            background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 25px rgba(0,255,180,0.16);
+            box-shadow: 0 0 25px rgba(0,255,180,0.25);
+            backdrop-filter: blur(16px);
+            animation: popIn 0.8s ease forwards;
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .success-icon {
-            font-size: 64px;
+            font-size: 70px;
             color: #00ffb3;
-            margin-bottom: 14px;
-            text-shadow: 0 0 15px rgba(0,255,180,0.6);
+            margin-bottom: 16px;
+            text-shadow: 0 0 20px rgba(0,255,180,0.6);
         }
 
         .success-box h1 {
+            font-size: 28px;
             margin-bottom: 12px;
-            font-size: 26px;
+            background: linear-gradient(90deg, #00ffb3, #ffffff);
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
         .success-box p {
-            margin-bottom: 26px;
-            color: #cccccc;
             font-size: 16px;
+            color: #dcdcdc;
+            line-height: 1.5;
+            margin-bottom: 26px;
         }
 
         .btn {
             padding: 12px 26px;
-            border-radius: 14px;
+            border-radius: 16px;
             border: 1px solid #00ffb3;
-            background: rgba(0,255,180,0.15);
+            background: rgba(0,255,180,0.18);
             color: white;
-            font-size: 15px;
             text-decoration: none;
-            transition: 0.22s ease;
-            cursor: pointer;
+            font-size: 15px;
+            transition: 0.25s ease;
         }
 
         .btn:hover {
             background: #00ffb3;
             color: #111;
-            box-shadow: 0 0 16px rgba(0,255,180,0.4);
+            box-shadow: 0 0 20px rgba(0,255,180,0.45);
         }
     </style>
 </head>
 
-<!-- Fix: Add fade-in class to remove blank screen issue -->
-<body class="fade-in">
+<body>
 
     <div class="success-box glass">
         <div class="success-icon">✔</div>
-        <h1>Feedback Submitted Successfully</h1>
-        <p>Thank you for your feedback. I appreciate your time!</p>
+
+        <h1>Feedback Sent Successfully</h1>
+
+        <p>
+            Thank you for sharing your feedback!  
+            Your message has been delivered — I truly appreciate your time.
+        </p>
 
         <a href="index.html" class="btn">Back to Portfolio</a>
     </div>

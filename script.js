@@ -1,49 +1,52 @@
 /* ============================================================
-   PAGE TRANSITION — FADE IN EFFECT
+   PAGE LOAD + FADE-IN + THEME RESTORE
 ============================================================ */
 window.addEventListener("load", () => {
     document.body.classList.add("fade-in");
-    applySavedTheme(); // ensure theme & icon correct on load
+    applySavedTheme();
+
+    setTimeout(() => {
+        const loader = document.getElementById("loader");
+        if (loader) loader.style.display = "none";
+    }, 1200);
+
+    typeEffect();
+    revealSections();
 });
 
+
 /* ============================================================
-   NAVBAR MOBILE TOGGLE
+   MOBILE NAVBAR
 ============================================================ */
 function toggleNav() {
     document.getElementById("navMenu").classList.toggle("show");
 }
 
+
 /* ============================================================
-   THEME SYSTEM (LIGHT / DARK MODE)
+   THEME TOGGLE SYSTEM
 ============================================================ */
 function applySavedTheme() {
     const saved = localStorage.getItem("theme");
     const toggleBtn = document.querySelector(".theme-toggle");
 
-    if (!toggleBtn) return;
-
     if (saved === "light") {
         document.body.classList.add("light-mode");
         toggleBtn.textContent = "☀️";
     } else {
-        document.body.classList.remove("light-mode");
         toggleBtn.textContent = "🌙";
     }
 }
 
 function toggleTheme() {
-    const toggleBtn = document.querySelector(".theme-toggle");
-    if (!toggleBtn) return;
-
-    document.body.classList.toggle("light-mode");
-    const isLight = document.body.classList.contains("light-mode");
-
-    toggleBtn.textContent = isLight ? "☀️" : "🌙";
+    const isLight = document.body.classList.toggle("light-mode");
+    document.querySelector(".theme-toggle").textContent = isLight ? "☀️" : "🌙";
     localStorage.setItem("theme", isLight ? "light" : "dark");
 }
 
+
 /* ============================================================
-   ACTIVE NAV HIGHLIGHT ON SCROLL
+   NAVBAR ACTIVE LINK HIGHLIGHT
 ============================================================ */
 const navLinks = document.querySelectorAll(".nav-links a");
 const sections = document.querySelectorAll("section");
@@ -52,8 +55,8 @@ window.addEventListener("scroll", () => {
     let current = "";
 
     sections.forEach(sec => {
-        const secTop = sec.offsetTop;
-        if (scrollY >= secTop - 120) current = sec.id;
+        const top = sec.offsetTop - 160;
+        if (scrollY >= top) current = sec.id;
     });
 
     navLinks.forEach(a => {
@@ -62,301 +65,85 @@ window.addEventListener("scroll", () => {
             a.classList.add("active");
         }
     });
+
+    revealSections();
 });
 
-/* ============================================================
-   CERTIFICATE CAROUSEL
-============================================================ */
-function slideCerts(direction) {
-    const slider = document.getElementById("certCarousel");
-    if (!slider) return;
 
-    slider.scrollBy({
-        left: direction * 350,
-        behavior: "smooth"
+/* ============================================================
+   SCROLL REVEAL ANIMATION
+============================================================ */
+function revealSections() {
+    document.querySelectorAll(".section").forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < window.innerHeight - 120) sec.classList.add("visible");
     });
 }
 
-/* ============================================================
-   PDF VIEWER
-============================================================ */
-function openPDF(path) {
-    const overlay = document.getElementById("pdfOverlay");
-    const frame = document.getElementById("pdfFrame");
-    if (!overlay || !frame) return;
-
-    overlay.style.display = "flex";
-    frame.src = path;
-}
-
-function closePDF() {
-    const overlay = document.getElementById("pdfOverlay");
-    const frame = document.getElementById("pdfFrame");
-    if (!overlay || !frame) return;
-
-    overlay.style.display = "none";
-    frame.src = "";
-}
-
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-        closePDF();
-        closeProject();
-        closeZoom();
-    }
-});
 
 /* ============================================================
-   FEEDBACK SUBMISSION MESSAGE
+   TYPING EFFECT (Upgraded)
 ============================================================ */
-function feedbackSubmit(event) {
-    event.preventDefault();
-
-    const msg = document.getElementById("feedbackMsg");
-    if (msg) {
-        msg.classList.add("show");
-    }
-
-    // Minimal delay, feels snappy
-    setTimeout(() => {
-        if (msg) msg.classList.remove("show");
-        event.target.submit();
-    }, 800);
-}
-
-/* ============================================================
-   TYPING ANIMATION
-============================================================ */
-const typingText = [
+const typingTexts = [
     "Multi-NDT Technician",
-    "RTFI Level II",
-    "MT Level II",
-    "PT Level II",
-    "Quality Inspection Specialist"
+    "RTFI Level II Specialist",
+    "MT & PT Level II Technician",
+    "Industrial Inspection Expert",
+    "Quality & Safety Focused"
 ];
 
-let tIndex = 0;
-let cIndex = 0;
-let isDeleting = false;
+let tIndex = 0, cIndex = 0, deleting = false;
 
 function typeEffect() {
     const el = document.getElementById("typing");
-    if (!el) return;
+    const text = typingTexts[tIndex];
 
-    const text = typingText[tIndex];
-
-    if (!isDeleting) {
+    if (!deleting) {
         el.textContent = text.substring(0, cIndex++);
         if (cIndex > text.length) {
-            isDeleting = true;
-            setTimeout(typeEffect, 1100);
+            deleting = true;
+            setTimeout(typeEffect, 900);
             return;
         }
     } else {
         el.textContent = text.substring(0, cIndex--);
         if (cIndex < 0) {
-            isDeleting = false;
-            tIndex = (tIndex + 1) % typingText.length;
+            deleting = false;
+            tIndex = (tIndex + 1) % typingTexts.length;
         }
     }
 
-    setTimeout(typeEffect, isDeleting ? 60 : 90);
+    setTimeout(typeEffect, deleting ? 55 : 85);
 }
 
-window.addEventListener("load", typeEffect);
 
 /* ============================================================
-   SCROLL REVEAL ANIMATIONS
+   CERTIFICATION SLIDER + AUTOSCROLL
 ============================================================ */
-const revealSections = document.querySelectorAll(".section");
-
-function reveal() {
-    revealSections.forEach(sec => {
-        const top = sec.getBoundingClientRect().top;
-        if (top < window.innerHeight - 80) {
-            sec.classList.add("visible");
-        }
-    });
+function slideCerts(dir) {
+    const slider = document.getElementById("certCarousel");
+    slider.scrollBy({ left: dir * 350, behavior: "smooth" });
 }
 
-window.addEventListener("scroll", reveal);
-window.addEventListener("load", reveal);
-
-/* ============================================================
-   HORIZONTAL SCROLL FOR GALLERY
-============================================================ */
-const galleryScroll = document.querySelector(".gallery-scroll");
-if (galleryScroll) {
-    galleryScroll.addEventListener("wheel", (evt) => {
-        evt.preventDefault();
-        galleryScroll.scrollLeft += evt.deltaY * 1.2;
-    }, { passive: false });
-}
-
-/* ============================================================
-   AUTO-SCROLL CERTIFICATION SLIDER
-============================================================ */
-let certInterval;
+let autoCert;
 const certCarousel = document.getElementById("certCarousel");
 
 function autoSlideCerts() {
-    if (!certCarousel) return;
-
-    certInterval = setInterval(() => {
+    autoCert = setInterval(() => {
         certCarousel.scrollBy({ left: 300, behavior: "smooth" });
 
         if (certCarousel.scrollLeft + certCarousel.clientWidth >= certCarousel.scrollWidth - 5) {
             certCarousel.scrollTo({ left: 0, behavior: "smooth" });
         }
-    }, 7000); // 7 seconds
+    }, 7000);
 }
 
 if (certCarousel) {
     autoSlideCerts();
-
-    certCarousel.addEventListener("mouseenter", () => clearInterval(certInterval));
+    certCarousel.addEventListener("mouseenter", () => clearInterval(autoCert));
     certCarousel.addEventListener("mouseleave", autoSlideCerts);
 }
 
-/* ============================================================
-   ADVANCED HERO INTERACTION (SUBTLE TILT)
-============================================================ */
-const heroImgContainer = document.querySelector(".profile-glow");
-
-document.addEventListener("mousemove", (e) => {
-    if (!heroImgContainer) return;
-
-    const x = (window.innerWidth / 2 - e.clientX) / 60;
-    const y = (window.innerHeight / 2 - e.clientY) / 60;
-
-    heroImgContainer.style.transform = `translateY(0px) rotateY(${x}deg) rotateX(${y}deg)`;
-});
-
-document.addEventListener("mouseleave", () => {
-    if (heroImgContainer) {
-        heroImgContainer.style.transform = "translateY(0px) rotateY(0deg) rotateX(0deg)";
-    }
-});
-
-/* ============================================================
-   FULLSCREEN IMAGE ZOOM VIEWER
-============================================================ */
-const zoomOverlay = document.getElementById("imageZoom");
-const zoomImage = document.getElementById("zoomImage");
-
-if (zoomOverlay && zoomImage) {
-    document.querySelectorAll(".zoomable").forEach(img => {
-        img.addEventListener("click", () => {
-            zoomImage.src = img.src;
-            zoomOverlay.style.display = "flex";
-        });
-    });
-
-    zoomOverlay.addEventListener("click", (e) => {
-        if (e.target.id === "imageZoom") closeZoom();
-    });
-
-    zoomOverlay.addEventListener("touchend", () => {
-        zoomImage.style.transform = "scale(1)";
-    });
-}
-
-function closeZoom() {
-    if (!zoomOverlay || !zoomImage) return;
-    zoomOverlay.style.display = "none";
-    zoomImage.src = "";
-}
-
-/* ============================================================
-   NEON PARTICLES BACKGROUND ENGINE (LIGHTER)
-============================================================ */
-const canvas = document.getElementById("particleCanvas");
-let ctx = null;
-if (canvas) {
-    ctx = canvas.getContext("2d");
-}
-
-let particles = [];
-
-function resizeCanvas() {
-    if (!canvas) return;
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener("resize", () => {
-    resizeCanvas();
-    initParticles();
-});
-
-class Particle {
-    constructor() {
-        this.reset();
-    }
-
-    reset() {
-        if (!canvas) return;
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
-        this.glow = Math.random() * 10 + 6;
-    }
-
-    update() {
-        if (!canvas) return;
-
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.x < 0 || this.x > canvas.width ||
-            this.y < 0 || this.y > canvas.height) {
-            this.reset();
-        }
-    }
-
-    draw() {
-        if (!ctx) return;
-
-        ctx.beginPath();
-        ctx.fillStyle = "rgba(0,255,180,0.78)";
-        ctx.shadowBlur = this.glow;
-        ctx.shadowColor = "#00ffb3";
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
-}
-
-function initParticles() {
-    if (!canvas) return;
-
-    particles = [];
-    // Reduced density for minimal / better performance
-    const count = Math.floor((canvas.width * canvas.height) / 16000);
-
-    for (let i = 0; i < count; i++) {
-        particles.push(new Particle());
-    }
-}
-
-function animateParticles() {
-    if (!canvas || !ctx) return;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    particles.forEach(p => {
-        p.update();
-        p.draw();
-    });
-
-    requestAnimationFrame(animateParticles);
-}
-
-if (canvas) {
-    initParticles();
-    animateParticles();
-}
 
 /* ============================================================
    PROJECT MODAL SYSTEM
@@ -365,59 +152,246 @@ const projectData = {
     1: {
         title: "Pressure Vessel Radiographic Inspection",
         description: `
-            Performed complete RT inspection of weld joints on industrial pressure vessels.
-            Responsibilities:
-            • Film interpretation (RTFI Level II)
-            • Identification of internal discontinuities
-            • Preparing inspection reports
-            • Client communication & safety compliance
+            • Conducted full RT inspection on vessel weld joints.<br>
+            • Evaluated radiographs & located defects.<br>
+            • Ensured ASME compliance.<br>
+            • Delivered high-accuracy defect reporting.
         `
     },
     2: {
-        title: "MT & PT Surface Crack Inspection",
+        title: "MT & PT Surface Crack Detection",
         description: `
-            Executed MT and PT inspections on structural components.
-            • Surface crack detection
-            • Indication classification
-            • Written reports and documentation
-            • Work performed in live industrial sites
+            • Surface crack testing on industrial components.<br>
+            • MT & PT Level II evaluation and reporting.<br>
+            • Worked in active industrial environments.<br>
+            • Classified defect indications accurately.
         `
     },
     3: {
         title: "Structural Steel Radiographic Testing",
         description: `
-            Performed radiographic testing on multi-story steel structures.
-            • RT exposure setup
-            • Film development & evaluation
-            • Reporting weld acceptance as per ASME standards
+            • RT testing for steel fabrication structures.<br>
+            • Film exposure setup and RTFI evaluation.<br>
+            • Delivered weld quality acceptance reports.
         `
     }
 };
 
 function openProject(id) {
-    const modal = document.getElementById("projectModal");
-    const title = document.getElementById("projectTitle");
-    const desc = document.getElementById("projectDescription");
-
-    if (!modal || !title || !desc || !projectData[id]) return;
-
-    title.textContent = projectData[id].title;
-    desc.innerHTML = projectData[id].description.replace(/\n/g, "<br>");
-
-    modal.style.display = "flex";
+    document.getElementById("projectTitle").textContent = projectData[id].title;
+    document.getElementById("projectDescription").innerHTML = projectData[id].description;
+    document.getElementById("projectModal").style.display = "flex";
 }
 
 function closeProject() {
-    const modal = document.getElementById("projectModal");
-    if (!modal) return;
-    modal.style.display = "none";
+    document.getElementById("projectModal").style.display = "none";
 }
 
-const projectModal = document.getElementById("projectModal");
-if (projectModal) {
-    projectModal.addEventListener("click", (e) => {
-        if (e.target.id === "projectModal") {
-            closeProject();
-        }
+
+/* ============================================================
+   PDF VIEWER OVERLAY
+============================================================ */
+function openPDF(path) {
+    document.getElementById("pdfOverlay").style.display = "flex";
+    document.getElementById("pdfFrame").src = path;
+}
+
+function closePDF() {
+    document.getElementById("pdfOverlay").style.display = "none";
+    document.getElementById("pdfFrame").src = "";
+}
+
+
+/* ============================================================
+   IMAGE ZOOM VIEWER
+============================================================ */
+const zoomOverlay = document.getElementById("imageZoom");
+const zoomImage = document.getElementById("zoomImage");
+
+document.querySelectorAll(".zoomable").forEach(img => {
+    img.addEventListener("click", () => {
+        zoomImage.src = img.src;
+        zoomOverlay.style.display = "flex";
     });
+});
+
+function closeZoom() {
+    zoomOverlay.style.display = "none";
+    zoomImage.src = "";
+}
+
+
+/* ============================================================
+   FEEDBACK MESSAGE
+============================================================ */
+function feedbackSubmit(e) {
+    e.preventDefault();
+
+    const msg = document.getElementById("feedbackMsg");
+    msg.classList.add("show");
+
+    setTimeout(() => {
+        msg.classList.remove("show");
+        e.target.submit();
+    }, 900);
+}
+
+
+/* ============================================================
+   PARTICLE BACKGROUND (Optimized)
+============================================================ */
+const canvas = document.getElementById("particleCanvas");
+let ctx = canvas?.getContext("2d");
+let particles = [];
+
+function resizeCanvas() {
+    if (!canvas) return;
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+}
+
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+class Particle {
+    constructor() { this.reset(); }
+
+    reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.4;
+        this.speedY = (Math.random() - 0.5) * 0.4;
+    }
+
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+            this.reset();
+        }
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.fillStyle = "rgba(0,255,180,0.75)";
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = "#00ffb3";
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+function initParticles() {
+    particles = [];
+    const count = Math.floor((canvas.width * canvas.height) / 16000);
+
+    for (let i = 0; i < count; i++) particles.push(new Particle());
+}
+
+function animateParticles() {
+    if (!canvas || !ctx) return;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => { p.update(); p.draw(); });
+
+    requestAnimationFrame(animateParticles);
+}
+
+initParticles();
+animateParticles();
+
+
+/* ============================================================
+   ESC KEY CLOSES ALL MODALS
+============================================================ */
+document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+        closeZoom();
+        closePDF();
+        closeProject();
+        closeChatbot();
+    }
+});
+
+
+/* ============================================================
+   AI CHATBOT ENGINE (Local)
+============================================================ */
+let chatOpen = false;
+
+function toggleChatbot() {
+    const win = document.getElementById("chatWindow");
+    chatOpen = !chatOpen;
+    win.style.display = chatOpen ? "flex" : "none";
+
+    if (chatOpen) {
+        addBot("Hello! I'm your AI assistant. Ask me anything about Uma Mahesh — skills, certifications, experience, projects, CV, or contact info.");
+    }
+}
+
+function closeChatbot() {
+    document.getElementById("chatWindow").style.display = "none";
+    chatOpen = false;
+}
+
+function addUser(msg) {
+    const box = document.getElementById("chatBody");
+    box.innerHTML += `<div class="chat-msg user-msg">${msg}</div>`;
+    box.scrollTop = box.scrollHeight;
+}
+
+function addBot(msg) {
+    const box = document.getElementById("chatBody");
+    box.innerHTML += `<div class="chat-msg bot-msg">${msg}</div>`;
+    box.scrollTop = box.scrollHeight;
+}
+
+function sendChat() {
+    const input = document.getElementById("chatInput");
+    const text = input.value.trim();
+    if (!text) return;
+
+    addUser(text);
+    input.value = "";
+    respond(text.toLowerCase());
+}
+
+function chatKey(e) {
+    if (e.key === "Enter") sendChat();
+}
+
+/* CHATBOT RESPONSE ENGINE */
+function respond(msg) {
+    let reply = "I'm here to assist! Could you ask in another way?";
+
+    if (msg.includes("hello") || msg.includes("hi")) reply = "Hello! How can I help you today?";
+    if (msg.includes("skills")) reply = "Key skills: RTFI Level II, MT Level II, PT Level II, Defect Evaluation, Welding Inspection, Safety Compliance.";
+    if (msg.includes("cert")) reply = "Certifications: RTFI Level II, MT Level II, PT Level II, CS, CSOC, OPSOC, WAH.";
+    if (msg.includes("experience")) reply = "Experience: 3+ years in industrial NDT (pressure vessels, pipelines, structural steel).";
+    if (msg.includes("project")) reply = "Projects: Pressure Vessel RT, MT/PT Crack Detection, Structural Steel RT.";
+    if (msg.includes("contact")) reply = "Email: umamahe113@gmail.com | WhatsApp: +91 6304202170.";
+    if (msg.includes("cv") || msg.includes("resume")) reply = "You can download the CV or view it in the CV section.";
+
+    addBot(reply);
+}
+
+
+/* ============================================================
+   AI RESUME ENHANCER
+============================================================ */
+function generateResume() {
+    toggleChatbot();
+
+    addBot(`
+        ✨ <strong>AI-Optimized Resume Summary:</strong><br><br>
+        “Certified Multi-NDT Technician with 3+ years of hands-on experience in radiographic film interpretation,
+        magnetic & liquid penetrant testing, and defect evaluation for industrial projects. Skilled in preparing 
+        ASME-compliant inspection reports, ensuring safety compliance, and performing NDT operations on pressure 
+        vessels, pipelines, and structural steel. Strong analytical ability, high accuracy, and professional 
+        inspection workflow execution.”  
+        <br><br>
+        Want the AI to rewrite your resume completely?
+    `);
 }

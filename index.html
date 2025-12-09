@@ -7,48 +7,31 @@
     <title>Uma Mahesh | Multi-NDT Technician Portfolio</title>
 
     <!-- SEO -->
-    <meta name="description" content="Portfolio of Uma Mahesh Poluparthi - Certified Multi-NDT Technician (RTFI, MT, PT) and Quality Inspection Specialist.">
-    <meta name="keywords" content="NDT, RTFI, MT, PT, Technician, Inspector, Radiographic Testing, QC, Film Interpretation">
+    <meta name="description" content="Portfolio of Uma Mahesh Poluparthi — Certified Multi-NDT Technician (RTFI, MT, PT) with 3+ years industrial experience in inspection and radiography.">
+    <meta name="keywords" content="NDT, RTFI, MT, PT, Radiography, Inspector, Welding, QC, Technician Portfolio">
     <link rel="canonical" href="https://umamahesh-portfolio.com">
 
-    <!-- Open Graph for social sharing -->
-    <meta property="og:title" content="Uma Mahesh | NDT Technician">
-    <meta property="og:description" content="Certified Multi-NDT Technician with expertise in RTFI, MT, PT & Quality Inspection.">
-    <meta property="og:image" content="assets/profile1.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://umamahesh-portfolio.com">
-
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "Person",
-      "name": "Uma Mahesh Poluparthi",
-      "jobTitle": "Multi-NDT Technician",
-      "description": "Certified RTFI, MT, PT Level II Technician and Quality Inspection Specialist.",
-      "email": "mailto:umamahe113@gmail.com",
-      "url": "https://umamahesh-portfolio.com"
-    }
-    </script>
-
-    <!-- GOOGLE ANALYTICS (replace G-XXXXX with your real ID) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){ dataLayer.push(arguments); }
-        gtag("js", new Date());
-        gtag("config", "G-XXXXX");
-    </script>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Uma Mahesh — Multi-NDT Technician" />
+    <meta property="og:description" content="Certified NDT Technician | RTFI Level II | MT Level II | PT Level II" />
+    <meta property="og:image" content="assets/profile1.png" />
+    <meta property="og:type" content="website" />
 
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <!-- NEON PARTICLE BACKGROUND -->
+
+    <!-- ==================== LOADER ==================== -->
+    <div id="loader" class="loader-screen">
+        <div class="loader-circle"></div>
+    </div>
+
+    <!-- BACKGROUND PARTICLES -->
     <canvas id="particleCanvas"></canvas>
 
     <!-- ==================== NAVBAR ==================== -->
-    <header class="navbar">
+    <header class="navbar glass-nav">
         <div class="nav-container">
             <div class="nav-logo">UM</div>
 
@@ -60,33 +43,30 @@
                 <a href="#certifications">Certifications</a>
                 <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
+                <a href="#services">Services</a>
                 <a href="#cv">CV</a>
                 <a href="#feedback">Feedback</a>
                 <a href="#contact">Contact</a>
             </nav>
 
-            <!-- Light/Dark Mode Toggle -->
             <div class="theme-toggle" onclick="toggleTheme()">🌙</div>
-
-            <!-- Mobile Menu -->
             <div class="hamburger" onclick="toggleNav()">☰</div>
         </div>
     </header>
 
     <!-- ==================== HERO ==================== -->
-    <section id="home" class="section glass hero">
+    <section id="home" class="section hero glass">
         <div class="hero-content">
 
-            <div class="hero-floating">
-                <div class="profile-glow">
-                    <img src="assets/profile1.png" class="hero-img" loading="lazy" alt="Uma Mahesh Profile">
-                </div>
+            <div class="hero-img-wrap">
+                <div class="hero-glow"></div>
+                <img src="assets/profile1.png" class="hero-img" alt="Profile" loading="lazy">
             </div>
 
             <h1 class="hero-title">Uma Mahesh Poluparthi</h1>
             <h3 id="typing"></h3>
 
-            <p class="availability">Open to Opportunities</p>
+            <p class="availability">Open to Work — Inspection | RTFI | MT | PT</p>
 
             <div class="hero-buttons">
                 <a href="#contact" class="btn">Hire Me</a>
@@ -98,14 +78,18 @@
 
     <!-- ==================== ABOUT ==================== -->
     <section id="about" class="section glass">
-    <h2>About Me</h2>
-    <p>
-        I am a Multi-NDT PCN Level II Technician experienced in RTFI, MT, and PT. I specialize in interpreting radiographs, identifying defects with precision, 
-        and ensuring compliance with safety and quality standards. 
-        I have worked on diverse industrial projects, delivering accurate inspection reports and maintaining strong safety practices in radiation handling. 
-        My goal is to provide dependable, high-quality inspection support for every project.
-    </p>
-</section>
+        <h2>About Me</h2>
+        <p>
+            I am a certified Multi-NDT Technician specializing in Radiographic Film Interpretation (RTFI Level II),
+            Magnetic Testing (MT Level II), and Penetrant Testing (PT Level II).  
+            Skilled in evaluating weld quality, identifying defects with precision, and preparing
+            professional inspection reports according to ASME and industry standards.
+            <br><br>
+            With 3+ years of hands-on experience in pressure vessels, pipelines, structural steel,
+            and industrial shutdown inspections, I deliver accurate evaluations with a strong
+            commitment to safety and quality.
+        </p>
+    </section>
 
     <!-- ==================== SKILLS ==================== -->
     <section id="skills" class="section glass">
@@ -126,9 +110,9 @@
         <h2>Gallery</h2>
 
         <div class="gallery-scroll">
-            <img src="assets/gallery/img2.jpg" class="zoomable" loading="lazy" alt="Worksite Photo 1">
-            <img src="assets/gallery/img3.jpg" class="zoomable" loading="lazy" alt="Worksite Photo 2">
-            <img src="assets/gallery/img5.jpg" class="zoomable" loading="lazy" alt="Worksite Photo 3">
+            <img src="assets/gallery/img2.jpg" class="zoomable">
+            <img src="assets/gallery/img3.jpg" class="zoomable">
+            <img src="assets/gallery/img5.jpg" class="zoomable">
         </div>
     </section>
 
@@ -137,23 +121,17 @@
         <h2>Certifications</h2>
 
         <div class="cert-container">
-            <!-- Arrows -->
             <button class="cert-arrow left" onclick="slideCerts(-1)">❮</button>
 
-            <!-- Slider Track -->
             <div id="certCarousel">
                 <div class="cert-card" onclick="openPDF('assets/certificates/rtfi.pdf')">📄 RTFI Certificate</div>
-                <div class="cert-card" onclick="openPDF('assets/certificates/cs.pdf')">📄 CS Certificate</div>
-                <div class="cert-card" onclick="openPDF('assets/certificates/csoc.pdf')">📄 CSOC Certificate</div>
-                <div class="cert-card" onclick="openPDF('assets/certificates/opsoc.pdf')">📄 OPSOC Certificate</div>
-                <div class="cert-card" onclick="openPDF('assets/certificates/pt.pdf')">📄 PT Certificate</div>
                 <div class="cert-card" onclick="openPDF('assets/certificates/mt.pdf')">📄 MT Certificate</div>
+                <div class="cert-card" onclick="openPDF('assets/certificates/pt.pdf')">📄 PT Certificate</div>
+                <div class="cert-card" onclick="openPDF('assets/certificates/cs.pdf')">📄 CS Certificate</div>
                 <div class="cert-card" onclick="openPDF('assets/certificates/wah.pdf')">📄 WAH Certificate</div>
             </div>
 
             <button class="cert-arrow right" onclick="slideCerts(1)">❯</button>
-
-            <!-- Progress bar for auto-slide -->
             <div class="cert-progress"></div>
         </div>
     </section>
@@ -176,7 +154,7 @@
 
         <div class="projects-list">
             <div class="project-card" onclick="openProject(1)">Pressure Vessel Radiographic Inspection</div>
-            <div class="project-card" onclick="openProject(2)">MT & PT Surface Crack Inspection</div>
+            <div class="project-card" onclick="openProject(2)">MT & PT Surface Crack Detection</div>
             <div class="project-card" onclick="openProject(3)">Structural Steel Radiographic Testing</div>
         </div>
     </section>
@@ -190,80 +168,172 @@
         </div>
     </div>
 
-    <!-- ==================== CV VIEWER ==================== -->
-    <section id="cv" class="section glass">
-        <h2>My CV</h2>
+    <!-- ==================== SERVICES (NEW UPGRADE) ==================== -->
+    <section id="services" class="section glass">
+        <h2>Services</h2>
 
-        <div class="pdf-container">
-            <embed src="assets/resume.pdf#toolbar=0&zoom=90" type="application/pdf">
+        <div class="services-grid">
+            <div class="service-card glass">
+                <h3>RTFI Evaluation</h3>
+                <p>Accurate radiographic film interpretation according to ASME and international standards.</p>
+            </div>
+
+            <div class="service-card glass">
+                <h3>MT & PT Testing</h3>
+                <p>Surface crack detection for welds and industrial components.</p>
+            </div>
+
+            <div class="service-card glass">
+                <h3>Inspection & Reporting</h3>
+                <p>Professional inspection documentation with defect classification.</p>
+            </div>
+
+            <div class="service-card glass">
+                <h3>Safety Compliance</h3>
+                <p>Ensuring safe and controlled work environments during inspections.</p>
+            </div>
         </div>
-
-        <a href="assets/resume.pdf" download class="btn">Download CV</a>
     </section>
 
-    <!-- ==================== FEEDBACK ==================== -->
+    <!-- ==================== CV SECTION (FINAL & FIXED) ==================== -->
+<section id="cv" class="section glass">
+
+    <h2>My CV</h2>
+
+    <!-- ==================== PREMIUM SUMMARY ===================== -->
+    <div class="cv-details">
+
+        <h3 class="cv-subtitle">Professional Summary</h3>
+        <p>
+            Highly skilled Multi-NDT Technician with hands-on experience in 
+            <strong>RTFI Level II, MT Level II, PT Level II</strong> inspections, defect 
+            evaluation, weld quality assessment, and safety compliance across 
+            industrial sites. Experienced in inspection operations for 
+            <strong>pipelines, pressure vessels, fabrication structures, and refinery equipment</strong>. 
+            Known for accuracy, disciplined workflow, and adherence to international standards.
+        </p>
+
+        <h3 class="cv-subtitle">Core Strengths</h3>
+        <ul class="cv-highlights">
+            <li>✔ Radiographic film interpretation & defect identification</li>
+            <li>✔ Skilled in MT/PT techniques for surface flaw evaluation</li>
+            <li>✔ Strong understanding of ASME & industrial safety protocols</li>
+            <li>✔ Ability to work independently in high-risk industrial environments</li>
+            <li>✔ Detailed reporting & technical documentation skills</li>
+        </ul>
+
+        <h3 class="cv-subtitle">Industry Expertise</h3>
+        <ul class="cv-highlights">
+            <li>• Oil & Gas Inspection</li>
+            <li>• Pressure Vessels & Boilers</li>
+            <li>• Structural Steel Fabrication</li>
+            <li>• Pipeline Welding Inspection</li>
+            <li>• Heavy Engineering Units</li>
+        </ul>
+
+        <div class="cv-buttons">
+            <a href="assets/resume.pdf" download class="btn">Download CV</a>
+            <button class="btn" onclick="generateResume()">AI Improve My Resume</button>
+        </div>
+    </div>
+
+    <!-- ==================== PDF VIEWER ===================== -->
+    <div class="cv-preview glass">
+        <embed src="assets/resume.pdf#zoom=75&toolbar=0" type="application/pdf">
+    </div>
+
+</section>
+   
+    <!-- ==================== FEEDBACK (UPGRADED) ==================== -->
     <section id="feedback" class="section glass">
         <h2>Your Feedback</h2>
+
+        <p class="feedback-intro">
+            Your feedback helps me improve professionally.  
+            I truly appreciate your time.
+        </p>
 
         <form action="https://formsubmit.co/admin@umamahesh-portfolio.com"
               method="POST"
               id="feedbackForm"
-              onsubmit="return feedbackSubmit(event)">
+              onsubmit="return feedbackSubmit(event)"
+              class="feedback-form glass">
 
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_next" value="https://umamahesh-portfolio.com/success.html">
-            
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Email (optional)">
-            <textarea name="message" placeholder="Your Feedback" required></textarea>
 
-            <button class="btn" type="submit">Submit</button>
+            <input class="input" type="text" name="name" placeholder="Your Name" required>
+            <input class="input" type="email" name="email" placeholder="Email (optional)">
+            <textarea class="input" name="message" placeholder="Share your feedback..." required></textarea>
+
+            <button class="btn" type="submit">Submit Feedback</button>
         </form>
 
-        <p id="feedbackMsg">✔ Feedback Sent!</p>
+        <p id="feedbackMsg" class="feedback-popup">✔ Feedback Sent!</p>
     </section>
 
-    <!-- ==================== CONTACT ==================== -->
+    <!-- ==================== CONTACT (UPGRADED) ==================== -->
     <section id="contact" class="section glass">
-        <h2>Contact</h2>
+        <h2>Get in Touch</h2>
 
-        <div class="contact-options">
-            <a href="mailto:umamahe113@gmail.com" class="contact-card">📧 Email</a>
-            <a href="https://wa.me/+916304202170" class="contact-card">💬 WhatsApp</a>
-            <a href="https://linkedin.com" class="contact-card">🔗 LinkedIn</a>
+        <p class="contact-text">
+            Reach out for job opportunities, collaborations, or inspections.
+        </p>
+
+        <div class="contact-grid">
+
+            <a href="mailto:umamahe113@gmail.com" class="contact-card glass">
+                <div class="contact-icon">📧</div>
+                <h3>Email</h3>
+                <p>umamahe113@gmail.com</p>
+            </a>
+
+            <a href="https://wa.me/+916304202170" class="contact-card glass">
+                <div class="contact-icon">💬</div>
+                <h3>WhatsApp</h3>
+                <p>Chat Now</p>
+            </a>
+
+            <a href="https://linkedin.com" class="contact-card glass">
+                <div class="contact-icon">🔗</div>
+                <h3>LinkedIn</h3>
+                <p>Connect Professionally</p>
+            </a>
+
         </div>
     </section>
 
-    <!-- FULLSCREEN IMAGE ZOOM VIEWER -->
+    <!-- FULLSCREEN IMAGE ZOOM -->
     <div id="imageZoom" class="zoom-overlay">
         <span class="zoom-close" onclick="closeZoom()">✖</span>
-        <img id="zoomImage" alt="Zoomed image">
+        <img id="zoomImage">
     </div>
-
-    <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/+916304202170" class="floating-contact" aria-label="Chat on WhatsApp">
-        <img src="assets/icons/Whatsapp.svg" alt="WhatsApp">
-    </a>
 
     <!-- PDF OVERLAY -->
     <div id="pdfOverlay" class="pdf-overlay">
-        <span onclick="closePDF()" class="pdf-close">✖</span>
-        <iframe id="pdfFrame" title="PDF Viewer"></iframe>
+        <span class="pdf-close" onclick="closePDF()">✖</span>
+        <iframe id="pdfFrame"></iframe>
+    </div>
+
+    <!-- FLOATING AI CHATBOT BUTTON -->
+    <div class="chatbot-bubble" onclick="toggleChatbot()">💬</div>
+
+    <!-- CHATBOT WINDOW -->
+    <div class="chatbot-window glass" id="chatWindow">
+        <div class="chat-header">AI Assistant</div>
+        <div class="chat-body" id="chatBody"></div>
+
+        <div class="chat-input-wrap">
+            <input id="chatInput" type="text" placeholder="Ask me anything..." onkeydown="chatKey(event)">
+            <button onclick="sendChat()" class="chat-send">➤</button>
+        </div>
     </div>
 
     <!-- FOOTER -->
     <footer class="site-footer">
-        <p>© 2025 Uma Mahesh Poluparthi — Multi-NDT Technician</p>
-        <p class="footer-small">Built with HTML, CSS & JavaScript | Updated Version 2025</p>
+        © 2025 Uma Mahesh | Multi-NDT Technician | Built with ❤️
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
