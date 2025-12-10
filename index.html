@@ -117,12 +117,14 @@
     </section>
 
     <!-- ==================== CERTIFICATIONS ==================== -->
-    <section id="certifications" class="section glass">
-        <h2>Certifications</h2>
+   <section id="certifications" class="section glass">
+    <h2>Certifications</h2>
 
-        <div class="cert-container">
-            <button class="cert-arrow left" onclick="slideCerts(-1)">❮</button>
+    <div class="cert-container">
 
+        <button class="cert-arrow left" onclick="slideCerts(-1)">❮</button>
+
+        <div class="cert-track">
             <div id="certCarousel">
                 <div class="cert-card" onclick="openPDF('assets/certificates/rtfi.pdf')">📄 RTFI Certificate</div>
                 <div class="cert-card" onclick="openPDF('assets/certificates/mt.pdf')">📄 MT Certificate</div>
@@ -130,23 +132,13 @@
                 <div class="cert-card" onclick="openPDF('assets/certificates/cs.pdf')">📄 CS Certificate</div>
                 <div class="cert-card" onclick="openPDF('assets/certificates/wah.pdf')">📄 WAH Certificate</div>
             </div>
-
-            <button class="cert-arrow right" onclick="slideCerts(1)">❯</button>
-            <div class="cert-progress"></div>
         </div>
-    </section>
 
-    <!-- ==================== EXPERIENCE ==================== -->
-    <section id="experience" class="section glass">
-        <h2>Experience Timeline</h2>
+        <button class="cert-arrow right" onclick="slideCerts(1)">❯</button>
 
-        <div class="timeline">
-            <div class="t-card"><strong>2022</strong><br>NDT Technician Trainee</div>
-            <div class="t-card"><strong>2023</strong><br>Level II Technician — RT / MT / PT</div>
-            <div class="t-card"><strong>2024</strong><br>RT Coordinator — Project Responsibility</div>
-            <div class="t-card"><strong>2025</strong><br>3+ Years Industry Experience</div>
-        </div>
-    </section>
+        <div class="cert-progress"></div>
+    </div>
+</section>
 
     <!-- ==================== PROJECTS ==================== -->
     <section id="projects" class="section glass">
@@ -336,4 +328,5 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
