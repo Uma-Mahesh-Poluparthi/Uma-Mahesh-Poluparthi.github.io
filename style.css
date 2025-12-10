@@ -735,3 +735,18 @@ h2 {
     }
 }
 
+/* REMOVE BLUE LINK COLOR & UNDERLINE GLOBALLY */
+a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+a:visited {
+    color: inherit !important;
+}
+
+a:hover {
+    color: var(--accent) !important;
+    text-decoration: none !important;
+}
+
