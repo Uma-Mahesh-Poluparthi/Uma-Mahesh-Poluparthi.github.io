@@ -283,14 +283,18 @@ h2 {
 }
 
 /* ============================================================
-   CERTIFICATIONS SLIDER
+   CERTIFICATIONS SLIDER — FIXED ALIGNMENT
 ============================================================ */
+
 .cert-container {
     position: relative;
-    padding: 60px 50px 80px;
+    padding: 40px 30px 60px;      /* reduced padding */
     border-radius: 24px;
     background: rgba(0,255,180,0.05);
     border: 1px solid rgba(0,255,180,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;          /* center alignment fix */
 }
 
 #certCarousel {
@@ -298,35 +302,38 @@ h2 {
     gap: 20px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-
-    /* HIDE UGLY SCROLL BAR */
-    scrollbar-width: none; /* Firefox */
+    padding: 10px 0;              /* prevents misalignment */
+    width: 100%;
+    justify-content: center;      /* centers cards */
+    
+    /* Hide scrollbar */
+    scrollbar-width: none;
 }
-
-#certCarousel::-webkit-scrollbar {
-    display: none; /* Chrome, Edge, Safari */
-}
+#certCarousel::-webkit-scrollbar { display: none; }
 
 .cert-card {
-    min-width: 300px;
-    padding: 24px;
+    min-width: 260px;             /* smaller for better alignment */
+    padding: 20px;
     border-radius: 18px;
     background: rgba(0,255,180,0.08);
     border: 1px solid rgba(0,255,180,0.25);
     color: #fff;
     cursor: pointer;
-    scroll-snap-align: start;
+    scroll-snap-align: center;     /* centers card on snap */
     transition: .25s;
+    text-align: center;            /* text alignment fix */
 }
 
 .cert-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     box-shadow: 0 0 22px rgba(0,255,180,0.3);
 }
 
+/* FIXED ARROWS */
 .cert-arrow {
     position: absolute;
     top: 50%;
+    transform: translateY(-50%);     /* ensures perfect vertical center */
     font-size: 20px;
     padding: 10px 14px;
     border: none;
@@ -334,15 +341,15 @@ h2 {
     color: #111;
     border-radius: 12px;
     cursor: pointer;
+    z-index: 10;
 }
 
-.cert-arrow.left { left: 14px; }
-.cert-arrow.right { right: 14px; }
+.cert-arrow.left { left: 10px; }
+.cert-arrow.right { right: 10px; }
 
+/* Progress bar alignment fix */
 .cert-progress {
-    position: absolute;
-    bottom: 12px;
-    left: 5%;
+    margin-top: 20px;
     width: 90%;
     height: 3px;
     background: rgba(255,255,255,0.22);
@@ -352,7 +359,7 @@ h2 {
 .cert-progress::after {
     content: "";
     position: absolute;
-    left: 0;
+    left: 5%;
     height: 100%;
     width: 0%;
     background: var(--accent);
@@ -361,7 +368,7 @@ h2 {
 
 @keyframes certProgress {
     from { width: 0%; }
-    to { width: 100%; }
+    to { width: 90%; }
 }
 
 /* ============================================================
@@ -752,5 +759,6 @@ a:hover {
     color: var(--accent) !important;
     text-decoration: none !important;
 }
+
 
 
