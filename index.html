@@ -49,8 +49,9 @@
                 <a href="#contact">Contact</a>
             </nav>
 
-            <div class="theme-toggle" onclick="toggleTheme()">🌙</div>
-            <div class="hamburger" onclick="toggleNav()">☰</div>
+            <div class="theme-toggle" role="button" aria-label="Toggle theme" onclick="toggleTheme()">🌙</div>
+            <div class="hamburger" role="button" aria-label="Open menu" onclick="toggleNav()">☰</div>
+
         </div>
     </header>
 
@@ -321,9 +322,12 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="site-footer">
-        © 2025 Uma Mahesh | Multi-NDT Technician | Built with ❤️
-    </footer>
+<footer class="site-footer">
+    © 2025 Uma Mahesh | Multi-NDT Technician  
+    <br>
+    <span class="footer-version">v1.0.2 • Built with ❤️</span>
+</footer>
+
 
     <script src="script.js"></script>
 </body>

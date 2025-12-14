@@ -168,6 +168,19 @@ body.fade-in { opacity: 1; }
 }
 
 /* MOBILE NAV */
+
+/* FIX: Mobile navbar light mode */
+@media (max-width: 900px) {
+    body.light-mode .nav-links {
+        background: rgba(255,255,255,0.95);
+        border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    body.light-mode .nav-links a {
+        color: #111 !important;
+    }
+}
+
 @media (max-width: 900px) {
     .nav-links {
         display: none;
@@ -792,6 +805,14 @@ h2 {
     color: #aaa;
     font-size: 13px;
 }
+
+.footer-version {
+    font-size: 12px;
+    opacity: 0.75;
+    display: inline-block;
+    margin-top: 4px;
+}
+
 
 /* ============================================================
    RESPONSIVE FIXES
