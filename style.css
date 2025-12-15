@@ -75,7 +75,6 @@ body {
     background: var(--dark);
     color: white;
     overflow-x: hidden;
-    padding-top: 120px;
     opacity: 0;
     transition: opacity 0.8s ease;
 }
@@ -935,7 +934,103 @@ a:hover {
     text-decoration: none !important;
 }
 
+/* ============================================================
+   PATCH v1.0.4 — REMOVE GAP BETWEEN NAVBAR & HERO
+============================================================ */
 
+/* Hero should not have top margin like other sections */
+.hero.section {
+    margin-top: 0 !important;
+}
 
+/* Slightly reduce global top padding */
+body {
+    padding-top: 95px;
+}
+
+/* ============================================================
+   PATCH v1.0.4 — HERO SIZE TUNING
+============================================================ */
+
+.hero {
+    padding: 40px 20px 30px;
+}
+
+/* Reduce image size slightly */
+.hero-img-wrap {
+    width: 210px;
+    height: 210px;
+}
+
+/* Reduce title size a bit */
+.hero-title {
+    font-size: 38px;
+}
+
+/* Mobile fine-tuning */
+@media (max-width: 768px) {
+    .hero-img-wrap {
+        width: 180px;
+        height: 180px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    body {
+        padding-top: 80px;
+    }
+}
+
+/* ============================================================
+   PATCH v1.0.4 — CLOSE BUTTON UX FIX
+============================================================ */
+
+.modal-close,
+.pdf-close,
+.zoom-close {
+    cursor: pointer;
+    user-select: none;
+}
+
+.modal-close:hover,
+.pdf-close:hover,
+.zoom-close:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+/* ============================================================
+   PATCH v1.0.4 — PARTICLE CANVAS LAYOUT FIX
+============================================================ */
+
+#particleCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ============================================================
+   PATCH v1.0.4 — FIX TYPING EFFECT LAYOUT SHIFT
+============================================================ */
+
+#typing {
+    min-height: 28px;          /* Reserve space */
+    display: inline-block;
+    white-space: nowrap;       /* Prevent wrapping */
+    overflow: hidden;
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+    #typing {
+        min-height: 24px;
+        font-size: 18px;
+    }
+}
 
 

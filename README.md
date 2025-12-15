@@ -2,9 +2,11 @@
 
 ### RTFI Level II | MT Level II | PT Level II | Industrial Inspection Specialist
 
-![Version](https://img.shields.io/badge/version-v1.0.3-brightgreen)
+![Version](https://img.shields.io/badge/version-v1.0.4-brightgreen)
+![Status](https://img.shields.io/badge/status-stable-success)
 ![Tech](https://img.shields.io/badge/Tech-HTML%20%7C%20CSS%20%7C%20JavaScript-blue)
-![Status](https://img.shields.io/badge/Status-Stable-success)
+![Responsive](https://img.shields.io/badge/mobile-friendly-yes-9cf)
+![License](https://img.shields.io/badge/license-MIT-purple)
 
 ---
 
@@ -12,21 +14,21 @@
 
 This repository contains the source code for the **personal portfolio website of Uma Mahesh Poluparthi**, a certified **Multi-NDT Technician** with hands-on experience in industrial inspection and non-destructive testing.
 
-The website highlights professional skills, certifications, inspection experience, project work, and provides an interactive way to view or download the CV.
+The website showcases professional skills, certifications, inspection experience, project work, and provides an interactive way to **view or download the CV** with full desktop and mobile support.
 
 ---
 
 ## ✨ Features
 
 ### 🔹 Modern Glassmorphism UI
-- Neon-tech design language
+- Neon-tech inspired design
 - Fully responsive layout
-- Smooth animations and scroll reveal
-- Dark Mode & Light Mode support
+- Smooth fade-in and scroll-reveal animations
+- Dark Mode & Light Mode with persistent theme
 
 ### 🔹 Professional Sections
 - About & Skills
-- Certifications (PDF overlay viewer)
+- Certifications (carousel + PDF viewer)
 - Projects (modal-based details)
 - Services
 - CV section (desktop viewer + mobile-safe fallback)
@@ -41,28 +43,33 @@ The website highlights professional skills, certifications, inspection experienc
   - Experience
   - Projects
   - CV and contact details
-- No external APIs used
+- No external APIs (privacy-friendly)
 
 ### 🔹 UX & Technical Enhancements
-- Particle animated background
-- Fullscreen image zoom
-- PDF overlay viewer
-- Mobile-safe CV handling
+- Animated particle background (non-blocking)
+- Fullscreen image zoom viewer
+- PDF overlay viewer (desktop)
+- Mobile-safe PDF handling (opens in new tab)
 - SEO optimized (meta tags, sitemap.xml, robots.txt)
 
 ---
 
-## 🆕 What’s New in v1.0.3
+## 🆕 What’s New in v1.0.4
 
 ### 🐞 Bug Fixes
-- Fixed CV viewer showing blank white/black screen on mobile devices.
-- Resolved layout issues related to CV section buttons and spacing.
+- Fixed unwanted gap between navbar and hero section.
+- Removed forced auto-scroll on page load.
+- Fixed hero section not fully visible on initial load.
+- Resolved layout shifting during typing animation.
+- Fixed PDF viewer blank white/black screen issue on mobile.
+- Fixed close (X) button behaving like selectable text.
 
 ### ⚙️ Improvements
-- Added mobile-friendly CV fallback with “View / Download CV” button.
-- Retained embedded PDF viewer for desktop users.
-- Fixed duplicate list markers in CV section using CSS-based icons.
-- Improved overall mobile usability and cross-browser compatibility.
+- Hero section size optimized for better visual balance.
+- Typing effect stabilized without layout expansion.
+- Particle canvas removed from layout flow (background-only).
+- Contact links now open in new tabs for better UX.
+- Improved overall mobile usability and UI stability.
 
 ### 📱 Compatibility
 - Mobile (Android & iOS): fully supported
@@ -83,6 +90,7 @@ The website highlights professional skills, certifications, inspection experienc
 
 ## 📁 Project Structure
 
+```text
 /root
 │── index.html
 │── style.css
@@ -96,51 +104,40 @@ The website highlights professional skills, certifications, inspection experienc
 │── SECURITY.md
 │
 └── assets/
-├── profile1.png
-├── resume.pdf
-├── gallery/
-└── certificates/
+    ├── profile1.png
+    ├── resume.pdf
+    ├── gallery/
+    └── certificates/
 
+    
+🚀 Live Website
 
----
+🔗 https://umamahesh-portfolio.com
 
-## 🚀 Live Website
+(Update if domain changes)
 
-🔗 **https://umamahesh-portfolio.com**
+📦 Releases
+Version	Description
+v1.0.4	Hero layout fixes, mobile PDF handling, UX & stability improvements
+v1.0.3	Mobile CV viewer compatibility & UI fixes
+v1.0.2	Mobile light mode fix & JS stability improvements
+v1.0.1	Initial public release
+📬 Contact
 
----
+📧 Email: umamahe113@gmail.com
 
-## 📦 Releases
-
-| Version | Description |
-|------|------------|
-| v1.0.3 | Mobile CV viewer compatibility & UI fixes |
-| v1.0.2 | Mobile Light Mode fix & JS stability improvements |
-| v1.0.1 | Initial public release |
-
----
-
-## 📬 Contact
-
-📧 Email: **umamahe113@gmail.com**  
-💬 WhatsApp: **+91 6304202170**  
+💬 WhatsApp: +91 6304202170
 🔗 LinkedIn: https://www.linkedin.com/in/uma-mahesh-poluparthi
 
----
+📄 License
 
-## 📄 License
-
-This project is licensed under the **MIT License**.  
+This project is licensed under the MIT License.
 You are free to use, modify, and distribute this project with attribution.
 
----
+🔐 Security
 
-## 🔐 Security
+For security-related concerns, please refer to SECURITY.md
+or contact: admin@umamahesh-portfolio.com
 
-For security-related concerns, please refer to **SECURITY.md**  
-or contact: **admin@umamahesh-portfolio.com**
-
----
-
-© 2025 Uma Mahesh Poluparthi  
+© 2025 Uma Mahesh Poluparthi
 Multi-NDT Technician

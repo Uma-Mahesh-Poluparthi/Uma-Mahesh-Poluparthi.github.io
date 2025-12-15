@@ -1,5 +1,5 @@
 /* ============================================================
-   PAGE LOAD + FADE-IN + THEME RESTORE (MERGED & CLEAN)
+   PAGE LOAD + FADE-IN + THEME RESTORE (v1.0.4 FIXED)
 ============================================================ */
 window.addEventListener("load", () => {
     document.body.classList.add("fade-in");
@@ -12,9 +12,6 @@ window.addEventListener("load", () => {
 
     typeEffect();
     revealSections();
-
-    const home = document.getElementById("home");
-    if (home) home.scrollIntoView({ behavior: "smooth" });
 });
 
 
@@ -90,7 +87,7 @@ function revealSections() {
 
 
 /* ============================================================
-   TYPING EFFECT
+   TYPING EFFECT (STABLE)
 ============================================================ */
 const typingTexts = [
     "Multi-NDT Technician",
@@ -128,7 +125,7 @@ function typeEffect() {
 
 
 /* ============================================================
-   CERTIFICATION SLIDER + AUTOSCROLL (SAFE)
+   CERTIFICATION SLIDER + AUTOSCROLL
 ============================================================ */
 const certCarousel = document.getElementById("certCarousel");
 let autoCert;
@@ -205,9 +202,14 @@ function closeProject() {
 
 
 /* ============================================================
-   PDF VIEWER
+   PDF VIEWER (MOBILE SAFE)
 ============================================================ */
 function openPDF(path) {
+    if (window.innerWidth <= 900) {
+        window.open(path, "_blank");
+        return;
+    }
+
     const overlay = document.getElementById("pdfOverlay");
     const frame = document.getElementById("pdfFrame");
     if (!overlay || !frame) return;
@@ -266,7 +268,7 @@ function feedbackSubmit(e) {
 
 
 /* ============================================================
-   PARTICLE BACKGROUND (SAFE)
+   PARTICLE BACKGROUND
 ============================================================ */
 const canvas = document.getElementById("particleCanvas");
 const ctx = canvas ? canvas.getContext("2d") : null;
