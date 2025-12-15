@@ -367,7 +367,7 @@ h2 {
 
 .cert-container {
     position: relative;
-    padding: 40px;
+    padding: 50px 70px; /* space for arrows */
     background: rgba(0,255,180,0.05);
     border: 1px solid rgba(0,255,180,0.2);
     border-radius: 22px;
@@ -377,54 +377,74 @@ h2 {
 .cert-track {
     overflow: hidden;
     width: 100%;
-    padding: 10px 0;
+    padding: 15px 0;
 }
 
 /* Horizontal scroll track */
 #certCarousel {
     display: flex;
-    gap: 20px;
+    align-items: center;
+    gap: 24px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    padding: 10px 0;
 
-    /* hide scrollbar */
     scrollbar-width: none;
 }
-#certCarousel::-webkit-scrollbar { display: none; }
+#certCarousel::-webkit-scrollbar {
+    display: none;
+}
 
+/* Certificate cards */
 .cert-card {
     min-width: 260px;
-    padding: 20px;
+    padding: 22px;
     border-radius: 18px;
     background: rgba(0,255,180,0.08);
     border: 1px solid rgba(0,255,180,0.25);
     scroll-snap-align: center;
     text-align: center;
-    transition: .25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    margin-top:35px;
 }
 
+/* SAFE hover (no upward movement) */
 .cert-card:hover {
+    background: rgba(0,255,180,0.25); /* Soft neon tint, not full green */
+    color: #ffffff; /* White text stays visible */
+    font-weight: 600;
+    box-shadow: 0 0 18px rgba(0,255,180,0.5);
     transform: translateY(-4px);
-    box-shadow: 0 0 18px rgba(0,255,180,0.35);
 }
 
-/* Fixed arrow positioning */
+/* Arrows */
 .cert-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    padding: 12px 16px;
-    border-radius: 12px;
+    padding: 14px 18px;
+    border-radius: 14px;
     border: none;
     background: var(--accent);
     color: #111;
     font-size: 20px;
     cursor: pointer;
-    z-index: 10;
+    z-index: 20;
 }
 
-.cert-arrow.left { left: 12px; }
-.cert-arrow.right { right: 12px; }
+/* Push arrows outside cards */
+.cert-arrow.left {
+    left: 18px;
+}
+
+.cert-arrow.right {
+    right: 18px;
+}
+
+/* Arrow hover */
+.cert-arrow:hover {
+    box-shadow: 0 0 16px rgba(0,255,180,0.6);
+}
 
 /* Progress bar */
 .cert-progress {
@@ -432,14 +452,16 @@ h2 {
     height: 3px;
     background: rgba(255,255,255,0.22);
     border-radius: 4px;
-    margin-top: 25px;
+    margin-top: 30px;
     position: relative;
+    overflow: hidden;
 }
 
 .cert-progress::after {
     content: "";
     position: absolute;
     left: 0;
+    top: 0;
     height: 100%;
     width: 0%;
     background: var(--accent);
