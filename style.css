@@ -240,6 +240,16 @@ h2 {
     color: var(--accent);
 }
 
+section {
+    scroll-margin-top: 120px; /* navbar height + spacing */
+}
+
+/* Extra safety for hero/home */
+#home {
+    scroll-margin-top: 140px;
+}
+ 
+
 /* ============================================================
    HERO SECTION
 ============================================================ */
