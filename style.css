@@ -427,6 +427,15 @@ section {
     transform: translateY(-4px);
 }
 
+/* FIX: Certificate cards behaving like selectable text */
+.cert-card {
+    cursor: pointer;          /* Show click hand */
+    user-select: none;        /* Disable text selection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
 /* Arrows */
 .cert-arrow {
     position: absolute;
@@ -1064,5 +1073,6 @@ body {
         font-size: 18px;
     }
 }
+
 
 
