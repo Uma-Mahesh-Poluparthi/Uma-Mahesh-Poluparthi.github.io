@@ -582,6 +582,7 @@ section {
 .service-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 0 20px rgba(0,255,180,0.35);
+    border-color: var(--accent);
 }
 
 /* ============================================================
@@ -1075,6 +1076,7 @@ body {
         font-size: 18px;
     }
 }
+
 
 
 
