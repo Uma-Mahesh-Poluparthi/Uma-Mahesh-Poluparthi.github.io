@@ -425,6 +425,7 @@ section {
     font-weight: 600;
     box-shadow: 0 0 18px rgba(0,255,180,0.5);
     transform: translateY(-4px);
+    border-color: var(--accent);
 }
 
 /* FIX: Certificate cards behaving like selectable text */
@@ -1073,6 +1074,7 @@ body {
         font-size: 18px;
     }
 }
+
 
 
 
