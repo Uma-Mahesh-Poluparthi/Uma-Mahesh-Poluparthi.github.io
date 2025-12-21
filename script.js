@@ -33,6 +33,25 @@ function toggleNav() {
     if (nav) nav.classList.toggle("show");
 }
 
+/* ============================================================
+   MOBILE NAVBAR AUTO-CLOSE ON LINK CLICK
+============================================================ */
+document.querySelectorAll("#navMenu a").forEach(link => {
+    link.addEventListener("click", () => {
+        const nav = document.getElementById("navMenu");
+        if (nav.classList.contains("show")) {
+            nav.classList.remove("show");
+        }
+    });
+});
+
+document.querySelectorAll("#navMenu a").forEach(link => {
+    link.addEventListener("click", () => {
+        if (window.innerWidth <= 900) {
+            document.getElementById("navMenu")?.classList.remove("show");
+        }
+    });
+});
 
 /* ============================================================
    THEME TOGGLE SYSTEM
@@ -427,4 +446,5 @@ function generateResume() {
         Want the AI to rewrite your resume completely?
     `);
 }
+
 
