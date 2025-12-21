@@ -1,4 +1,14 @@
 /* ============================================================
+   Remove index.html from URL (GitHub Pages clean URL fix)
+============================================================ */
+if (window.location.pathname.endsWith("index.html")) {
+  window.location.replace(
+    window.location.origin + window.location.pathname.replace("index.html", "")
+  );
+}
+
+
+/* ============================================================
    PAGE LOAD + FADE-IN + THEME RESTORE (v1.0.4 FIXED)
 ============================================================ */
 window.addEventListener("load", () => {
@@ -417,3 +427,4 @@ function generateResume() {
         Want the AI to rewrite your resume completely?
     `);
 }
+
