@@ -217,6 +217,34 @@ body.fade-in { opacity: 1; }
 }
 
 /* ============================================================
+   Nav bar Logo
+============================================================ */
+.navbar {
+  padding: 12px 22px; /* instead of 16px+ */
+}
+
+.nav-container {
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo img {
+  height: 34px;              /* 👈 PERFECT navbar size */
+  width: 34px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0,255,180,0.35); /* softer glow */
+  transition: transform 0.25s ease;
+}
+
+.nav-logo img:hover {
+  transform: scale(1.05);
+}
+
+/* ============================================================
    SECTIONS
 ============================================================ */
 .section {
@@ -1081,6 +1109,7 @@ body {
         font-size: 18px;
     }
 }
+
 
 
 
