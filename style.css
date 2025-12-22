@@ -369,6 +369,11 @@ section {
 
 .gallery-scroll img:hover {
     transform: scale(1.06);
+    cursor: pointer;          /* Show click hand */
+    user-select: none;        /* Disable text selection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 /* ============================================================
@@ -1076,6 +1081,7 @@ body {
         font-size: 18px;
     }
 }
+
 
 
 
