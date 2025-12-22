@@ -43,9 +43,10 @@
     <!-- ==================== NAVBAR ==================== -->
     <header class="navbar glass">
         <div class="nav-container">
-            <div class="nav-logo">
-                <img src="assets/logo.png" alt="Uma Mahesh Logo">
-            </div>
+            <a href="#home" class="nav-logo" aria-label="Go to home"
+            onclick="document.querySelector('#home').scrollIntoView({behavior:'smooth'}); return false;">
+            <img src="assets/logo.png" alt="Uma Mahesh Logo">
+          </a>
 
             <nav class="nav-links" id="navMenu">
                 <a href="#home">Home</a>
@@ -362,6 +363,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
