@@ -1091,6 +1091,11 @@ body {
     pointer-events: none;
 }
 
+.contact-icon img {
+    filter: drop-shadow(0 0 6px rgba(0,255,180,0.45));
+}
+
+
 /* ============================================================
    PATCH v1.0.4 — FIX TYPING EFFECT LAYOUT SHIFT
 ============================================================ */
@@ -1109,6 +1114,7 @@ body {
         font-size: 18px;
     }
 }
+
 
 
 
