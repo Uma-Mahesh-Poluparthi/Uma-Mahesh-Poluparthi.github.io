@@ -370,9 +370,12 @@ document.addEventListener("keydown", e => {
 
 
 /* ============================================================
-   AI CHATBOT ENGINE
+   AI CHATBOT ENGINE — v2.0 (SMART & EFFICIENT)
 ============================================================ */
+
 let chatOpen = false;
+let greeted = false;
+let lastTopic = "";
 
 function toggleChatbot() {
     const win = document.getElementById("chatWindow");
@@ -381,8 +384,19 @@ function toggleChatbot() {
     chatOpen = !chatOpen;
     win.style.display = chatOpen ? "flex" : "none";
 
-    if (chatOpen) {
-        addBot("Hello! I'm your AI assistant. Ask me anything about Uma Mahesh — skills, certifications, experience, projects, CV, or contact info.");
+    if (chatOpen && !greeted) {
+        addBot(
+            "👋 Hello! I’m Uma Mahesh’s assistant.<br><br>" +
+            "You can ask about:<br>" +
+            "• Skills<br>" +
+            "• Certifications<br>" +
+            "• Experience<br>" +
+            "• Projects<br>" +
+            "• CV / Resume<br>" +
+            "• Contact details"
+        );
+        showSuggestions();
+        greeted = true;
     }
 }
 
@@ -395,6 +409,7 @@ function closeChatbot() {
 function addUser(msg) {
     const box = document.getElementById("chatBody");
     if (!box) return;
+
     box.innerHTML += `<div class="chat-msg user-msg">${msg}</div>`;
     box.scrollTop = box.scrollHeight;
 }
@@ -402,6 +417,7 @@ function addUser(msg) {
 function addBot(msg) {
     const box = document.getElementById("chatBody");
     if (!box) return;
+
     box.innerHTML += `<div class="chat-msg bot-msg">${msg}</div>`;
     box.scrollTop = box.scrollHeight;
 }
@@ -410,29 +426,142 @@ function sendChat() {
     const input = document.getElementById("chatInput");
     if (!input || !input.value.trim()) return;
 
-    addUser(input.value);
-    respond(input.value.toLowerCase());
+    const userMsg = input.value.trim();
+    addUser(userMsg);
     input.value = "";
+
+    setTimeout(() => respond(userMsg.toLowerCase()), 400);
 }
 
 function chatKey(e) {
     if (e.key === "Enter") sendChat();
 }
 
-function respond(msg) {
-    let reply = "I'm here to assist! Could you ask in another way?";
+/* ============================================================
+   SMART RESPONSE ENGINE
+============================================================ */
 
-    if (msg.includes("hello") || msg.includes("hi")) reply = "Hello! How can I help you today?";
-    if (msg.includes("skills")) reply = "Key skills: RTFI Level II, MT Level II, PT Level II, Defect Evaluation, Welding Inspection, Safety Compliance.";
-    if (msg.includes("cert")) reply = "Certifications: RTFI Level II, MT Level II, PT Level II, CS, CSOC, OPSOC, WAH.";
-    if (msg.includes("experience")) reply = "Experience: 3+ years in industrial NDT (pressure vessels, pipelines, structural steel).";
-    if (msg.includes("project")) reply = "Projects: Pressure Vessel RT, MT/PT Crack Detection, Structural Steel RT.";
-    if (msg.includes("contact")) reply = "Email: umamahe113@gmail.com | WhatsApp: +91 6304202170.";
-    if (msg.includes("cv") || msg.includes("resume")) reply = "You can download the CV or view it in the CV section.";
+function respond(msg) {
+    let reply = "";
+
+    // Greetings
+    if (contains(msg, ["hi", "hello", "hey"])) {
+        reply = "Hello 👋 How can I help you today?";
+    }
+
+    // Skills
+    else if (contains(msg, ["skill", "expert", "special"])) {
+        lastTopic = "skills";
+        reply = `
+            <strong>Core Skills:</strong><br>
+            • RTFI Level II<br>
+            • MT Level II<br>
+            • PT Level II<br>
+            • Defect Identification<br>
+            • Welding & Radiography Inspection<br>
+            • ASME & Safety Compliance
+        `;
+    }
+
+    // Certifications
+    else if (contains(msg, ["cert", "certificate", "qualification"])) {
+        lastTopic = "certifications";
+        reply = `
+            <strong>Certifications:</strong><br>
+            • RTFI Level II<br>
+            • MT Level II<br>
+            • PT Level II<br>
+            • CS / CSOC / OPSOC<br>
+            • WAH (Work at Height)
+        `;
+    }
+
+    // Experience
+    else if (contains(msg, ["experience", "work", "years"])) {
+        lastTopic = "experience";
+        reply = `
+            <strong>Experience:</strong><br>
+            3+ years in industrial NDT inspection covering:<br>
+            • Pressure Vessels<br>
+            • Pipelines<br>
+            • Structural Steel<br>
+            • Shutdown & Live Plant Inspections
+        `;
+    }
+
+    // Projects
+    else if (contains(msg, ["project", "worked", "inspection"])) {
+        lastTopic = "projects";
+        reply = `
+            <strong>Key Projects:</strong><br>
+            • Pressure Vessel Radiographic Inspection<br>
+            • MT & PT Surface Crack Detection<br>
+            • Structural Steel RT Evaluation
+        `;
+    }
+
+    // CV / Resume
+    else if (contains(msg, ["cv", "resume", "download"])) {
+        reply = `
+            📄 You can view or download the CV from the <strong>CV section</strong>.<br>
+            Would you like a brief professional summary?
+        `;
+    }
+
+    // Contact
+    else if (contains(msg, ["contact", "email", "whatsapp", "phone"])) {
+        reply = `
+            <strong>Contact Details:</strong><br>
+            📧 Email: umamahe113@gmail.com<br>
+            💬 WhatsApp: +91 6304202170<br>
+            🔗 LinkedIn available in Contact section
+        `;
+    }
+
+    // Follow-up logic
+    else if (contains(msg, ["yes", "sure", "ok"]) && lastTopic === "cv") {
+        reply = `
+            ✨ <strong>Professional Summary:</strong><br>
+            Certified Multi-NDT Technician with 3+ years of experience in RTFI, MT & PT inspections,
+            defect evaluation, ASME-compliant reporting, and industrial safety execution.
+        `;
+        lastTopic = "";
+    }
+
+    // Fallback
+    else {
+        reply =
+            "🤖 I didn’t fully understand that.<br>" +
+            "You can ask about skills, certifications, experience, projects, CV, or contact info.";
+    }
 
     addBot(reply);
+    showSuggestions();
 }
 
+/* ============================================================
+   HELPERS
+============================================================ */
+
+function contains(text, keywords) {
+    return keywords.some(k => text.includes(k));
+}
+
+function showSuggestions() {
+    const box = document.getElementById("chatBody");
+    if (!box) return;
+
+    box.innerHTML += `
+        <div class="chat-msg bot-msg" style="opacity:0.85">
+            <em>Try asking:</em><br>
+            • What skills do you have?<br>
+            • Show certifications<br>
+            • Tell me about experience<br>
+            • How can I contact you?
+        </div>
+    `;
+    box.scrollTop = box.scrollHeight;
+}
 
 /* ============================================================
    AI RESUME ENHANCER
@@ -446,5 +575,6 @@ function generateResume() {
         Want the AI to rewrite your resume completely?
     `);
 }
+
 
 
