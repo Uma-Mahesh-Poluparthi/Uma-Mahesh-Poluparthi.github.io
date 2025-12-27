@@ -1003,6 +1003,39 @@ body.light-mode .cv-industry li {
 }
 
 /* ============================================================
+   CHATBOT UX UPGRADE v3.0
+============================================================ */
+
+.chat-msg.typing {
+    font-style: italic;
+    opacity: 0.6;
+}
+
+.chat-quick {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.chat-quick button {
+    background: rgba(0,255,180,0.18);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 6px 12px;
+    border-radius: 14px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.chat-quick button:hover {
+    background: rgba(0,255,180,0.35);
+    box-shadow: 0 0 10px rgba(0,255,180,0.4);
+}
+
+
+/* ============================================================
    FOOTER
 ============================================================ */
 .site-footer {
@@ -1154,6 +1187,7 @@ body {
         font-size: 18px;
     }
 }
+
 
 
 
