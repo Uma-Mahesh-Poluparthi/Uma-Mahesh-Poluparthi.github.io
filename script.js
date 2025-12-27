@@ -370,13 +370,15 @@ document.addEventListener("keydown", e => {
 
 
 /* ============================================================
-   AI CHATBOT ENGINE — v2.0 (SMART & EFFICIENT)
+   AI CHATBOT ENGINE — v3.0 (SMART UX BOT)
 ============================================================ */
 
 let chatOpen = false;
 let greeted = false;
 let lastTopic = "";
+let typingTimer;
 
+/* ------------------ TOGGLE ------------------ */
 function toggleChatbot() {
     const win = document.getElementById("chatWindow");
     if (!win) return;
@@ -385,17 +387,19 @@ function toggleChatbot() {
     win.style.display = chatOpen ? "flex" : "none";
 
     if (chatOpen && !greeted) {
-        addBot(
-            "👋 Hello! I’m Uma Mahesh’s assistant.<br><br>" +
-            "You can ask about:<br>" +
-            "• Skills<br>" +
-            "• Certifications<br>" +
-            "• Experience<br>" +
-            "• Projects<br>" +
-            "• CV / Resume<br>" +
-            "• Contact details"
-        );
-        showSuggestions();
+        botTyping(() => {
+            addBot(
+                "👋 Hi! I’m Uma Mahesh’s assistant.<br><br>" +
+                "You can ask about:<br>" +
+                "• Skills<br>" +
+                "• Certifications<br>" +
+                "• Experience<br>" +
+                "• Projects<br>" +
+                "• CV / Resume<br>" +
+                "• Contact details"
+            );
+            showQuickReplies(["Skills", "Certifications", "Experience", "Projects", "Contact"]);
+        });
         greeted = true;
     }
 }
@@ -406,162 +410,174 @@ function closeChatbot() {
     chatOpen = false;
 }
 
+/* ------------------ MESSAGE HELPERS ------------------ */
 function addUser(msg) {
     const box = document.getElementById("chatBody");
-    if (!box) return;
-
     box.innerHTML += `<div class="chat-msg user-msg">${msg}</div>`;
     box.scrollTop = box.scrollHeight;
 }
 
 function addBot(msg) {
     const box = document.getElementById("chatBody");
-    if (!box) return;
-
     box.innerHTML += `<div class="chat-msg bot-msg">${msg}</div>`;
     box.scrollTop = box.scrollHeight;
 }
 
+function botTyping(callback) {
+    const box = document.getElementById("chatBody");
+    const typing = document.createElement("div");
+    typing.className = "chat-msg bot-msg typing";
+    typing.textContent = "Typing...";
+    box.appendChild(typing);
+    box.scrollTop = box.scrollHeight;
+
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(() => {
+        typing.remove();
+        callback();
+    }, 600);
+}
+
+/* ------------------ INPUT ------------------ */
 function sendChat() {
     const input = document.getElementById("chatInput");
-    if (!input || !input.value.trim()) return;
+    if (!input.value.trim()) return;
 
-    const userMsg = input.value.trim();
-    addUser(userMsg);
+    const msg = input.value.trim();
+    addUser(msg);
     input.value = "";
 
-    setTimeout(() => respond(userMsg.toLowerCase()), 400);
+    botTyping(() => respond(msg.toLowerCase()));
 }
 
 function chatKey(e) {
     if (e.key === "Enter") sendChat();
 }
 
-/* ============================================================
-   SMART RESPONSE ENGINE
-============================================================ */
-
+/* ------------------ RESPONSE ENGINE ------------------ */
 function respond(msg) {
     let reply = "";
 
-    // Greetings
     if (contains(msg, ["hi", "hello", "hey"])) {
         reply = "Hello 👋 How can I help you today?";
+        showQuickReplies(["Skills", "Experience", "Contact"]);
     }
 
-    // Skills
-    else if (contains(msg, ["skill", "expert", "special"])) {
+    else if (contains(msg, ["skill"])) {
         lastTopic = "skills";
         reply = `
-            <strong>Core Skills:</strong><br>
-            • RTFI Level II<br>
-            • MT Level II<br>
-            • PT Level II<br>
-            • Defect Identification<br>
-            • Welding & Radiography Inspection<br>
-            • ASME & Safety Compliance
+        <strong>Core Skills:</strong><br>
+        • RTFI Level II<br>
+        • MT Level II<br>
+        • PT Level II<br>
+        • Defect Identification<br>
+        • Welding & Radiography Inspection<br>
+        • ASME & Safety Compliance
         `;
+        showQuickReplies(["Certifications", "Experience"]);
     }
 
-    // Certifications
-    else if (contains(msg, ["cert", "certificate", "qualification"])) {
+    else if (contains(msg, ["cert"])) {
         lastTopic = "certifications";
         reply = `
-            <strong>Certifications:</strong><br>
-            • RTFI Level II<br>
-            • MT Level II<br>
-            • PT Level II<br>
-            • CS / CSOC / OPSOC<br>
-            • WAH (Work at Height)
+        <strong>Certifications:</strong><br>
+        • RTFI Level II<br>
+        • MT Level II<br>
+        • PT Level II<br>
+        • CS / CSOC / OPSOC<br>
+        • WAH
         `;
+        showQuickReplies(["Experience", "Projects"]);
     }
 
-    // Experience
-    else if (contains(msg, ["experience", "work", "years"])) {
+    else if (contains(msg, ["experience", "work"])) {
         lastTopic = "experience";
         reply = `
-            <strong>Experience:</strong><br>
-            3+ years in industrial NDT inspection covering:<br>
-            • Pressure Vessels<br>
-            • Pipelines<br>
-            • Structural Steel<br>
-            • Shutdown & Live Plant Inspections
+        <strong>Experience:</strong><br>
+        3+ years in industrial NDT inspection covering:<br>
+        • Pressure Vessels<br>
+        • Pipelines<br>
+        • Structural Steel<br>
+        • Shutdown & Live Plants
         `;
+        showQuickReplies(["Projects", "Contact"]);
     }
 
-    // Projects
-    else if (contains(msg, ["project", "worked", "inspection"])) {
+    else if (contains(msg, ["project"])) {
         lastTopic = "projects";
         reply = `
-            <strong>Key Projects:</strong><br>
-            • Pressure Vessel Radiographic Inspection<br>
-            • MT & PT Surface Crack Detection<br>
-            • Structural Steel RT Evaluation
+        <strong>Key Projects:</strong><br>
+        • Pressure Vessel Radiographic Inspection<br>
+        • MT & PT Surface Crack Detection<br>
+        • Structural Steel RT Evaluation
         `;
+        showQuickReplies(["Experience", "Contact"]);
     }
 
-    // CV / Resume
-    else if (contains(msg, ["cv", "resume", "download"])) {
+    else if (contains(msg, ["cv", "resume"])) {
         reply = `
-            📄 You can view or download the CV from the <strong>CV section</strong>.<br>
-            Would you like a brief professional summary?
+        📄 You can view or download the CV from the <strong>CV section</strong>.<br>
+        Would you like a short professional summary?
         `;
+        lastTopic = "cv";
+        showQuickReplies(["Yes", "Contact"]);
     }
 
-    // Contact
-    else if (contains(msg, ["contact", "email", "whatsapp", "phone"])) {
+    else if (contains(msg, ["yes"]) && lastTopic === "cv") {
         reply = `
-            <strong>Contact Details:</strong><br>
-            📧 Email: umamahe113@gmail.com<br>
-            💬 WhatsApp: +91 6304202170<br>
-            🔗 LinkedIn available in Contact section
-        `;
-    }
-
-    // Follow-up logic
-    else if (contains(msg, ["yes", "sure", "ok"]) && lastTopic === "cv") {
-        reply = `
-            ✨ <strong>Professional Summary:</strong><br>
-            Certified Multi-NDT Technician with 3+ years of experience in RTFI, MT & PT inspections,
-            defect evaluation, ASME-compliant reporting, and industrial safety execution.
+        ✨ <strong>Professional Summary:</strong><br>
+        Certified Multi-NDT Technician with 3+ years of experience in RTFI, MT & PT inspections,
+        defect evaluation, ASME-compliant reporting, and industrial safety execution.
         `;
         lastTopic = "";
+        showQuickReplies(["Contact"]);
     }
 
-    // Fallback
+    else if (contains(msg, ["contact", "email", "phone", "whatsapp"])) {
+        reply = `
+        <strong>Contact Details:</strong><br>
+        📧 Email: umamahe113@gmail.com<br>
+        💬 WhatsApp: +91 6304202170<br>
+        🔗 LinkedIn available in Contact section
+        `;
+        showQuickReplies(["Email", "LinkedIn"]);
+    }
+
     else {
         reply =
-            "🤖 I didn’t fully understand that.<br>" +
-            "You can ask about skills, certifications, experience, projects, CV, or contact info.";
+        "🤖 I can help with skills, certifications, experience, projects, CV, or contact info.";
+        showQuickReplies(["Skills", "Experience", "Contact"]);
     }
 
     addBot(reply);
-    showSuggestions();
 }
 
-/* ============================================================
-   HELPERS
-============================================================ */
-
-function contains(text, keywords) {
-    return keywords.some(k => text.includes(k));
-}
-
-function showSuggestions() {
+/* ------------------ QUICK REPLIES ------------------ */
+function showQuickReplies(items) {
     const box = document.getElementById("chatBody");
-    if (!box) return;
 
-    box.innerHTML += `
-        <div class="chat-msg bot-msg" style="opacity:0.85">
-            <em>Try asking:</em><br>
-            • What skills do you have?<br>
-            • Show certifications<br>
-            • Tell me about experience<br>
-            • How can I contact you?
-        </div>
-    `;
+    const wrap = document.createElement("div");
+    wrap.className = "chat-quick";
+
+    items.forEach(text => {
+        const btn = document.createElement("button");
+        btn.textContent = text;
+        btn.onclick = () => {
+            addUser(text);
+            botTyping(() => respond(text.toLowerCase()));
+        };
+        wrap.appendChild(btn);
+    });
+
+    box.appendChild(wrap);
     box.scrollTop = box.scrollHeight;
 }
+
+/* ------------------ UTIL ------------------ */
+function contains(text, keys) {
+    return keys.some(k => text.includes(k));
+}
+
 
 /* ============================================================
    AI RESUME ENHANCER
@@ -575,6 +591,7 @@ function generateResume() {
         Want the AI to rewrite your resume completely?
     `);
 }
+
 
 
 
