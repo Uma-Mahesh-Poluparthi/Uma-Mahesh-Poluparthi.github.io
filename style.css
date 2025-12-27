@@ -997,6 +997,11 @@ body.light-mode .cv-industry li {
     cursor: pointer;
 }
 
+.chat-msg em {
+    color: var(--accent);
+    font-style: normal;
+}
+
 /* ============================================================
    FOOTER
 ============================================================ */
@@ -1149,6 +1154,7 @@ body {
         font-size: 18px;
     }
 }
+
 
 
 
