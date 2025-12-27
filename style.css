@@ -831,6 +831,16 @@ body.light-mode .cv-industry li {
     margin-bottom: 10px;
 }
 
+.contact-icon svg {
+    filter: drop-shadow(0 0 6px rgba(0,255,180,0.45));
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.contact-card:hover .contact-icon svg {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 12px rgba(0,255,180,0.75));
+}
+
 /* ============================================================
    IMAGE ZOOM
 ============================================================ */
@@ -1091,10 +1101,6 @@ body {
     pointer-events: none;
 }
 
-.contact-icon img {
-    filter: drop-shadow(0 0 6px rgba(0,255,180,0.45));
-}
-
 
 /* ============================================================
    PATCH v1.0.4 — FIX TYPING EFFECT LAYOUT SHIFT
@@ -1114,6 +1120,7 @@ body {
         font-size: 18px;
     }
 }
+
 
 
 
