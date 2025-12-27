@@ -831,15 +831,44 @@ body.light-mode .cv-industry li {
     margin-bottom: 10px;
 }
 
-.contact-icon svg {
-    filter: drop-shadow(0 0 6px rgba(0,255,180,0.45));
-    transition: transform 0.25s ease, filter 0.25s ease;
+/* ============================================================
+   CONTACT ICON – FINAL PREMIUM STYLE
+============================================================ */
+
+.icon-badge {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(0,255,180,0.12);
+    border: 1px solid rgba(0,255,180,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    margin: 0 auto 14px;
+    transition: all 0.3s ease;
 }
 
-.contact-card:hover .contact-icon svg {
-    transform: scale(1.15);
-    filter: drop-shadow(0 0 12px rgba(0,255,180,0.75));
+.contact-card:hover .icon-badge {
+    background: rgba(0,255,180,0.25);
+    box-shadow: 0 0 20px rgba(0,255,180,0.45);
+    transform: scale(1.12);
 }
+
+.contact-icon svg {
+    display: block;
+}
+
+/* Ensure text alignment stays clean */
+.contact-card h3 {
+    margin-top: 6px;
+}
+
+.contact-card p {
+    opacity: 0.85;
+    font-size: 14px;
+}
+
 
 /* ============================================================
    IMAGE ZOOM
@@ -1120,6 +1149,7 @@ body {
         font-size: 18px;
     }
 }
+
 
 
 
