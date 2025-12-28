@@ -869,6 +869,53 @@ body.light-mode .cv-industry li {
     font-size: 14px;
 }
 
+/* ============================================================
+   LIGHT MODE FIX — CONTACT CARDS (CRITICAL)
+============================================================ */
+
+body.light-mode #contact {
+    background: transparent;
+}
+
+/* Card background & border */
+body.light-mode .contact-card {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(0, 180, 150, 0.35) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Card hover */
+body.light-mode .contact-card:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+}
+
+/* Headings */
+body.light-mode .contact-card h3 {
+    color: #0a3d33;
+    font-weight: 600;
+}
+
+/* Text */
+body.light-mode .contact-card p {
+    color: #334;
+    opacity: 0.9;
+}
+
+/* Icon badge */
+body.light-mode .icon-badge {
+    background: rgba(0, 180, 150, 0.12);
+    border: 1px solid rgba(0, 180, 150, 0.4);
+    color: #00bfa5;
+    box-shadow: 0 0 0 transparent;
+}
+
+/* Icon hover glow */
+body.light-mode .contact-card:hover .icon-badge {
+    background: rgba(0, 180, 150, 0.22);
+    box-shadow: 0 0 16px rgba(0, 180, 150, 0.35);
+}
+
 
 /* ============================================================
    IMAGE ZOOM
@@ -1187,6 +1234,7 @@ body {
         font-size: 18px;
     }
 }
+
 
 
 
