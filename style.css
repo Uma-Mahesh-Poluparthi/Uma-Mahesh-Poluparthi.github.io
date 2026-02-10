@@ -244,6 +244,42 @@ body.fade-in { opacity: 1; }
   transform: scale(1.05);
 }
 
+#ndt-codes p {
+    margin-bottom: 32px;
+}
+
+/* ==================== NDT TYPES — SINGLE COLUMN LAYOUT ==================== */
+
+#ndt-types .skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    max-width: 700px;     /* keeps it centered & readable */
+    margin: 0 auto;      /* center the column */
+}
+
+#ndt-types .skill-card {
+    min-height: auto;
+    padding: 26px 28px;
+    text-align: left;
+}
+
+/* Title styling */
+#ndt-types .skill-card strong {
+    font-size: 17px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Description styling */
+#ndt-types .skill-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+
+
 /* ============================================================
    SECTIONS
 ============================================================ */
